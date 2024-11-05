@@ -6,8 +6,23 @@ from tkinter import *
 class CustomerMenuPage:
     def __init__(self, window):
         self.__window = window
-        self.__treeview = ttk.Treeview(columns=("size", "lastmod"))
+        self.__treeview = self.__initialise_treeview()
         self.__cursor = self.__initialise_cursor()
+
+    def __initialise_treeview(self):
+        headers = (
+            'Name',
+            'RSP',
+            'Calories',
+            "Order"
+        )
+
+        tree = ttk.Treeview(self.__window, columns=headers, show='headings')
+
+        for i in headers:
+            tree.heading(i, text=i)
+
+        return tree
 
     @staticmethod
     def __initialise_cursor():
@@ -26,21 +41,14 @@ class CustomerMenuPage:
             turn_on.pack()
 
     def __render_table(self):
-        self.__treeview.heading("#0", text="Name")
-        self.__treeview.heading("size", text="RSP")
-        self.__treeview.heading("lastmod", text="Calories")
-
         self.__cursor.execute(f"SELECT * FROM Customer_Facing_Menu")
 
         for row in self.__cursor.fetchall():
-            self.__treeview.insert(
-                "",
-                tkinter.END,
-                text=row[1],
-                values=(
-                    f"£{row[2]}",
-                    f"{row[3]} cals"
-                )
-            )
+            self.__treeview.insert("", "end", values=(
+                row[1],
+                f"£{row[2]}",
+                f"{row[3]} cals",
+                "temp"
+            ))
 
         self.__treeview.pack()
