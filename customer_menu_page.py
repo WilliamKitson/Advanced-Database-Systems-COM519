@@ -15,12 +15,17 @@ class CustomerMenuPage:
         return connection_obj.cursor()
 
     def render(self):
+        self.__render_buttons()
+        self.__render_table()
+
+    def __render_buttons(self):
         self.__cursor.execute(f"SELECT * FROM Categories")
 
         for row in self.__cursor.fetchall():
             turn_on = Button(self.__window, text=f"{row}s")
             turn_on.pack()
 
+    def __render_table(self):
         self.__treeview.heading("#0", text="Name")
         self.__treeview.heading("size", text="RSP")
         self.__treeview.heading("lastmod", text="Calories")
