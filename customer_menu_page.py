@@ -21,7 +21,10 @@ class CustomerMenuPage:
                 "",
                 tkinter.END,
                 text=row[1],
-                values=(row[2], row[3])
+                values=(
+                    f"£{row[2]}",
+                    f"{row[3]} cals"
+                )
             )
 
         self.__treeview.pack()
