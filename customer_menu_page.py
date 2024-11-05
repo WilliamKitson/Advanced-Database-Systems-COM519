@@ -1,9 +1,11 @@
 import tkinter
 import sqlite3
 from tkinter import ttk
+from tkinter import *
 
 class CustomerMenuPage:
-    def __init__(self):
+    def __init__(self, window):
+        self.__window = window
         self.__treeview = ttk.Treeview(columns=("size", "lastmod"))
         self.__cursor = self.__initialise_cursor()
 
@@ -13,6 +15,12 @@ class CustomerMenuPage:
         return connection_obj.cursor()
 
     def render(self):
+        self.__cursor.execute(f"SELECT * FROM Categories")
+
+        for row in self.__cursor.fetchall():
+            turn_on = Button(self.__window, text=f"{row}s")
+            turn_on.pack()
+
         self.__treeview.heading("#0", text="Name")
         self.__treeview.heading("size", text="RSP")
         self.__treeview.heading("lastmod", text="Calories")
