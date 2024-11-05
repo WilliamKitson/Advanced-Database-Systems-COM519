@@ -1,6 +1,5 @@
 import sqlite3
 from tkinter import ttk
-from tkinter import *
 
 class CustomerMenuPage:
     def __init__(self, window):
@@ -29,20 +28,6 @@ class CustomerMenuPage:
         return connection_obj.cursor()
 
     def render(self):
-        self.__render_buttons()
-        self.__render_table()
-
-    def __render_buttons(self):
-        self.__cursor.execute(
-            "SELECT * "
-            "FROM Categories"
-        )
-
-        for row in self.__cursor.fetchall():
-            turn_on = Button(self.__window, text=f"{row}s")
-            turn_on.pack()
-
-    def __render_table(self):
         self.__cursor.execute(
             "SELECT * "
             "FROM Customer_Facing_Menu"
@@ -57,11 +42,9 @@ class CustomerMenuPage:
             ))
 
         self.__treeview.bind("<Double-1>", self.__item_submenu)
-        self.__treeview.pack()
+        self.__treeview.pack(fill="x")
 
     def __item_submenu(self, event):
-        item = self.__treeview.selection()[0]
-
         self.__cursor.execute(
             "SELECT * "
             "FROM Menu_Item_Neutrition "
