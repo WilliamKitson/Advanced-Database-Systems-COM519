@@ -50,4 +50,9 @@ class CustomerMenuPage:
                 "temp"
             ))
 
+        self.__treeview.bind("<Double-1>", self.__item_submenu)
         self.__treeview.pack()
+
+    def __item_submenu(self, event):
+        item = self.__treeview.selection()[0]
+        print("you clicked on", self.__treeview.item(item, "values")[0])
