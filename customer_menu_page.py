@@ -5,9 +5,12 @@ from tkinter import ttk
 class CustomerMenuPage:
     def __init__(self):
         self.__treeview = ttk.Treeview(columns=("size", "lastmod"))
+        self.__cursor = self.__initialise_cursor()
 
+    @staticmethod
+    def __initialise_cursor():
         connection_obj = sqlite3.connect("4kitsw10_COM519_database")
-        self.__cursor = connection_obj.cursor()
+        return connection_obj.cursor()
 
     def render(self):
         self.__treeview.heading("#0", text="Name")
