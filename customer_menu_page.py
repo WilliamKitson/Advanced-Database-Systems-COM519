@@ -33,14 +33,20 @@ class CustomerMenuPage:
         self.__render_table()
 
     def __render_buttons(self):
-        self.__cursor.execute(f"SELECT * FROM Categories")
+        self.__cursor.execute(
+            "SELECT * "
+            "FROM Categories"
+        )
 
         for row in self.__cursor.fetchall():
             turn_on = Button(self.__window, text=f"{row}s")
             turn_on.pack()
 
     def __render_table(self):
-        self.__cursor.execute(f"SELECT * FROM Customer_Facing_Menu")
+        self.__cursor.execute(
+            "SELECT * "
+            "FROM Customer_Facing_Menu"
+        )
 
         for row in self.__cursor.fetchall():
             self.__treeview.insert("", "end", values=(
@@ -55,4 +61,14 @@ class CustomerMenuPage:
 
     def __item_submenu(self, event):
         item = self.__treeview.selection()[0]
-        print("you clicked on", self.__treeview.item(item, "values")[0])
+
+        self.__cursor.execute(
+            "SELECT * "
+            "FROM Menu_Item_Neutrition "
+            "WHERE Menu_Item_Neutrition.Menu_Item='"
+            f"{self.__treeview.item(item, "values")[0]}"
+            "'"
+        )
+
+        for row in self.__cursor.fetchall():
+            print(row)
