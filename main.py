@@ -10,7 +10,7 @@ treeview.heading("#0", text="Name")
 treeview.heading("size", text="RSP")
 treeview.heading("lastmod", text="Calories")
 
-connection_obj = sqlite3.connect("Restaurant_Management_System")
+connection_obj = sqlite3.connect("4kitsw10_COM519_database")
 cursor = connection_obj.cursor()
 
 cursor.execute(f"SELECT * FROM Customer_Facing_Menu")
