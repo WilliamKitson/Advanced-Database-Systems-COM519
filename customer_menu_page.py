@@ -65,10 +65,13 @@ class CustomerMenuPage:
         self.__cursor.execute(
             "SELECT * "
             "FROM Menu_Item_Neutrition "
-            "WHERE Menu_Item_Neutrition.Menu_Item='"
-            f"{self.__treeview.item(item, "values")[0]}"
-            "'"
+            "WHERE Menu_Item_Neutrition.Menu_Item="
+            f"'{self.__get_clicked_item()}'"
         )
 
         for row in self.__cursor.fetchall():
             print(row)
+
+    def __get_clicked_item(self):
+        item = self.__treeview.selection()[0]
+        return self.__treeview.item(item, "values")[0]
