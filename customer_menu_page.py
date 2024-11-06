@@ -26,7 +26,6 @@ class CustomerMenuPage(Page):
     def __item_submenu(self, event):
         DishNutritionPage(
             self._database,
-            self._window,
             self.__get_clicked_item()
         ).render()
 

@@ -1,9 +1,9 @@
 from page import Page
 
 class DishNutritionPage(Page):
-    def __init__(self, database, window, dish):
+    def __init__(self, database, dish):
         columns = "Ingredient", "Quantity", "Total Weight", "Total Calories"
-        Page.__init__(self, database, "dish nutrition page", columns)
+        Page.__init__(self, database, f"{dish} nutrition", columns)
         self.__dish = dish
 
     def render(self):
