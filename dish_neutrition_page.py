@@ -3,7 +3,7 @@ from page import Page
 class DishNutritionPage(Page):
     def __init__(self, database, window, dish):
         columns = "Ingredient", "Quantity", "Total Weight", "Total Calories"
-        Page.__init__(self, database, window, columns)
+        Page.__init__(self, database, "dish nutrition page", columns)
         self.__dish = dish
 
     def render(self):
@@ -22,4 +22,5 @@ class DishNutritionPage(Page):
                 f"{row[4]} cals"
             ))
 
-            self._treeview.pack(fill="x")
+        self._treeview.pack(fill="x")
+        self._window.mainloop()

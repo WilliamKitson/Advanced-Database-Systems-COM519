@@ -2,9 +2,9 @@ from page import Page
 from dish_neutrition_page import DishNutritionPage
 
 class CustomerMenuPage(Page):
-    def __init__(self, database, window):
+    def __init__(self, database):
         columns = "Name", "RSP", "Calories"
-        Page.__init__(self, database, window, columns)
+        Page.__init__(self, database, "customer menu page", columns)
 
     def render(self):
         self._cursor.execute(
@@ -21,6 +21,7 @@ class CustomerMenuPage(Page):
 
         self._treeview.bind("<Double-1>", self.__item_submenu)
         self._treeview.pack(fill="x")
+        self._window.mainloop()
 
     def __item_submenu(self, event):
         DishNutritionPage(
