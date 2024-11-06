@@ -1,5 +1,6 @@
 import sqlite3
 from tkinter import ttk
+from dish_neutrition_page import DishNutritionPage
 
 class CustomerMenuPage:
     def __init__(self, window):
@@ -11,8 +12,7 @@ class CustomerMenuPage:
         headers = (
             'Name',
             'RSP',
-            'Calories',
-            "Order"
+            'Calories'
         )
 
         tree = ttk.Treeview(self.__window, columns=headers, show='headings')
@@ -37,23 +37,14 @@ class CustomerMenuPage:
             self.__treeview.insert("", "end", values=(
                 row[1],
                 f"£{row[2]}",
-                f"{row[3]} cals",
-                "temp"
+                f"{row[3]} cals"
             ))
 
         self.__treeview.bind("<Double-1>", self.__item_submenu)
         self.__treeview.pack(fill="x")
 
     def __item_submenu(self, event):
-        self.__cursor.execute(
-            "SELECT * "
-            "FROM Menu_Item_Neutrition "
-            "WHERE Menu_Item_Neutrition.Menu_Item="
-            f"'{self.__get_clicked_item()}'"
-        )
-
-        for row in self.__cursor.fetchall():
-            print(row)
+        DishNutritionPage(self.__window, self.__get_clicked_item()).render()
 
     def __get_clicked_item(self):
         item = self.__treeview.selection()[0]

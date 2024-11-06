@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e08d4933-0286-4d3e-ae33-58d95d2231f8" name="Changes" comment="CustomerMenuPage redefined" />
+    <list default="true" id="e08d4933-0286-4d3e-ae33-58d95d2231f8" name="Changes" comment="main redefined">
+      <change afterPath="$PROJECT_DIR$/dish_neutrition_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer_menu_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/customer_menu_page.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +49,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Python.customer_menu_page.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -80,7 +85,10 @@
       <workItem from="1730805533702" duration="34000" />
       <workItem from="1730805584518" duration="44000" />
       <workItem from="1730805684427" duration="324000" />
-      <workItem from="1730807096406" duration="2253000" />
+      <workItem from="1730807096406" duration="11136000" />
+      <workItem from="1730820264000" duration="1024000" />
+      <workItem from="1730885742047" duration="70000" />
+      <workItem from="1730885988219" duration="348000" />
     </task>
     <task id="LOCAL-00001" summary="4kitsw10_COM519 defined">
       <option name="closed" value="true" />
@@ -114,7 +122,71 @@
       <option name="project" value="LOCAL" />
       <updated>1730809308883</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="CustomerMenuPage redefined">
+      <option name="closed" value="true" />
+      <created>1730810301748</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730810301748</updated>
+    </task>
+    <task id="LOCAL-00006" summary="CustomerMenuPage redefined">
+      <option name="closed" value="true" />
+      <created>1730810475151</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730810475151</updated>
+    </task>
+    <task id="LOCAL-00007" summary="CustomerMenuPage redefined">
+      <option name="closed" value="true" />
+      <created>1730812511962</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730812511962</updated>
+    </task>
+    <task id="LOCAL-00008" summary="CustomerMenuPage redefined">
+      <option name="closed" value="true" />
+      <created>1730813337425</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730813337425</updated>
+    </task>
+    <task id="LOCAL-00009" summary="CustomerMenuPage redefined">
+      <option name="closed" value="true" />
+      <created>1730814759059</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1730814759059</updated>
+    </task>
+    <task id="LOCAL-00010" summary="CustomerMenuPage redefined">
+      <option name="closed" value="true" />
+      <created>1730816094960</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1730816094960</updated>
+    </task>
+    <task id="LOCAL-00011" summary="CustomerMenuPage redefined">
+      <option name="closed" value="true" />
+      <created>1730816631632</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1730816631632</updated>
+    </task>
+    <task id="LOCAL-00012" summary="main redefined">
+      <option name="closed" value="true" />
+      <created>1730817460678</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1730817460678</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,9 +196,11 @@
     <MESSAGE value="4kitsw10_COM519 defined" />
     <MESSAGE value="main defined" />
     <MESSAGE value="CustomerMenuPage redefined" />
-    <option name="LAST_COMMIT_MESSAGE" value="CustomerMenuPage redefined" />
+    <MESSAGE value="main redefined" />
+    <option name="LAST_COMMIT_MESSAGE" value="main redefined" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/4kitsw10_COM519$main.coverage" NAME="main Coverage Results" MODIFIED="1730809300558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/4kitsw10_COM519$customer_menu_page.coverage" NAME="customer_menu_page Coverage Results" MODIFIED="1730885750352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/4kitsw10_COM519$main.coverage" NAME="main Coverage Results" MODIFIED="1730886397061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
