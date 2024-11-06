@@ -1,47 +1,25 @@
-import sqlite3
-from tkinter import ttk
+from page import Page
 
-class DishNutritionPage:
-    def __init__(self, window, dish):
-        self.__window = window
-        self.__treeview = self.__initialise_treeview()
-        self.__cursor = self.__initialise_cursor()
+class DishNutritionPage(Page):
+    def __init__(self, database, window, dish):
+        columns = "Ingredient", "Quantity", "Total Weight", "Total Calories"
+        Page.__init__(self, database, window, columns)
         self.__dish = dish
 
-    def __initialise_treeview(self):
-        headers = (
-            'Ingredient',
-            'Quantity',
-            'Total Weight',
-            'Total Calories'
-        )
-
-        tree = ttk.Treeview(self.__window, columns=headers, show='headings')
-
-        for i in headers:
-            tree.heading(i, text=i)
-
-        return tree
-
-    @staticmethod
-    def __initialise_cursor():
-        connection_obj = sqlite3.connect("4kitsw10_COM519_database")
-        return connection_obj.cursor()
-
     def render(self):
-        self.__cursor.execute(
+        self._cursor.execute(
             "SELECT * "
             "FROM Menu_Item_Neutrition "
             "WHERE Menu_Item_Neutrition.Menu_Item="
             f"'{self.__dish}'"
         )
 
-        for row in self.__cursor.fetchall():
-            self.__treeview.insert("", "end", values=(
+        for row in self._cursor.fetchall():
+            self._treeview.insert("", "end", values=(
                 row[1],
                 row[2],
                 f"{row[3]}g",
                 f"{row[4]} cals"
             ))
 
-            self.__treeview.pack(fill="x")
+            self._treeview.pack(fill="x")

@@ -1,51 +1,34 @@
-import sqlite3
-from tkinter import ttk
+from page import Page
 from dish_neutrition_page import DishNutritionPage
 
-class CustomerMenuPage:
-    def __init__(self, window):
-        self.__window = window
-        self.__treeview = self.__initialise_treeview()
-        self.__cursor = self.__initialise_cursor()
-
-    def __initialise_treeview(self):
-        headers = (
-            'Name',
-            'RSP',
-            'Calories'
-        )
-
-        tree = ttk.Treeview(self.__window, columns=headers, show='headings')
-
-        for i in headers:
-            tree.heading(i, text=i)
-
-        return tree
-
-    @staticmethod
-    def __initialise_cursor():
-        connection_obj = sqlite3.connect("4kitsw10_COM519_database")
-        return connection_obj.cursor()
+class CustomerMenuPage(Page):
+    def __init__(self, database, window):
+        columns = "Name", "RSP", "Calories"
+        Page.__init__(self, database, window, columns)
 
     def render(self):
-        self.__cursor.execute(
+        self._cursor.execute(
             "SELECT * "
             "FROM Customer_Facing_Menu"
         )
 
-        for row in self.__cursor.fetchall():
-            self.__treeview.insert("", "end", values=(
+        for row in self._cursor.fetchall():
+            self._treeview.insert("", "end", values=(
                 row[1],
                 f"£{row[2]}",
                 f"{row[3]} cals"
             ))
 
-        self.__treeview.bind("<Double-1>", self.__item_submenu)
-        self.__treeview.pack(fill="x")
+        self._treeview.bind("<Double-1>", self.__item_submenu)
+        self._treeview.pack(fill="x")
 
     def __item_submenu(self, event):
-        DishNutritionPage(self.__window, self.__get_clicked_item()).render()
+        DishNutritionPage(
+            self._database,
+            self._window,
+            self.__get_clicked_item()
+        ).render()
 
     def __get_clicked_item(self):
-        item = self.__treeview.selection()[0]
-        return self.__treeview.item(item, "values")[0]
+        item = self._treeview.selection()[0]
+        return self._treeview.item(item, "values")[0]
