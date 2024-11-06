@@ -4,7 +4,7 @@ from dish_neutrition_page import DishNutritionPage
 class CustomerMenuPage(Page):
     def __init__(self, database):
         columns = "Name", "RSP", "Calories"
-        Page.__init__(self, database, "customer menu page", columns)
+        Page.__init__(self, database, "customer menu", columns)
 
     def render(self):
         self._cursor.execute(
