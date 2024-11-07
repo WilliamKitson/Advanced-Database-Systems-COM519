@@ -10,8 +10,8 @@ class DishNutritionPage(Page):
         self._cursor.execute(
             "SELECT * "
             "FROM Menu_Item_Neutrition "
-            "WHERE Menu_Item_Neutrition.Menu_Item="
-            f"'{self.__dish}'"
+            "WHERE Menu_Item_Neutrition.Menu_Item=?",
+            (self.__dish,)
         )
 
         for row in self._cursor.fetchall():
