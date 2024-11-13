@@ -6,8 +6,8 @@ class ViewStaffPage(Page):
             "Forename",
             "Surname"
             "DOB",
-            "Role",
-            "Employed on"
+            "Started",
+            "Role"
         ]
 
         Page.__init__(self, database, "view staff", columns)
