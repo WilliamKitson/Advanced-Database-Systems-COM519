@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e08d4933-0286-4d3e-ae33-58d95d2231f8" name="Changes" comment="staff database table defined">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4kitsw10_COM519_database" beforeDir="false" afterPath="$PROJECT_DIR$/4kitsw10_COM519_database" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view_staff_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
