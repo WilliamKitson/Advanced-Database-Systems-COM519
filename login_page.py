@@ -12,10 +12,7 @@ class LoginPage:
 
     def render(self):
         self.__render_username()
-
-        Label(self.__window, text="Password").grid(row=1, column=0)
-        password = StringVar()
-        Entry(self.__window, textvariable=password, show='*').grid(row=1, column=1)
+        self.__render_password()
 
         Button(self.__window, text="Login", command="self.__login").grid(row=3, column=0)
 
@@ -25,6 +22,11 @@ class LoginPage:
         Label(self.__window, text="Username").grid(row=0, column=0)
         username = StringVar()
         Entry(self.__window, textvariable=username).grid(row=0, column=1)
+
+    def __render_password(self):
+        Label(self.__window, text="Password").grid(row=1, column=0)
+        password = StringVar()
+        Entry(self.__window, textvariable=password, show='*').grid(row=1, column=1)
 
     def __login(self, username, password):
         print("test")
