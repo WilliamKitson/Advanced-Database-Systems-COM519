@@ -17,6 +17,7 @@ class LoginPage:
         self.__render_username()
         self.__render_password()
         self.__render_login()
+        self.__render_register()
         self.__window.mainloop()
 
     def __render_username(self):
@@ -31,5 +32,12 @@ class LoginPage:
         command_login = partial(self.__login, self.__username, self.__password)
         Button(self.__window, text="Login", command=command_login).grid(row=3, column=0)
 
+    def __render_register(self):
+        command_register = partial(self.__register)
+        Button(self.__window, text="Register", command=command_register).grid(row=4, column=0)
+
     def __login(self, username, password):
-        print("test")
+        print("login")
+
+    def __register(self):
+        print("register")
