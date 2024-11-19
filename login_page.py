@@ -1,12 +1,9 @@
 import tkinter
 from tkinter import *
-import sqlite3
 from functools import partial
 
 class LoginPage:
     def __init__(self, database):
-        self.__database = database
-        self.__cursor = sqlite3.connect(database).cursor()
         self.__window = tkinter.Tk()
         self.__window.title("login")
         self.__window.geometry('400x250')
