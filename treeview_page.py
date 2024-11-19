@@ -2,7 +2,7 @@ import sqlite3
 import tkinter
 from tkinter import ttk
 
-class Page:
+class TreeviewPage:
     def __init__(self, database, title, columns):
         self._database = database
         self._cursor = sqlite3.connect(database).cursor()

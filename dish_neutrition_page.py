@@ -1,9 +1,9 @@
-from page import Page
+from treeview_page import TreeviewPage
 
-class DishNutritionPage(Page):
+class DishNutritionPage(TreeviewPage):
     def __init__(self, database, dish):
         columns = "Ingredient", "Quantity", "Total Weight", "Total Calories"
-        Page.__init__(self, database, f"{dish} nutrition", columns)
+        TreeviewPage.__init__(self, database, f"{dish} nutrition", columns)
         self.__dish = dish
 
     def render(self):

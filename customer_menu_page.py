@@ -1,10 +1,10 @@
-from page import Page
+from treeview_page import TreeviewPage
 from dish_neutrition_page import DishNutritionPage
 
-class CustomerMenuPage(Page):
+class CustomerMenuPage(TreeviewPage):
     def __init__(self, database):
         columns = "Name", "RSP", "Calories"
-        Page.__init__(self, database, "customer menu", columns)
+        TreeviewPage.__init__(self, database, "customer menu", columns)
 
     def render(self):
         self._cursor.execute(

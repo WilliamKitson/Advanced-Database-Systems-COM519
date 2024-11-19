@@ -1,6 +1,6 @@
-from page import Page
+from treeview_page import TreeviewPage
 
-class ViewStaffPage(Page):
+class ViewStaffPage(TreeviewPage):
     def __init__(self, database):
         columns = [
             "Forename",
@@ -10,7 +10,7 @@ class ViewStaffPage(Page):
             "Role"
         ]
 
-        Page.__init__(self, database, "view staff", columns)
+        TreeviewPage.__init__(self, database, "view staff", columns)
 
     def render(self):
         self._cursor.execute(
