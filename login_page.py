@@ -1,9 +1,11 @@
 import tkinter
 from tkinter import *
 from functools import partial
+from login_manager import LoginManager
 
 class LoginPage:
     def __init__(self, database):
+        self.__database = database
         self.__window = tkinter.Tk()
         self.__window.title("login")
         self.__window.geometry('400x250')
@@ -34,7 +36,8 @@ class LoginPage:
         Button(self.__window, text="Register", command=command_register).grid(row=4, column=0)
 
     def __login(self, username, password):
-        print("login")
+        if LoginManager(self.__database).breach(username.get(), password.get()):
+            print("Login successful")
 
     def __register(self):
         print("register")
