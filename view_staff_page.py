@@ -4,7 +4,7 @@ class ViewStaffPage(Page):
     def __init__(self, database):
         columns = [
             "Forename",
-            "Surname"
+            "Surname",
             "DOB",
             "Started",
             "Role"
@@ -13,5 +13,19 @@ class ViewStaffPage(Page):
         Page.__init__(self, database, "view staff", columns)
 
     def render(self):
+        self._cursor.execute(
+            "SELECT * "
+            "FROM View_Team_Members"
+        )
+
+        for row in self._cursor.fetchall():
+            self._treeview.insert("", "end", values=(
+                row[0],
+                row[1],
+                row[2],
+                row[3],
+                row[4]
+            ))
+
         self._treeview.pack(fill="x")
         self._window.mainloop()
