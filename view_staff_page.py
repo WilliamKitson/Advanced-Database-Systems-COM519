@@ -5,8 +5,8 @@ class ViewStaffPage(Page):
         columns = [
             "Forename",
             "Surname",
-            "DOB",
-            "Started",
+            "Age",
+            "Tenure",
             "Role"
         ]
 
@@ -22,8 +22,8 @@ class ViewStaffPage(Page):
             self._treeview.insert("", "end", values=(
                 row[0],
                 row[1],
-                row[2],
-                row[3],
+                f"{row[2]} years",
+                f"{row[3]} years",
                 row[4]
             ))
 
