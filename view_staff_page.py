@@ -1,3 +1,4 @@
+from tkinter import *
 from treeview_page import TreeviewPage
 
 class ViewStaffPage(TreeviewPage):
@@ -10,9 +11,19 @@ class ViewStaffPage(TreeviewPage):
             "Role"
         ]
 
-        TreeviewPage.__init__(self, database, "view staff", columns)
+        TreeviewPage.__init__(
+            self,
+            database,
+            "view staff",
+            columns
+        )
 
     def render(self):
+        self.__render_treeview()
+        self.__render_add()
+        self._window.mainloop()
+
+    def __render_treeview(self):
         self._cursor.execute(
             "SELECT * "
             "FROM View_Team_Members"
@@ -27,5 +38,7 @@ class ViewStaffPage(TreeviewPage):
                 row[4]
             ))
 
-        self._treeview.pack(fill="x")
-        self._window.mainloop()
+        self._treeview.grid(row=0, column=0)
+
+    def __render_add(self):
+        Button(self._window, text="Add Staff").grid(row=1, column=0)
