@@ -34,6 +34,7 @@ class LoginPage:
 
     def __login(self, username, password):
         if LoginManager(self.__database).breach(username.get(), password.get()):
+            self.__window.destroy()
             ActionsPage(self.__database).render()
             return
 
