@@ -1,5 +1,6 @@
 import tkinter
 from tkinter import *
+from tkinter import messagebox
 from functools import partial
 from login_manager import LoginManager
 
@@ -33,3 +34,9 @@ class LoginPage:
     def __login(self, username, password):
         if LoginManager(self.__database).breach(username.get(), password.get()):
             print("Login successful")
+            return
+
+        messagebox.showwarning(
+            "Login Failed",
+            "The username or password you supplied are incorrect."
+        )
