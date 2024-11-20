@@ -1,3 +1,4 @@
+from tkinter import *
 from treeview_page import TreeviewPage
 from dish_neutrition_page import DishNutritionPage
 
@@ -7,6 +8,11 @@ class CustomerMenuPage(TreeviewPage):
         TreeviewPage.__init__(self, database, "customer menu", columns)
 
     def render(self):
+        self.__render_treeview()
+        self.__render_add()
+        self._window.mainloop()
+
+    def __render_treeview(self):
         self._cursor.execute(
             "SELECT * "
             "FROM Customer_Facing_Menu"
@@ -20,8 +26,10 @@ class CustomerMenuPage(TreeviewPage):
             ))
 
         self._treeview.bind("<Double-1>", self.__item_submenu)
-        self._treeview.pack(fill="x")
-        self._window.mainloop()
+        self._treeview.grid(row=0, column=0)
+
+    def __render_add(self):
+        Button(self._window, text="Add Dish").grid(row=1, column=0)
 
     def __item_submenu(self, event):
         DishNutritionPage(
