@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 from functools import partial
 from login_manager import LoginManager
+from actions_page import ActionsPage
 
 class LoginPage:
     def __init__(self, database):
@@ -33,7 +34,7 @@ class LoginPage:
 
     def __login(self, username, password):
         if LoginManager(self.__database).breach(username.get(), password.get()):
-            print("Login successful")
+            ActionsPage(self.__database).render()
             return
 
         messagebox.showwarning(
