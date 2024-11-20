@@ -1,3 +1,4 @@
+from tkinter import *
 from treeview_page import TreeviewPage
 
 class DishNutritionPage(TreeviewPage):
@@ -7,6 +8,11 @@ class DishNutritionPage(TreeviewPage):
         self.__dish = dish
 
     def render(self):
+        self.__render_treeview()
+        self.__render_add()
+        self._window.mainloop()
+
+    def __render_treeview(self):
         self._cursor.execute(
             "SELECT * "
             "FROM Menu_Item_Neutrition "
@@ -22,5 +28,7 @@ class DishNutritionPage(TreeviewPage):
                 f"{row[4]} cals"
             ))
 
-        self._treeview.pack(fill="x")
-        self._window.mainloop()
+        self._treeview.grid(row=0, column=0)
+
+    def __render_add(self):
+        Button(self._window, text="Add Ingredient").grid(row=1, column=0)
