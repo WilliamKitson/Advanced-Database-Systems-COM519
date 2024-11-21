@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e08d4933-0286-4d3e-ae33-58d95d2231f8" name="Changes" comment="main redefined">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e08d4933-0286-4d3e-ae33-58d95d2231f8" name="Changes" comment="actions_page redefined">
       <change beforePath="$PROJECT_DIR$/actions_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/actions_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer_menu_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/customer_menu_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_login_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_login_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +116,7 @@
       <workItem from="1732020619848" duration="10823000" />
       <workItem from="1732096560821" duration="6134000" />
       <workItem from="1732111241240" duration="9000" />
-      <workItem from="1732182290301" duration="953000" />
+      <workItem from="1732182290301" duration="1311000" />
     </task>
     <task id="LOCAL-00001" summary="4kitsw10_COM519 defined">
       <option name="closed" value="true" />
@@ -486,7 +486,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732182373995</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="actions_page redefined">
+      <option name="closed" value="true" />
+      <created>1732183282949</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1732183282949</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,9 +523,9 @@
     <MESSAGE value="loginpage redefined" />
     <MESSAGE value="actions_page defined" />
     <MESSAGE value="login_page redefined" />
-    <MESSAGE value="actions_page redefined" />
     <MESSAGE value="main redefined" />
-    <option name="LAST_COMMIT_MESSAGE" value="main redefined" />
+    <MESSAGE value="actions_page redefined" />
+    <option name="LAST_COMMIT_MESSAGE" value="actions_page redefined" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$test_login_manager.coverage" NAME="test_login_manager Coverage Results" MODIFIED="1732027812659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -525,6 +533,6 @@
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$actions_page.coverage" NAME="actions_page Coverage Results" MODIFIED="1732101829456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$customer_menu_page.coverage" NAME="customer_menu_page Coverage Results" MODIFIED="1732027018406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/presentation" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$.coverage" NAME=" Coverage Results" MODIFIED="1732096683369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/4kitsw10_COM519$main.coverage" NAME="main Coverage Results" MODIFIED="1732183248443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/4kitsw10_COM519$main.coverage" NAME="main Coverage Results" MODIFIED="1732183609675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
