@@ -1,4 +1,6 @@
 from treeview_page import TreeviewPage
+from tkinter import *
+from functools import partial
 
 class ActionsPage(TreeviewPage):
     def __init__(self, database):
@@ -10,6 +12,17 @@ class ActionsPage(TreeviewPage):
         TreeviewPage.__init__(self, database, "Actions Page", columns)
 
     def render(self):
+        self.__render_treeview()
+        self.__render_logout()
+
+    def __render_treeview(self):
         self._treeview.insert("", "end", values=("View Staff", "BLABLABLA"))
         self._treeview.insert("", "end", values=("View Menu", "BLABLABLA"))
         self._treeview.grid(row=0, column=0)
+
+    def __render_logout(self):
+        command_logout = partial(self.__logout)
+        Button(self._window, text="Logout", command=command_logout).grid(row=1, column=0)
+
+    def __logout(self):
+        self._window.destroy()
