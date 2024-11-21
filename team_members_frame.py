@@ -2,7 +2,7 @@ import sqlite3
 from tkinter import *
 from tkinter import ttk
 
-class TreeviewFrame:
+class TeamMembersFrame:
     def __init__(self, database, window):
         self.__frame = Frame(window)
         self._cursor = sqlite3.connect(database).cursor()
