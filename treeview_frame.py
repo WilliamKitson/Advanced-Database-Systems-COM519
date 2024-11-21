@@ -9,8 +9,6 @@ class TreeviewFrame:
 
     def render(self):
         treeview = self.__render_headings()
-        self.__render_body(treeview)
-
         treeview.grid(row=0, column=0)
         self.__frame.pack(fill="both", expand=True)
 
@@ -23,12 +21,16 @@ class TreeviewFrame:
             "Role"
         ]
 
-        treeview = ttk.Treeview(self.__frame, columns=columns, show="headings")
+        treeview = ttk.Treeview(
+            self.__frame,
+            columns=columns,
+            show="headings"
+        )
 
         for i in columns:
             treeview.heading(i, text=i)
 
-        return treeview
+        return self.__render_body(treeview)
 
     def __render_body(self, treeview):
         self._cursor.execute(
@@ -44,6 +46,8 @@ class TreeviewFrame:
                 f"{row[3]} years",
                 row[4]
             ))
+
+        return treeview
 
     def clear(self):
         for widgets in self.__frame.winfo_children():
