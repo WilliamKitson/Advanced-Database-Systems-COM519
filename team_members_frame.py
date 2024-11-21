@@ -1,6 +1,7 @@
 import sqlite3
 from tkinter import *
 from tkinter import ttk
+from functools import partial
 
 class TeamMembersFrame:
     def __init__(self, database, window):
@@ -10,6 +11,8 @@ class TeamMembersFrame:
     def render(self):
         treeview = self.__render_headings()
         treeview.grid(row=0, column=0)
+        self.__render_add()
+        self.__render_back()
         self.__frame.pack(fill="both", expand=True)
 
     def __render_headings(self):
@@ -48,6 +51,17 @@ class TeamMembersFrame:
             ))
 
         return treeview
+
+    def __render_add(self):
+        command_login = partial(self.__add_staff)
+        Button(self.__frame, text="Add Staff", command=command_login).grid(row=1, column=0)
+
+    def __render_back(self):
+        command_login = partial(self.clear)
+        Button(self.__frame, text="Back", command=command_login).grid(row=2, column=0)
+
+    def __add_staff(self):
+        print("Adding staff members")
 
     def clear(self):
         for widgets in self.__frame.winfo_children():

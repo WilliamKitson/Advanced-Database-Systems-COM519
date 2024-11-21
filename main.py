@@ -1,5 +1,4 @@
 import tkinter
-
 from menu_items_frame import MenuItemsFrame
 from team_members_frame import TeamMembersFrame
 
