@@ -1,4 +1,3 @@
-from view_staff_page import ViewStaffPage
 from customer_menu_page import CustomerMenuPage
 from treeview_page import TreeviewPage
 from tkinter import *
@@ -25,8 +24,6 @@ class ActionsPage(TreeviewPage):
 
     def __execute_action(self, event):
         if self.__get_submenu() == "View Staff":
-            self._window.destroy()
-            ViewStaffPage(self._database).render()
             return
 
         if self.__get_submenu() == "View Menu":
