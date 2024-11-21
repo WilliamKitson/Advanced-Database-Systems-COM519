@@ -1,4 +1,3 @@
-from customer_menu_page import CustomerMenuPage
 from treeview_page import TreeviewPage
 from tkinter import *
 from functools import partial
@@ -27,8 +26,6 @@ class ActionsPage(TreeviewPage):
             return
 
         if self.__get_submenu() == "View Menu":
-            self._window.destroy()
-            CustomerMenuPage(self._database).render()
             return
 
     def __get_submenu(self):
