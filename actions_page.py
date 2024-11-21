@@ -1,10 +1,8 @@
+from view_staff_page import ViewStaffPage
 from customer_menu_page import CustomerMenuPage
 from treeview_page import TreeviewPage
 from tkinter import *
 from functools import partial
-
-from view_staff_page import ViewStaffPage
-
 
 class ActionsPage(TreeviewPage):
     def __init__(self, database):
