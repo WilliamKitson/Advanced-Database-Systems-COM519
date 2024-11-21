@@ -9,8 +9,7 @@ class TeamMembersFrame:
         self._cursor = sqlite3.connect(database).cursor()
 
     def render(self):
-        treeview = self.__render_headings()
-        treeview.grid(row=0, column=0)
+        self.__render_headings()
         self.__render_add()
         self.__render_back()
         self.__frame.pack(fill="both", expand=True)
@@ -33,7 +32,7 @@ class TeamMembersFrame:
         for i in columns:
             treeview.heading(i, text=i)
 
-        return self.__render_body(treeview)
+        self.__render_body(treeview)
 
     def __render_body(self, treeview):
         self._cursor.execute(
@@ -50,7 +49,7 @@ class TeamMembersFrame:
                 row[4]
             ))
 
-        return treeview
+        treeview.grid(row=0, column=0)
 
     def __render_add(self):
         command_login = partial(self.__add_staff)
