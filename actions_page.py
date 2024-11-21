@@ -26,17 +26,19 @@ class ActionsPage(TreeviewPage):
         self._treeview.grid(row=0, column=0)
 
     def __execute_action(self, event):
-        item = self._treeview.selection()[0]
-        if self._treeview.item(item, "values")[0] == "View Staff":
+        if self.__get_submenu() == "View Staff":
             self._window.destroy()
             ViewStaffPage(self._database).render()
             return
 
-        if self._treeview.item(item, "values")[0] == "View Menu":
+        if self.__get_submenu() == "View Menu":
             self._window.destroy()
             CustomerMenuPage(self._database).render()
             return
 
+    def __get_submenu(self):
+        item = self._treeview.selection()[0]
+        return self._treeview.item(item, "values")[0]
 
     def __render_logout(self):
         command_logout = partial(self.__logout)
