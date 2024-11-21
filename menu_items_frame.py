@@ -1,17 +1,19 @@
 import sqlite3
 from tkinter import *
 from tkinter import ttk
+from dish_neutrition_page import DishNutritionPage
 
 class MenuItemsFrame:
     def __init__(self, database, window):
         self.__frame = Frame(window)
-        self._cursor = sqlite3.connect(database).cursor()
+        self.__database = database
+        self.__cursor = sqlite3.connect(database).cursor()
+        self.__treeview = None
 
     def render(self):
-        treeview = self.__render_headings()
-        treeview.grid(row=0, column=0)
+        self.__treeview = self.__render_headings()
+        self.__treeview.grid(row=0, column=0)
         self.__frame.pack(fill="both", expand=True)
-
 
     def __render_headings(self):
         columns = [
@@ -31,21 +33,31 @@ class MenuItemsFrame:
 
         return self.__render_body(treeview)
 
-
     def __render_body(self, treeview):
-        self._cursor.execute(
+        self.__cursor.execute(
             "SELECT * "
             "FROM Customer_Facing_Menu"
         )
 
-        for row in self._cursor.fetchall():
+        for row in self.__cursor.fetchall():
             treeview.insert("", "end", values=(
                 row[1],
                 f"£{row[2]}",
                 f"{row[3]} cals"
             ))
 
+        treeview.bind("<Double-1>", self.__item_submenu)
         return treeview
+
+    def __item_submenu(self, event):
+        DishNutritionPage(
+            self.__database,
+            self.__get_clicked_item()
+        ).render()
+
+    def __get_clicked_item(self):
+        item = self.__treeview.selection()[0]
+        return self.__treeview.item(item, "values")[0]
 
     def clear(self):
         for widgets in self.__frame.winfo_children():
