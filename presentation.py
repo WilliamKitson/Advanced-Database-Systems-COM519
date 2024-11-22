@@ -46,6 +46,10 @@ class Presentation:
             self.__actions_frame.clear()
             self.__team_members_frame.render()
 
+        if self.__actions_frame.get_manage_menu():
+            self.__actions_frame.clear()
+            self.__menu_items.render()
+
     def __render_logout_button(self):
         command_login = partial(self.__logout_process)
         Button(self.__menu_items.get_frame(), text="Logout", command=command_login).grid(row=1, column=0)

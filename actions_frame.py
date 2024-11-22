@@ -37,6 +37,10 @@ class ActionsFrame:
         item = self.__treeview.selection()[0]
         return self.__treeview.item(item, "values")[0] == "Manage Team Members"
 
+    def get_manage_menu(self):
+        item = self.__treeview.selection()[0]
+        return self.__treeview.item(item, "values")[0] == "Manage Menu"
+
     def get_frame(self):
         return self.__frame
 
