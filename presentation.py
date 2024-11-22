@@ -31,13 +31,13 @@ class Presentation:
 
         if self.__login_frame.get_logged_in() is not None:
             self.__login_frame.clear()
-
-            self.__actions_frame.render()
-
-            actions_treeview = self.__actions_frame.get_treeview()
-            actions_treeview.bind("<Double-1>", self.__action_procedure)
-
+            self.__assemble_actions()
             self.__render_logout_button()
+
+    def __assemble_actions(self):
+        self.__actions_frame.render()
+        actions_treeview = self.__actions_frame.get_treeview()
+        actions_treeview.bind("<Double-1>", self.__action_procedure)
 
     def __action_procedure(self, event):
         print("action_procedure")

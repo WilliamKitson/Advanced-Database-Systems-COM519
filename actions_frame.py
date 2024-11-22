@@ -13,7 +13,8 @@ class ActionsFrame:
 
     def __render_headings(self):
         columns = [
-            "Action"
+            "Action",
+            "Description",
         ]
 
         treeview = ttk.Treeview(
@@ -28,8 +29,8 @@ class ActionsFrame:
         return self.__render_body(treeview)
 
     def __render_body(self, treeview):
-        treeview.insert("", "end", values="Manage Team Members")
-        treeview.insert("", "end", values="Manage Menu")
+        treeview.insert("", "end", values=("Manage Team Members", "temp"))
+        treeview.insert("", "end", values=("Manage Menu", "temp"))
         return treeview
 
     def __get_clicked_item(self):
