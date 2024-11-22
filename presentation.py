@@ -18,12 +18,22 @@ class Presentation:
         self.__window.mainloop()
 
     def __render_login_button(self):
-        command_login = partial(self.login_procedure)
+        command_login = partial(self.__login_procedure)
         Button(self.__login_frame.get_frame(), text="Login", command=command_login).grid(row=3, column=0)
 
-    def login_procedure(self):
+    def __login_procedure(self):
         self.__login_frame.login()
 
         if self.__login_frame.get_logged_in() is not None:
             self.__login_frame.clear()
             self.__menu_items.render()
+            self.__render_logout_button()
+
+    def __render_logout_button(self):
+        command_login = partial(self.__logout_process)
+        Button(self.__menu_items.get_frame(), text="Logout", command=command_login).grid(row=1, column=0)
+
+    def __logout_process(self):
+        self.__menu_items.clear()
+        self.__login_frame.render()
+        self.__render_login_button()

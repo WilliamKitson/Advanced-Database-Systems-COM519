@@ -61,6 +61,9 @@ class MenuItemsFrame:
         item = self.__treeview.selection()[0]
         return self.__treeview.item(item, "values")[0]
 
+    def get_frame(self):
+        return self.__frame
+
     def clear(self):
         for widgets in self.__frame.winfo_children():
             widgets.destroy()

@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e08d4933-0286-4d3e-ae33-58d95d2231f8" name="Changes" comment="presentation.py redefined">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/login_frame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/presentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,22 +121,6 @@
       <workItem from="1732197029434" duration="593000" />
       <workItem from="1732224801117" duration="1190000" />
       <workItem from="1732270085214" duration="958000" />
-    </task>
-    <task id="LOCAL-00020" summary="staff database table defined">
-      <option name="closed" value="true" />
-      <created>1731490569360</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1731490569360</updated>
-    </task>
-    <task id="LOCAL-00021" summary="ViewStaffPage defined">
-      <option name="closed" value="true" />
-      <created>1731514099526</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1731514099526</updated>
     </task>
     <task id="LOCAL-00022" summary="database redefined">
       <option name="closed" value="true" />
@@ -515,7 +498,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732274706220</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="presentation.py redefined">
+      <option name="closed" value="true" />
+      <created>1732275964373</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1732275964373</updated>
+    </task>
+    <task id="LOCAL-00070" summary="presentation.py redefined">
+      <option name="closed" value="true" />
+      <created>1732276106930</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1732276106930</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -556,6 +555,6 @@
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$customer_menu_page.coverage" NAME="customer_menu_page Coverage Results" MODIFIED="1732027018406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/presentation" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$team_members_frame.coverage" NAME="team_members_frame Coverage Results" MODIFIED="1732270373856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$.coverage" NAME=" Coverage Results" MODIFIED="1732096683369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/4kitsw10_COM519$main.coverage" NAME="main Coverage Results" MODIFIED="1732274685242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/4kitsw10_COM519$main.coverage" NAME="main Coverage Results" MODIFIED="1732276073616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
