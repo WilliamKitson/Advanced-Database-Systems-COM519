@@ -9,6 +9,7 @@ class LoginFrame:
         self.__cursor = sqlite3.connect(database).cursor()
         self.__username = StringVar()
         self.__password = StringVar()
+        self.__logged_in = None
 
     def render(self):
         self.__render_username()
@@ -34,7 +35,7 @@ class LoginFrame:
         self.__cursor.execute(query, (self.__username.get(), self.__password.get()))
 
         for row in self.__cursor.fetchall():
-            print("Login successful")
+            self.__logged_in = row[0]
             return
 
         messagebox.showwarning(
@@ -44,3 +45,10 @@ class LoginFrame:
 
     def get_frame(self):
         return self.__frame
+
+    def get_logged_in(self):
+        return self.__logged_in
+
+    def clear(self):
+        for widgets in self.__frame.winfo_children():
+            widgets.destroy()
