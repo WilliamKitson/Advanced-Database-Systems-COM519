@@ -2,7 +2,6 @@ import sqlite3
 from tkinter import *
 from tkinter import messagebox
 from functools import partial
-from login_manager import LoginManager
 
 class LoginFrame:
     def __init__(self, database, window):
@@ -31,8 +30,18 @@ class LoginFrame:
         Button(self.__frame, text="Login", command=command_login).grid(row=3, column=0)
 
     def __login(self, username, password):
-        if LoginManager(self.__database).breach(username.get(), password.get()):
+        query = (
+            "SELECT * "
+            "FROM Staff "
+            "WHERE Username = ? "
+            "AND Password = ? "
+        )
+
+        self.__cursor.execute(query, (username.get(), password.get()))
+
+        for row in self.__cursor.fetchall():
             print("Login successful")
+            return
 
         messagebox.showwarning(
             "Login Failed",

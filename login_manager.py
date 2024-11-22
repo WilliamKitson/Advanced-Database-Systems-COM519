@@ -13,7 +13,7 @@ class LoginManager:
             "AND Password = ? "
         )
 
-        self.__cursor.execute(query, (username, password))
+        self.__cursor.execute(query, (username.get(), password.get()))
 
         for row in self.__cursor.fetchall():
             return True
