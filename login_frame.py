@@ -1,7 +1,6 @@
 import sqlite3
 from tkinter import *
 from tkinter import messagebox
-from functools import partial
 
 class LoginFrame:
     def __init__(self, database, window):
@@ -14,7 +13,6 @@ class LoginFrame:
     def render(self):
         self.__render_username()
         self.__render_password()
-        self.__render_login()
         self.__frame.pack(fill="both", expand=True)
 
     def __render_username(self):
@@ -25,11 +23,7 @@ class LoginFrame:
         Label(self.__frame, text="Password").grid(row=1, column=0)
         Entry(self.__frame, textvariable=self.__password, show='*').grid(row=1, column=1)
 
-    def __render_login(self):
-        command_login = partial(self.__login, self.__username, self.__password)
-        Button(self.__frame, text="Login", command=command_login).grid(row=3, column=0)
-
-    def __login(self, username, password):
+    def login(self):
         query = (
             "SELECT * "
             "FROM Staff "
@@ -37,7 +31,7 @@ class LoginFrame:
             "AND Password = ? "
         )
 
-        self.__cursor.execute(query, (username.get(), password.get()))
+        self.__cursor.execute(query, (self.__username.get(), self.__password.get()))
 
         for row in self.__cursor.fetchall():
             print("Login successful")
@@ -47,3 +41,6 @@ class LoginFrame:
             "Login Failed",
             "The username or password you supplied are incorrect."
         )
+
+    def get_frame(self):
+        return self.__frame
