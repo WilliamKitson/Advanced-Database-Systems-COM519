@@ -2,6 +2,7 @@ import tkinter
 from tkinter import *
 from functools import partial
 from login_frame import LoginFrame
+from actions_frame import ActionsFrame
 from menu_items_frame import MenuItemsFrame
 
 class Presentation:
@@ -10,6 +11,7 @@ class Presentation:
         self.__window.title("4kitsw10_COM519")
         self.__window.geometry('400x250')
         self.__login_frame = LoginFrame(database, self.__window)
+        self.__actions_frame = ActionsFrame(self.__window)
         self.__menu_items = MenuItemsFrame(database, self.__window)
 
     def render(self):
@@ -29,7 +31,7 @@ class Presentation:
 
         if self.__login_frame.get_logged_in() is not None:
             self.__login_frame.clear()
-            self.__menu_items.render()
+            self.__actions_frame.render()
             self.__render_logout_button()
 
     def __render_logout_button(self):
