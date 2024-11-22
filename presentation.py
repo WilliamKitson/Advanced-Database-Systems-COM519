@@ -13,9 +13,12 @@ class Presentation:
         self.__menu_items = MenuItemsFrame(database, self.__window)
 
     def render(self):
+        self.__assemble_login()
+        self.__window.mainloop()
+
+    def __assemble_login(self):
         self.__login_frame.render()
         self.__render_login_button()
-        self.__window.mainloop()
 
     def __render_login_button(self):
         command_login = partial(self.__login_procedure)
@@ -35,5 +38,4 @@ class Presentation:
 
     def __logout_process(self):
         self.__menu_items.clear()
-        self.__login_frame.render()
-        self.__render_login_button()
+        self.__assemble_login()
