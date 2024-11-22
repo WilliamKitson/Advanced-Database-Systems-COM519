@@ -1,12 +1,13 @@
 import sqlite3
 from tkinter import *
 from tkinter import ttk
-from dish_neutrition_page import DishNutritionPage
+from dish_nutrition_frame import DishNutritionFrame
 
 class MenuItemsFrame:
     def __init__(self, database, window):
         self.__frame = Frame(window)
         self.__database = database
+        self.__window = window
         self.__cursor = sqlite3.connect(database).cursor()
         self.__treeview = None
 
@@ -50,8 +51,9 @@ class MenuItemsFrame:
         return treeview
 
     def __item_submenu(self, event):
-        DishNutritionPage(
+        DishNutritionFrame(
             self.__database,
+            self.__window,
             self.__get_clicked_item()
         ).render()
 
