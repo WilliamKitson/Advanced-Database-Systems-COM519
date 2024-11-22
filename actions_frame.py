@@ -30,11 +30,7 @@ class ActionsFrame:
     def __render_body(self, treeview):
         treeview.insert("", "end", values="Manage Team Members")
         treeview.insert("", "end", values="Manage Menu")
-        treeview.bind("<Double-1>", self.__open_action)
         return treeview
-
-    def __open_action(self, event):
-        print("open action")
 
     def __get_clicked_item(self):
         item = self.__treeview.selection()[0]
@@ -42,6 +38,9 @@ class ActionsFrame:
 
     def get_frame(self):
         return self.__frame
+
+    def get_treeview(self):
+        return self.__treeview
 
     def clear(self):
         for widgets in self.__frame.winfo_children():
