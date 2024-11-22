@@ -3,6 +3,7 @@ from tkinter import *
 from functools import partial
 from login_frame import LoginFrame
 from actions_frame import ActionsFrame
+from team_members_frame import TeamMembersFrame
 from menu_items_frame import MenuItemsFrame
 
 class Presentation:
@@ -12,6 +13,7 @@ class Presentation:
         self.__window.geometry('400x250')
         self.__login_frame = LoginFrame(database, self.__window)
         self.__actions_frame = ActionsFrame(self.__window)
+        self.__team_members_frame = TeamMembersFrame(database, self.__window)
         self.__menu_items = MenuItemsFrame(database, self.__window)
 
     def render(self):
@@ -40,7 +42,9 @@ class Presentation:
         actions_treeview.bind("<Double-1>", self.__action_procedure)
 
     def __action_procedure(self, event):
-        print("action_procedure")
+        if self.__actions_frame.get_manage_team():
+            self.__actions_frame.clear()
+            self.__team_members_frame.render()
 
     def __render_logout_button(self):
         command_login = partial(self.__logout_process)

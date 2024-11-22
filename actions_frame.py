@@ -33,9 +33,9 @@ class ActionsFrame:
         treeview.insert("", "end", values=("Manage Menu", "temp"))
         return treeview
 
-    def __get_clicked_item(self):
+    def get_manage_team(self):
         item = self.__treeview.selection()[0]
-        return self.__treeview.item(item, "values")[0]
+        return self.__treeview.item(item, "values")[0] == "Manage Team Members"
 
     def get_frame(self):
         return self.__frame
