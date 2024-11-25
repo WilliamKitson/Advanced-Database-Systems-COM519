@@ -14,7 +14,7 @@ class Presentation:
         self.__login_frame = LoginFrame(database, self.__window)
         self.__actions_frame = ActionsFrame(self.__window)
         self.__team_members_frame = TeamMembersFrame(database, self.__window)
-        self.__menu_items = MenuItemsFrame(database, self.__window)
+        self.__menu_items_frame = MenuItemsFrame(database, self.__window)
 
     def render(self):
         self.__assemble_login()
@@ -62,9 +62,9 @@ class Presentation:
 
     def __assemble_menu_items(self):
         self.__clear()
-        self.__menu_items.render()
+        self.__menu_items_frame.render()
         self.__window.update()
-        self.__window.geometry(self.__menu_items.get_resolution())
+        self.__window.geometry(self.__menu_items_frame.get_resolution())
 
     def __render_logout_button(self):
         command_login = partial(self.__logout_process)
