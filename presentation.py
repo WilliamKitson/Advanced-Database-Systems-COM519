@@ -32,9 +32,13 @@ class Presentation:
         self.__login_frame.login()
 
         if self.__login_frame.get_logged_in() is not None:
-            self.__login_frame.clear()
+            self.__clear()
             self.__assemble_actions()
             self.__render_logout_button()
+
+    def __clear(self):
+        for i in self.__window.pack_slaves():
+            i.destroy()
 
     def __assemble_actions(self):
         self.__actions_frame.render()
