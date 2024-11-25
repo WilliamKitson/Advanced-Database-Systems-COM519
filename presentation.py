@@ -53,6 +53,9 @@ class Presentation:
             self.__clear()
             self.__team_members_frame.render()
 
+            self.__window.update()
+            self.__window.geometry(self.__team_members_frame.get_resolution())
+
         if self.__actions_frame.get_manage_menu():
             self.__clear()
             self.__menu_items.render()

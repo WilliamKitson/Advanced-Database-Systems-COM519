@@ -56,3 +56,6 @@ class TeamMembersFrame:
 
     def __add_staff(self):
         print("Adding staff members")
+
+    def get_resolution(self):
+        return f"{self.__frame.winfo_width()}x{self.__frame.winfo_height()}"
