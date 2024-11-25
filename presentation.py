@@ -47,11 +47,11 @@ class Presentation:
 
     def __action_procedure(self, event):
         if self.__actions_frame.get_manage_team():
-            self.__actions_frame.clear()
+            self.__clear()
             self.__team_members_frame.render()
 
         if self.__actions_frame.get_manage_menu():
-            self.__actions_frame.clear()
+            self.__clear()
             self.__menu_items.render()
 
     def __render_logout_button(self):

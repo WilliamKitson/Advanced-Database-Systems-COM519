@@ -11,8 +11,7 @@ class TeamMembersFrame:
     def render(self):
         self.__render_headings()
         self.__render_add()
-        self.__render_back()
-        self.__frame.pack(fill="both", expand=True)
+        self.__frame.grid(column=0, row=0)
 
     def __render_headings(self):
         columns = [
@@ -55,13 +54,5 @@ class TeamMembersFrame:
         command_login = partial(self.__add_staff)
         Button(self.__frame, text="Add Staff", command=command_login).grid(row=1, column=0)
 
-    def __render_back(self):
-        command_login = partial(self.clear)
-        Button(self.__frame, text="Back", command=command_login).grid(row=2, column=0)
-
     def __add_staff(self):
         print("Adding staff members")
-
-    def clear(self):
-        for widgets in self.__frame.winfo_children():
-            widgets.destroy()
