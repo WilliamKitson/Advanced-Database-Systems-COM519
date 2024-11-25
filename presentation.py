@@ -44,24 +44,27 @@ class Presentation:
         self.__actions_frame.render()
         actions_treeview = self.__actions_frame.get_treeview()
         actions_treeview.bind("<Double-1>", self.__action_procedure)
-
         self.__window.update()
         self.__window.geometry(self.__actions_frame.get_resolution())
 
     def __action_procedure(self, event):
         if self.__actions_frame.get_manage_team():
-            self.__clear()
-            self.__team_members_frame.render()
-
-            self.__window.update()
-            self.__window.geometry(self.__team_members_frame.get_resolution())
+            self.__assemble_team_members()
 
         if self.__actions_frame.get_manage_menu():
-            self.__clear()
-            self.__menu_items.render()
+            self.__assemble_menu_items()
 
-            self.__window.update()
-            self.__window.geometry(self.__menu_items.get_resolution())
+    def __assemble_team_members(self):
+        self.__clear()
+        self.__team_members_frame.render()
+        self.__window.update()
+        self.__window.geometry(self.__team_members_frame.get_resolution())
+
+    def __assemble_menu_items(self):
+        self.__clear()
+        self.__menu_items.render()
+        self.__window.update()
+        self.__window.geometry(self.__menu_items.get_resolution())
 
     def __render_logout_button(self):
         command_login = partial(self.__logout_process)
