@@ -46,3 +46,6 @@ class ActionsFrame:
 
     def get_treeview(self):
         return self.__treeview
+
+    def get_resolution(self):
+        return f"{self.__frame.winfo_width()}x{self.__frame.winfo_height()}"

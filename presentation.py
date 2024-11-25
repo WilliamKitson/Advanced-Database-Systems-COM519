@@ -45,6 +45,9 @@ class Presentation:
         actions_treeview = self.__actions_frame.get_treeview()
         actions_treeview.bind("<Double-1>", self.__action_procedure)
 
+        self.__window.update()
+        self.__window.geometry(self.__actions_frame.get_resolution())
+
     def __action_procedure(self, event):
         if self.__actions_frame.get_manage_team():
             self.__clear()
