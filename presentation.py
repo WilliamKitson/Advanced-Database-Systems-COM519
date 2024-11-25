@@ -34,7 +34,6 @@ class Presentation:
         if self.__login_frame.get_logged_in() is not None:
             self.__clear()
             self.__assemble_actions()
-            self.__render_logout_button()
 
     def __clear(self):
         for i in self.__window.pack_slaves():
@@ -44,6 +43,7 @@ class Presentation:
         self.__actions_frame.render()
         actions_treeview = self.__actions_frame.get_treeview()
         actions_treeview.bind("<Double-1>", self.__action_procedure)
+        self.__render_logout_button()
         self.__window.update()
         self.__window.geometry(self.__actions_frame.get_resolution())
 
@@ -68,7 +68,7 @@ class Presentation:
 
     def __render_logout_button(self):
         command_login = partial(self.__logout_process)
-        Button(self.__menu_items.get_frame(), text="Logout", command=command_login).grid(row=1, column=0)
+        Button(self.__actions_frame.get_frame(), text="Logout", command=command_login).grid(row=1, column=0)
 
     def __logout_process(self):
         self.__clear()
