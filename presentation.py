@@ -59,5 +59,5 @@ class Presentation:
         Button(self.__menu_items.get_frame(), text="Logout", command=command_login).grid(row=1, column=0)
 
     def __logout_process(self):
-        self.__menu_items.clear()
+        self.__clear()
         self.__assemble_login()

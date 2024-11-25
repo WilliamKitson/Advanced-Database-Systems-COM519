@@ -14,7 +14,7 @@ class MenuItemsFrame:
     def render(self):
         self.__treeview = self.__render_headings()
         self.__treeview.grid(row=0, column=0)
-        self.__frame.pack(fill="both", expand=True)
+        self.__frame.grid(row=0, column=0)
 
     def __render_headings(self):
         columns = [
@@ -63,7 +63,3 @@ class MenuItemsFrame:
 
     def get_frame(self):
         return self.__frame
-
-    def clear(self):
-        for widgets in self.__frame.winfo_children():
-            widgets.destroy()
