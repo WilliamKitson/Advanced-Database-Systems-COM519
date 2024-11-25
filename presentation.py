@@ -60,6 +60,9 @@ class Presentation:
             self.__clear()
             self.__menu_items.render()
 
+            self.__window.update()
+            self.__window.geometry(self.__menu_items.get_resolution())
+
     def __render_logout_button(self):
         command_login = partial(self.__logout_process)
         Button(self.__menu_items.get_frame(), text="Logout", command=command_login).grid(row=1, column=0)

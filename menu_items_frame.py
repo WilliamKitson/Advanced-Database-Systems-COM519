@@ -63,3 +63,6 @@ class MenuItemsFrame:
 
     def get_frame(self):
         return self.__frame
+
+    def get_resolution(self):
+        return f"{self.__frame.winfo_width()}x{self.__frame.winfo_height()}"
