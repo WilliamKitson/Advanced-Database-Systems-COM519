@@ -39,6 +39,9 @@ class Presentation:
         for i in self.__window.pack_slaves():
             i.destroy()
 
+        for i in self.__window.grid_slaves():
+            i.destroy()
+
     def __assemble_actions(self):
         self.__actions_frame.render()
         actions_treeview = self.__actions_frame.get_treeview()
@@ -67,8 +70,8 @@ class Presentation:
         self.__window.geometry(self.__menu_items_frame.get_resolution())
 
     def __render_logout_button(self):
-        command_login = partial(self.__logout_process)
-        Button(self.__actions_frame.get_frame(), text="Logout", command=command_login).grid(row=1, column=0)
+        command_logout = partial(self.__logout_process)
+        Button(self.__actions_frame.get_frame(), text="Logout", command=command_logout).grid(row=1, column=0)
 
     def __logout_process(self):
         self.__clear()
