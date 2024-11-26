@@ -215,6 +215,7 @@ class Presenter:
     def __render_nutrition(self, nutrition):
         self.__clear_window()
         self.__render_nutrition_treeview(nutrition)
+        self.__render_nutrition_back()
         self.__apply_frame()
 
     def __render_nutrition_treeview(self, nutrition):
@@ -247,3 +248,7 @@ class Presenter:
                 f"{i[3]}g",
                 f"{i[4]} cals"
             ))
+
+    def __render_nutrition_back(self):
+        command_logout = partial(self.__render_menu)
+        Button(self.__frame, text="Back", command=command_logout).grid(row=1, column=0)
