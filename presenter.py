@@ -102,7 +102,7 @@ class Presenter:
             self.__render_team()
 
         if action == "Manage Menu":
-            print("manage menu")
+            self.__render_menu()
 
     def __render_team(self):
         self.__clear_window()
@@ -145,3 +145,37 @@ class Presenter:
     def __render_team_back(self):
         command_logout = partial(self.__render_actions)
         Button(self.__window, text="Back", command=command_logout).grid(row=1, column=0)
+
+    def __render_menu(self):
+        self.__clear_window()
+        self.__render_menu_headings()
+        self.__render_menu_body()
+        self.__treeview.grid(row=0, column=0)
+
+    def __render_menu_headings(self):
+        columns = [
+            "Name",
+            "RSP",
+            "Calories"
+        ]
+
+        self.__treeview = ttk.Treeview(
+            self.__window,
+            columns=columns,
+            show="headings"
+        )
+
+        for i in columns:
+            self.__treeview.heading(i, text=i)
+
+    def __render_menu_body(self):
+        rows = [
+            (0, "test", 0, 0)
+        ]
+
+        for i in rows:
+            self.__treeview.insert("", "end", values=(
+                i[1],
+                f"£{i[2]}",
+                f"{i[3]} cals"
+            ))
