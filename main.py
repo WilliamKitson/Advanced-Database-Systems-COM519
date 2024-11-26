@@ -1,2 +1,10 @@
 from presentation import Presentation
-Presentation("4kitsw10_COM519_database").render()
+#Presentation("4kitsw10_COM519_database").render()
+
+from presenter import Presenter
+Presenter().render()
+
+# EXTRACT ALL PRESENTATION CODE INTO SINGLE PRESENTATION CLASS
+# EXTRACT ALL DATABASE MANAGEMENT CODE INTO RELATED ENTITIES
+# COMPOSE INTO FINAL RESULT
+# CURRENT ARCHITECTURE IS UGLY AND INFLEXIBLE
