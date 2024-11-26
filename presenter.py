@@ -6,6 +6,7 @@ from functools import partial
 from login_manager import LoginManager
 from team_manager import TeamManager
 from menu_manager import MenuManager
+from nutrition_manager import NutritionManager
 
 class Presenter:
     def __init__(self, database):
@@ -16,6 +17,7 @@ class Presenter:
         self.__login_manager = LoginManager(database)
         self.__team_manager = TeamManager(database)
         self.__menu_manager = MenuManager(database)
+        self.__nutrition_manager = NutritionManager(database)
 
     def render(self):
         self.__window.title("4kitsw10_COM519")
@@ -237,15 +239,11 @@ class Presenter:
         for i in columns:
             self.__treeview.heading(i, text=i)
 
-    def __render_nutrition_body(self, submenu):
-        rows = [
-            (submenu, 3, 4, 5)
-        ]
-
-        for i in rows:
+    def __render_nutrition_body(self, nutrition):
+        for i in self.__nutrition_manager.get_nutrition(nutrition):
             self.__treeview.insert("", "end", values=(
                 i[0],
-                i[1],
-                i[2],
-                i[3]
+                f"x{i[1]}",
+                f"{i[2]}g",
+                f"{i[3]} cals"
             ))
