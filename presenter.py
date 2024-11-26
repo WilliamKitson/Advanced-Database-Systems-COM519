@@ -4,6 +4,7 @@ from tkinter import ttk
 from tkinter import messagebox
 from functools import partial
 from login_manager import LoginManager
+from team_manager import TeamManager
 
 class Presenter:
     def __init__(self, database):
@@ -12,6 +13,8 @@ class Presenter:
         self.__window.geometry('400x250')
         self.__treeview = None
         self.__database = database
+        self.__login_manager = LoginManager(database)
+        self.__team_manager = TeamManager(database)
 
     def render(self):
         self.__render_login()
@@ -43,9 +46,7 @@ class Presenter:
         Button(self.__window, text="Login", command=command_login).grid(row=3, column=0)
 
     def __login_procedure(self, username, password):
-        login_manager = LoginManager(self.__database)
-
-        if login_manager.login(username.get(), password.get()):
+        if self.__login_manager.login(username.get(), password.get()):
             self.__render_actions()
             return
 
@@ -131,11 +132,7 @@ class Presenter:
             self.__treeview.heading(i, text=i)
 
     def __render_team_body(self):
-        rows = [
-            ("Forename", "surname", 10, 10, "temp"),
-        ]
-
-        for i in rows:
+        for i in self.__team_manager.get_team():
             self.__treeview.insert("", "end", values=(
                 i[0],
                 i[1],
