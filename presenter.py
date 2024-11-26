@@ -11,13 +11,13 @@ class Presenter:
 
     def render(self):
         self.__render_login()
-        self.__render_actions()
         self.__window.mainloop()
 
     def __render_login(self):
         username = StringVar()
         password = StringVar()
 
+        self.__clear_window()
         self.__render_login_username(username)
         self.__render_login_password(password)
         self.__render_login_submit(username, password)
