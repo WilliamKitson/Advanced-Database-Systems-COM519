@@ -5,6 +5,7 @@ from tkinter import messagebox
 from functools import partial
 from login_manager import LoginManager
 from team_manager import TeamManager
+from menu_manager import MenuManager
 
 class Presenter:
     def __init__(self, database):
@@ -15,6 +16,7 @@ class Presenter:
         self.__database = database
         self.__login_manager = LoginManager(database)
         self.__team_manager = TeamManager(database)
+        self.__menu_manager = MenuManager(database)
 
     def render(self):
         self.__render_login()
@@ -169,11 +171,7 @@ class Presenter:
             self.__treeview.heading(i, text=i)
 
     def __render_menu_body(self):
-        rows = [
-            (0, "test", 0, 0)
-        ]
-
-        for i in rows:
+        for i in self.__menu_manager.get_menu():
             self.__treeview.insert("", "end", values=(
                 i[1],
                 f"£{i[2]}",
