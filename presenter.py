@@ -1,5 +1,6 @@
 import tkinter
 from tkinter import *
+from tkinter import ttk
 from functools import partial
 
 class Presenter:
@@ -10,6 +11,7 @@ class Presenter:
 
     def render(self):
         self.__render_login()
+        self.__render_actions()
         self.__window.mainloop()
 
     def __render_login(self):
@@ -34,3 +36,41 @@ class Presenter:
 
     def __TEMP_login_procedure(self, username, password):
         print(f"{username.get()}:{password.get()}")
+
+    def __render_actions(self):
+        for i in self.__window.grid_slaves():
+            i.destroy()
+
+        treeview = self.__render_headings()
+        treeview.grid(row=0, column=0)
+
+        self.__render_actions_logout()
+
+    def __render_headings(self):
+        columns = [
+            "Action",
+            "Description",
+        ]
+
+        treeview = ttk.Treeview(
+            self.__window,
+            columns=columns,
+            show="headings"
+        )
+
+        for i in columns:
+            treeview.heading(i, text=i)
+
+        return self.__render_body(treeview)
+
+    def __render_body(self, treeview):
+        treeview.insert("", "end", values=("Manage Team Members", "temp"))
+        treeview.insert("", "end", values=("Manage Menu", "temp"))
+        return treeview
+
+    def __render_actions_logout(self):
+        command_logout = partial(self.__logout_process)
+        Button(self.__window, text="Logout", command=command_logout).grid(row=1, column=0)
+
+    def __logout_process(self):
+        print("logout process")
