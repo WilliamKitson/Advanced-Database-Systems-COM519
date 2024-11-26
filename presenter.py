@@ -38,15 +38,18 @@ class Presenter:
         print(f"{username.get()}:{password.get()}")
 
     def __render_actions(self):
-        for i in self.__window.grid_slaves():
-            i.destroy()
+        self.__clear_window()
 
-        treeview = self.__render_headings()
+        treeview = self.__render_actions_headings()
         treeview.grid(row=0, column=0)
 
         self.__render_actions_logout()
 
-    def __render_headings(self):
+    def __clear_window(self):
+        for i in self.__window.grid_slaves():
+            i.destroy()
+
+    def __render_actions_headings(self):
         columns = [
             "Action",
             "Description",
@@ -61,9 +64,9 @@ class Presenter:
         for i in columns:
             treeview.heading(i, text=i)
 
-        return self.__render_body(treeview)
+        return self.__render_actions_body(treeview)
 
-    def __render_body(self, treeview):
+    def __render_actions_body(self, treeview):
         treeview.insert("", "end", values=("Manage Team Members", "temp"))
         treeview.insert("", "end", values=("Manage Menu", "temp"))
         return treeview
