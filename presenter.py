@@ -173,6 +173,7 @@ class Presenter:
     def __render_menu_treeview(self):
         self.__render_menu_headings()
         self.__render_menu_body()
+        self.__treeview.bind("<Double-1>", self.__menu_submenu_procedure)
         self.__treeview.grid(row=0, column=0)
 
     def __render_menu_headings(self):
@@ -198,6 +199,12 @@ class Presenter:
                 f"£{i[2]}",
                 f"{i[3]} cals"
             ))
+
+    def __menu_submenu_procedure(self, event):
+        item = self.__treeview.selection()[0]
+        submenu = self.__treeview.item(item, "values")[0]
+
+        print(submenu)
 
     def __render_menu_back(self):
         command_logout = partial(self.__render_actions)
