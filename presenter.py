@@ -105,7 +105,14 @@ class Presenter:
 
     def __render_team(self):
         self.__clear_window()
+        self.__render_team_treeview()
 
+    def __render_team_treeview(self):
+        self.__render_team_headings()
+        self.__render_team_body()
+        self.__treeview.grid(row=0, column=0)
+
+    def __render_team_headings(self):
         columns = [
             "Forename",
             "Surname",
@@ -123,6 +130,7 @@ class Presenter:
         for i in columns:
             self.__treeview.heading(i, text=i)
 
+    def __render_team_body(self):
         rows = [
             ("Forename", "surname", 10, 10, "temp"),
         ]
@@ -135,5 +143,3 @@ class Presenter:
                 f"{i[3]} years",
                 i[4]
             ))
-
-        self.__treeview.grid(row=0, column=0)
