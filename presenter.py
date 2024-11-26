@@ -63,7 +63,19 @@ class Presenter:
         self.__clear_window()
         self.__render_actions_treeview()
         self.__render_actions_logout()
+        self.__resize_window()
+
+    def __resize_window(self):
         self.__frame.grid(row=0, column=0)
+        self.__window.update()
+
+        resolution = (
+            f"{self.__frame.winfo_width()}"
+            f"x"
+            f"{self.__frame.winfo_height()}"
+        )
+
+        self.__window.geometry(resolution)
 
     def __render_actions_treeview(self):
         self.__render_actions_headings()
@@ -113,7 +125,7 @@ class Presenter:
         self.__clear_window()
         self.__render_team_treeview()
         self.__render_team_back()
-        self.__frame.grid(row=0, column=0)
+        self.__resize_window()
 
     def __render_team_treeview(self):
         self.__render_team_headings()
@@ -156,7 +168,7 @@ class Presenter:
         self.__clear_window()
         self.__render_menu_treeview()
         self.__render_menu_back()
-        self.__frame.grid(row=0, column=0)
+        self.__resize_window()
 
     def __render_menu_treeview(self):
         self.__render_menu_headings()
