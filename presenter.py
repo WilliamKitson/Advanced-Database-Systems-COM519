@@ -1,13 +1,16 @@
 import tkinter
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox
 from functools import partial
+from login_manager import LoginManager
 
 class Presenter:
-    def __init__(self):
+    def __init__(self, database):
         self.__window = tkinter.Tk()
         self.__window.title("4kitsw10_COM519")
         self.__window.geometry('400x250')
+        self.__database = database
 
     def render(self):
         self.__render_login()
@@ -31,11 +34,20 @@ class Presenter:
         Entry(self.__window, textvariable=password, show='*').grid(row=1, column=1)
 
     def __render_login_submit(self, username, password):
-        command_login = partial(self.__TEMP_login_procedure, username, password)
+        command_login = partial(self.__login_procedure, username, password)
         Button(self.__window, text="Login", command=command_login).grid(row=3, column=0)
 
-    def __TEMP_login_procedure(self, username, password):
-        print(f"{username.get()}:{password.get()}")
+    def __login_procedure(self, username, password):
+        login_manager = LoginManager(self.__database)
+
+        if login_manager.login(username.get(), password.get()):
+            self.__render_actions()
+            return
+
+        messagebox.showwarning(
+            "Login Failed",
+            "The username or password you supplied are incorrect."
+        )
 
     def __render_actions(self):
         self.__clear_window()
