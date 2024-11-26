@@ -89,16 +89,51 @@ class Presenter:
         for i in columns:
             self.__treeview.insert("", "end", values=(i, "temp"))
 
+    def __render_actions_logout(self):
+        command_logout = partial(self.__render_login)
+        Button(self.__window, text="Logout", command=command_logout).grid(row=1, column=0)
+
     def __actions_procedure(self, event):
         item = self.__treeview.selection()[0]
         action = self.__treeview.item(item, "values")[0]
 
         if action == "Manage Team Members":
-            print("manage team members")
+            self.__render_team()
 
         if action == "Manage Menu":
             print("manage menu")
 
-    def __render_actions_logout(self):
-        command_logout = partial(self.__render_login)
-        Button(self.__window, text="Logout", command=command_logout).grid(row=1, column=0)
+    def __render_team(self):
+        self.__clear_window()
+
+        columns = [
+            "Forename",
+            "Surname",
+            "Age",
+            "Tenure",
+            "Role"
+        ]
+
+        self.__treeview = ttk.Treeview(
+            self.__window,
+            columns=columns,
+            show="headings"
+        )
+
+        for i in columns:
+            self.__treeview.heading(i, text=i)
+
+        rows = [
+            ("Forename", "surname", 10, 10, "temp"),
+        ]
+
+        for i in rows:
+            self.__treeview.insert("", "end", values=(
+                i[0],
+                i[1],
+                f"{i[2]} years",
+                f"{i[3]} years",
+                i[4]
+            ))
+
+        self.__treeview.grid(row=0, column=0)
