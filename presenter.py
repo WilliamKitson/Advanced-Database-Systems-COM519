@@ -26,6 +26,10 @@ class Presenter:
         self.__render_login_password(password)
         self.__render_login_submit(username, password)
 
+    def __clear_window(self):
+        for i in self.__window.grid_slaves():
+            i.destroy()
+
     def __render_login_username(self, username):
         Label(self.__window, text="Username").grid(row=0, column=0)
         Entry(self.__window, textvariable=username).grid(row=0, column=1)
@@ -54,10 +58,6 @@ class Presenter:
         self.__clear_window()
         self.__render_actions_treeview()
         self.__render_actions_logout()
-
-    def __clear_window(self):
-        for i in self.__window.grid_slaves():
-            i.destroy()
 
     def __render_actions_treeview(self):
         self.__render_actions_headings()
