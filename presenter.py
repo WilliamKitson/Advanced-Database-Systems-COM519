@@ -107,6 +107,7 @@ class Presenter:
     def __render_team(self):
         self.__clear_window()
         self.__render_team_treeview()
+        self.__render_team_back()
 
     def __render_team_treeview(self):
         self.__render_team_headings()
@@ -140,3 +141,7 @@ class Presenter:
                 f"{i[3]} years",
                 i[4]
             ))
+
+    def __render_team_back(self):
+        command_logout = partial(self.__render_actions)
+        Button(self.__window, text="Back", command=command_logout).grid(row=1, column=0)
