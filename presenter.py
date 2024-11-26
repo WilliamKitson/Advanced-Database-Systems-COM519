@@ -51,15 +51,16 @@ class Presenter:
 
     def __render_actions(self):
         self.__clear_window()
-
-        treeview = self.__render_actions_headings()
-        treeview.grid(row=0, column=0)
-
+        self.__render_actions_treeview()
         self.__render_actions_logout()
 
     def __clear_window(self):
         for i in self.__window.grid_slaves():
             i.destroy()
+
+    def __render_actions_treeview(self):
+        treeview = self.__render_actions_headings()
+        treeview.grid(row=0, column=0)
 
     def __render_actions_headings(self):
         columns = [
