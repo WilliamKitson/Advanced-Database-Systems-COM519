@@ -84,8 +84,5 @@ class Presenter:
         return treeview
 
     def __render_actions_logout(self):
-        command_logout = partial(self.__logout_process)
+        command_logout = partial(self.__render_login)
         Button(self.__window, text="Logout", command=command_logout).grid(row=1, column=0)
-
-    def __logout_process(self):
-        print("logout process")
