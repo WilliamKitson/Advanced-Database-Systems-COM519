@@ -242,8 +242,8 @@ class Presenter:
     def __render_nutrition_body(self, nutrition):
         for i in self.__nutrition_manager.get_nutrition(nutrition):
             self.__treeview.insert("", "end", values=(
-                i[0],
-                f"x{i[1]}",
-                f"{i[2]}g",
-                f"{i[3]} cals"
+                i[1],
+                f"x{i[2]}",
+                f"{i[3]}g",
+                f"{i[4]} cals"
             ))

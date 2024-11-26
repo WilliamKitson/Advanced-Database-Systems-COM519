@@ -8,7 +8,7 @@ class NutritionManager:
     def get_nutrition(self, nutrition):
         query = ("SELECT * "
             "FROM Menu_Item_Neutrition "
-            "WHERE Menu_Item_Neutrition.Menu_Item=?"
+            "WHERE Menu_Item=?"
         )
 
         self.__cursor.execute(query, (nutrition,))
