@@ -8,7 +8,7 @@ from team_manager import TeamManager
 from menu_manager import MenuManager
 from nutrition_manager import NutritionManager
 
-class Presenter:
+class Presentation:
     def __init__(self, database):
         self.__window = tkinter.Tk()
         self.__frame = tkinter.Frame(self.__window)
