@@ -60,7 +60,8 @@ class Presenter:
             i.destroy()
 
     def __render_actions_treeview(self):
-        self.__treeview = self.__render_actions_headings()
+        self.__render_actions_headings()
+        self.__render_actions_body()
         self.__treeview.bind("<Double-1>", self.__actions_procedure)
         self.__treeview.grid(row=0, column=0)
 
@@ -70,21 +71,18 @@ class Presenter:
             "Description",
         ]
 
-        treeview = ttk.Treeview(
+        self.__treeview = ttk.Treeview(
             self.__window,
             columns=columns,
             show="headings"
         )
 
         for i in columns:
-            treeview.heading(i, text=i)
+            self.__treeview.heading(i, text=i)
 
-        return self.__render_actions_body(treeview)
-
-    def __render_actions_body(self, treeview):
-        treeview.insert("", "end", values=("Manage Team Members", "temp"))
-        treeview.insert("", "end", values=("Manage Menu", "temp"))
-        return treeview
+    def __render_actions_body(self):
+        self.__treeview.insert("", "end", values=("Manage Team Members", "temp"))
+        self.__treeview.insert("", "end", values=("Manage Menu", "temp"))
 
     def __actions_procedure(self, event):
         item = self.__treeview.selection()[0]
