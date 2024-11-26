@@ -10,8 +10,6 @@ from menu_manager import MenuManager
 class Presenter:
     def __init__(self, database):
         self.__window = tkinter.Tk()
-        self.__window.title("4kitsw10_COM519")
-        self.__window.geometry('400x250')
         self.__treeview = None
         self.__database = database
         self.__login_manager = LoginManager(database)
@@ -19,6 +17,7 @@ class Presenter:
         self.__menu_manager = MenuManager(database)
 
     def render(self):
+        self.__window.title("4kitsw10_COM519")
         self.__render_login()
         self.__window.mainloop()
 
@@ -26,6 +25,7 @@ class Presenter:
         username = StringVar()
         password = StringVar()
 
+        self.__window.geometry('400x250')
         self.__clear_window()
         self.__render_login_username(username)
         self.__render_login_password(password)
