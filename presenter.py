@@ -173,7 +173,7 @@ class Presenter:
     def __render_menu_treeview(self):
         self.__render_menu_headings()
         self.__render_menu_body()
-        self.__treeview.bind("<Double-1>", self.__menu_submenu_procedure)
+        self.__treeview.bind("<Double-1>", self.__menu_nutrition_procedure)
         self.__treeview.grid(row=0, column=0)
 
     def __render_menu_headings(self):
@@ -200,12 +200,52 @@ class Presenter:
                 f"{i[3]} cals"
             ))
 
-    def __menu_submenu_procedure(self, event):
+    def __menu_nutrition_procedure(self, event):
         item = self.__treeview.selection()[0]
-        submenu = self.__treeview.item(item, "values")[0]
+        nutrition = self.__treeview.item(item, "values")[0]
 
-        print(submenu)
+        self.__render_nutrition(nutrition)
 
     def __render_menu_back(self):
         command_logout = partial(self.__render_actions)
         Button(self.__frame, text="Back", command=command_logout).grid(row=1, column=0)
+
+    def __render_nutrition(self, nutrition):
+        self.__clear_window()
+        self.__render_nutrition_treeview(nutrition)
+        self.__apply_frame()
+
+    def __render_nutrition_treeview(self, nutrition):
+        self.__render_nutrition_headings()
+        self.__render_nutrition_body(nutrition)
+        self.__treeview.grid(row=0, column=0)
+
+    def __render_nutrition_headings(self):
+        columns = [
+            "Ingredient",
+            "Quantity",
+            "Total Weight",
+            "Total Calories"
+        ]
+
+        self.__treeview = ttk.Treeview(
+            self.__frame,
+            columns=columns,
+            show="headings"
+        )
+
+        for i in columns:
+            self.__treeview.heading(i, text=i)
+
+    def __render_nutrition_body(self, submenu):
+        rows = [
+            (submenu, 3, 4, 5)
+        ]
+
+        for i in rows:
+            self.__treeview.insert("", "end", values=(
+                i[0],
+                i[1],
+                i[2],
+                i[3]
+            ))
