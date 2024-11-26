@@ -150,6 +150,10 @@ class Presenter:
 
     def __render_menu(self):
         self.__clear_window()
+        self.__render_menu_treeview()
+        self.__render_menu_back()
+
+    def __render_menu_treeview(self):
         self.__render_menu_headings()
         self.__render_menu_body()
         self.__treeview.grid(row=0, column=0)
@@ -177,3 +181,7 @@ class Presenter:
                 f"£{i[2]}",
                 f"{i[3]} cals"
             ))
+
+    def __render_menu_back(self):
+        command_logout = partial(self.__render_actions)
+        Button(self.__window, text="Back", command=command_logout).grid(row=1, column=0)
