@@ -103,7 +103,8 @@ class Presentation:
     def __render_actions_body(self):
         columns = [
             "Manage Team Members",
-            "Manage Menu"
+            "Manage Menu",
+            "Backup to XML"
         ]
 
         for i in columns:
@@ -122,6 +123,9 @@ class Presentation:
 
         if action == "Manage Menu":
             self.__render_menu()
+
+        if action == "Backup to XML":
+            print("backup to XML")
 
     def __render_team(self):
         self.__clear_window()
