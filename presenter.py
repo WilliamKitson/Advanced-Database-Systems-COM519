@@ -81,8 +81,13 @@ class Presenter:
             self.__treeview.heading(i, text=i)
 
     def __render_actions_body(self):
-        self.__treeview.insert("", "end", values=("Manage Team Members", "temp"))
-        self.__treeview.insert("", "end", values=("Manage Menu", "temp"))
+        columns = [
+            "Manage Team Members",
+            "Manage Menu"
+        ]
+
+        for i in columns:
+            self.__treeview.insert("", "end", values=(i, "temp"))
 
     def __actions_procedure(self, event):
         item = self.__treeview.selection()[0]
@@ -93,7 +98,6 @@ class Presenter:
 
         if action == "Manage Menu":
             print("manage menu")
-
 
     def __render_actions_logout(self):
         command_logout = partial(self.__render_login)
