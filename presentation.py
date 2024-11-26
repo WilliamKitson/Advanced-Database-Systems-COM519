@@ -115,8 +115,7 @@ class Presentation:
         Button(self.__frame, text="Logout", command=command_logout).grid(row=1, column=0)
 
     def __actions_procedure(self, event):
-        item = self.__treeview.selection()[0]
-        action = self.__treeview.item(item, "values")[0]
+        action = self.__get_treeview_event()
 
         if action == "Manage Team Members":
             self.__render_team()
@@ -126,6 +125,10 @@ class Presentation:
 
         if action == "Backup to XML":
             print("backup to XML")
+
+    def __get_treeview_event(self):
+        item = self.__treeview.selection()[0]
+        return self.__treeview.item(item, "values")[0]
 
     def __render_team(self):
         self.__clear_window()
@@ -207,10 +210,7 @@ class Presentation:
             ))
 
     def __menu_nutrition_procedure(self, event):
-        item = self.__treeview.selection()[0]
-        nutrition = self.__treeview.item(item, "values")[0]
-
-        self.__render_nutrition(nutrition)
+        self.__render_nutrition(self.__get_treeview_event())
 
     def __render_menu_back(self):
         command_logout = partial(self.__render_actions)
