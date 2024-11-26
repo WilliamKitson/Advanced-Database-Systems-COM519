@@ -10,6 +10,7 @@ class Presenter:
         self.__window = tkinter.Tk()
         self.__window.title("4kitsw10_COM519")
         self.__window.geometry('400x250')
+        self.__treeview = None
         self.__database = database
 
     def render(self):
@@ -59,8 +60,9 @@ class Presenter:
             i.destroy()
 
     def __render_actions_treeview(self):
-        treeview = self.__render_actions_headings()
-        treeview.grid(row=0, column=0)
+        self.__treeview = self.__render_actions_headings()
+        self.__treeview.bind("<Double-1>", self.__actions_procedure)
+        self.__treeview.grid(row=0, column=0)
 
     def __render_actions_headings(self):
         columns = [
@@ -83,6 +85,17 @@ class Presenter:
         treeview.insert("", "end", values=("Manage Team Members", "temp"))
         treeview.insert("", "end", values=("Manage Menu", "temp"))
         return treeview
+
+    def __actions_procedure(self, event):
+        item = self.__treeview.selection()[0]
+        action = self.__treeview.item(item, "values")[0]
+
+        if action == "Manage Team Members":
+            print("manage team members")
+
+        if action == "Manage Menu":
+            print("manage menu")
+
 
     def __render_actions_logout(self):
         command_logout = partial(self.__render_login)
