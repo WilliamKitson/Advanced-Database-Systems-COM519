@@ -1,3 +1,5 @@
+#  Copyright (c) 2024. William E. Kitson
+
 from login_manager import LoginManager
 import sqlite3
 

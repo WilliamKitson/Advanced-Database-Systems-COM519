@@ -1,3 +1,5 @@
+#  Copyright (c) 2024. William E. Kitson
+
 import tkinter
 from tkinter import *
 from tkinter import ttk

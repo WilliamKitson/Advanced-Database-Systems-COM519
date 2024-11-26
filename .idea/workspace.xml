@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e08d4933-0286-4d3e-ae33-58d95d2231f8" name="Changes" comment="presenter renamed">
+    <list default="true" id="e08d4933-0286-4d3e-ae33-58d95d2231f8" name="Changes" comment="test_COM519.py defined">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/login_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/menu_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nutrition_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/nutrition_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/presentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/team_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/team_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_COM519.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_COM519.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,29 +52,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests in test_login_manager.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.actions_page.executor&quot;: &quot;Run&quot;,
-    &quot;Python.customer_menu_page.executor&quot;: &quot;Run&quot;,
-    &quot;Python.login_page.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.presentation.executor&quot;: &quot;Run&quot;,
-    &quot;Python.presenter.executor&quot;: &quot;Run&quot;,
-    &quot;Python.team_members_frame.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test_login_manager.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests in test_COM519.py.executor": "Run",
+    "Python tests.Python tests in test_login_manager.py.executor": "Run",
+    "Python.actions_page.executor": "Run",
+    "Python.customer_menu_page.executor": "Run",
+    "Python.login_page.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.presentation.executor": "Run",
+    "Python.presenter.executor": "Run",
+    "Python.team_members_frame.executor": "Run",
+    "Python.test_login_manager.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.scopes",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\willi\PycharmProjects\4kitsw10_COM519\presentation" />
@@ -129,22 +137,7 @@
       <workItem from="1732568284777" duration="74000" />
       <workItem from="1732625671652" duration="10944000" />
       <workItem from="1732637307047" duration="1036000" />
-    </task>
-    <task id="LOCAL-00067" summary="presentation.py redefined">
-      <option name="closed" value="true" />
-      <created>1732273514901</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1732273514901</updated>
-    </task>
-    <task id="LOCAL-00068" summary="presentation.py redefined">
-      <option name="closed" value="true" />
-      <created>1732274706220</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1732274706220</updated>
+      <workItem from="1732653913208" duration="306000" />
     </task>
     <task id="LOCAL-00069" summary="presentation.py redefined">
       <option name="closed" value="true" />
@@ -522,7 +515,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732637471413</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="presentation redefined">
+      <option name="closed" value="true" />
+      <created>1732640674388</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1732640674388</updated>
+    </task>
+    <task id="LOCAL-00117" summary="test_COM519.py defined">
+      <option name="closed" value="true" />
+      <created>1732640810271</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1732640810271</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,8 +549,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cistomermenupage redefined" />
-    <MESSAGE value="dishneutritionpage redefined" />
     <MESSAGE value="loginpage redefined" />
     <MESSAGE value="actions_page defined" />
     <MESSAGE value="login_page redefined" />
@@ -565,7 +572,9 @@
     <MESSAGE value="dead code removed" />
     <MESSAGE value="presenter redefined" />
     <MESSAGE value="presenter renamed" />
-    <option name="LAST_COMMIT_MESSAGE" value="presenter renamed" />
+    <MESSAGE value="presentation redefined" />
+    <MESSAGE value="test_COM519.py defined" />
+    <option name="LAST_COMMIT_MESSAGE" value="test_COM519.py defined" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$test_login_manager.coverage" NAME="test_login_manager Coverage Results" MODIFIED="1732027812659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -574,8 +583,8 @@
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$actions_page.coverage" NAME="actions_page Coverage Results" MODIFIED="1732185257564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$customer_menu_page.coverage" NAME="customer_menu_page Coverage Results" MODIFIED="1732027018406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/presentation" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$team_members_frame.coverage" NAME="team_members_frame Coverage Results" MODIFIED="1732534757645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/4kitsw10_COM519$.coverage" NAME=" Coverage Results" MODIFIED="1732096683369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/4kitsw10_COM519$.coverage" NAME=" Coverage Results" MODIFIED="1732640789231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$presenter.coverage" NAME="presenter Coverage Results" MODIFIED="1732633427535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/4kitsw10_COM519$main.coverage" NAME="main Coverage Results" MODIFIED="1732640179146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/4kitsw10_COM519$main.coverage" NAME="main Coverage Results" MODIFIED="1732640644385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
