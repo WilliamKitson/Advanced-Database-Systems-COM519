@@ -4,9 +4,8 @@ import tkinter
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
+from tkcalendar import Calendar
 from functools import partial
-from xml.dom.xmlbuilder import Options
-
 from login_manager import LoginManager
 from team_manager import TeamManager
 from menu_manager import MenuManager
@@ -193,7 +192,10 @@ class Presentation:
         Entry(self.__body_frame, textvariable=surname).grid(row=1, column=1)
 
         Label(self.__body_frame, text="DOB").grid(row=2, column=0)
-        Entry(self.__body_frame, textvariable=date_of_birth).grid(row=2, column=1)
+        cal = Calendar(self.__body_frame, selectmode='day',year=2020, month=5,day=22)
+
+        cal.grid(row=2, column=1)
+        print(cal.get_date())
 
         role.set(self.__team_manager.get_roles()[0])
         Label(self.__body_frame, text="Role").grid(row=3, column=0)
