@@ -115,7 +115,7 @@ class Presentation:
 
     def __render_actions_logout(self):
         command_logout = partial(self.__render_login)
-        Button(self.__body_frame, text="Logout", command=command_logout).grid(row=1, column=0)
+        Button(self.__actions_frame, text="Logout", command=command_logout).grid(row=0, column=0)
 
     def __actions_procedure(self, event):
         action = self.__get_treeview_event()
@@ -225,7 +225,7 @@ class Presentation:
 
     def __render_menu_back(self):
         command_logout = partial(self.__render_actions)
-        Button(self.__body_frame, text="Back", command=command_logout).grid(row=1, column=0)
+        Button(self.__actions_frame, text="Back", command=command_logout).grid(row=0, column=0)
 
     def __render_nutrition(self, nutrition):
         self.__clear_window()
@@ -266,4 +266,4 @@ class Presentation:
 
     def __render_nutrition_back(self):
         command_logout = partial(self.__render_menu)
-        Button(self.__body_frame, text="Back", command=command_logout).grid(row=1, column=0)
+        Button(self.__actions_frame, text="Back", command=command_logout).grid(row=0, column=0)
