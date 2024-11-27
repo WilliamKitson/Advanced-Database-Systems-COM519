@@ -136,6 +136,7 @@ class Presentation:
     def __render_team(self):
         self.__clear_window()
         self.__render_team_treeview()
+        self.__render_team_add()
         self.__render_team_back()
         self.__apply_frame()
 
@@ -172,9 +173,16 @@ class Presentation:
                 i[4]
             ))
 
+    def __render_team_add(self):
+        command_add = partial(self.__team_add_procedure)
+        Button(self.__frame, text="Add", command=command_add).grid(row=1, column=0)
+
+    def __team_add_procedure(self):
+        print("adding team member")
+
     def __render_team_back(self):
         command_logout = partial(self.__render_actions)
-        Button(self.__frame, text="Back", command=command_logout).grid(row=1, column=0)
+        Button(self.__frame, text="Back", command=command_logout).grid(row=1, column=1)
 
     def __render_menu(self):
         self.__clear_window()
