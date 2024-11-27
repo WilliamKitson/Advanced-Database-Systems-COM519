@@ -13,7 +13,8 @@ from nutrition_manager import NutritionManager
 class Presentation:
     def __init__(self, database):
         self.__window = tkinter.Tk()
-        self.__frame = tkinter.Frame(self.__window)
+        self.__body_frame = tkinter.Frame(self.__window)
+        self.__actions_frame = tkinter.Frame(self.__window)
         self.__treeview = None
         self.__database = database
         self.__login_manager = LoginManager(database)
@@ -36,23 +37,26 @@ class Presentation:
         self.__render_login_username(username)
         self.__render_login_password(password)
         self.__render_login_submit(username, password)
-        self.__frame.grid(row=0, column=0)
+        self.__body_frame.grid(row=0, column=0)
 
     def __clear_window(self):
-        for i in self.__frame.grid_slaves():
+        for i in self.__body_frame.grid_slaves():
+            i.destroy()
+
+        for i in self.__actions_frame.grid_slaves():
             i.destroy()
 
     def __render_login_username(self, username):
-        Label(self.__frame, text="Username").grid(row=0, column=0)
-        Entry(self.__frame, textvariable=username).grid(row=0, column=1)
+        Label(self.__body_frame, text="Username").grid(row=0, column=0)
+        Entry(self.__body_frame, textvariable=username).grid(row=0, column=1)
 
     def __render_login_password(self, password):
-        Label(self.__frame, text="Password").grid(row=1, column=0)
-        Entry(self.__frame, textvariable=password, show='*').grid(row=1, column=1)
+        Label(self.__body_frame, text="Password").grid(row=1, column=0)
+        Entry(self.__body_frame, textvariable=password, show='*').grid(row=1, column=1)
 
     def __render_login_submit(self, username, password):
         command_login = partial(self.__login_procedure, username, password)
-        Button(self.__frame, text="Login", command=command_login).grid(row=3, column=0)
+        Button(self.__body_frame, text="Login", command=command_login).grid(row=3, column=0)
 
     def __login_procedure(self, username, password):
         if self.__login_manager.login(username.get(), password.get()):
@@ -71,16 +75,13 @@ class Presentation:
         self.__apply_frame()
 
     def __apply_frame(self):
-        self.__frame.grid(row=0, column=0)
+        self.__body_frame.grid(row=0, column=0)
+        self.__actions_frame.grid(row=1, column=0)
         self.__window.update()
 
-        resolution = (
-            f"{self.__frame.winfo_width()}"
-            f"x"
-            f"{self.__frame.winfo_height()}"
-        )
-
-        self.__window.geometry(resolution)
+        width = self.__body_frame.winfo_width()
+        height = self.__body_frame.winfo_height() + self.__actions_frame.winfo_height()
+        self.__window.geometry(f"{width}x{height}")
 
     def __render_actions_treeview(self):
         self.__render_actions_headings()
@@ -95,7 +96,7 @@ class Presentation:
         ]
 
         self.__treeview = ttk.Treeview(
-            self.__frame,
+            self.__body_frame,
             columns=columns,
             show="headings"
         )
@@ -115,7 +116,7 @@ class Presentation:
 
     def __render_actions_logout(self):
         command_logout = partial(self.__render_login)
-        Button(self.__frame, text="Logout", command=command_logout).grid(row=1, column=0)
+        Button(self.__body_frame, text="Logout", command=command_logout).grid(row=1, column=0)
 
     def __actions_procedure(self, event):
         action = self.__get_treeview_event()
@@ -155,7 +156,7 @@ class Presentation:
         ]
 
         self.__treeview = ttk.Treeview(
-            self.__frame,
+            self.__body_frame,
             columns=columns,
             show="headings"
         )
@@ -175,14 +176,14 @@ class Presentation:
 
     def __render_team_add(self):
         command_add = partial(self.__team_add_procedure)
-        Button(self.__frame, text="Add", command=command_add).grid(row=1, column=0)
+        Button(self.__actions_frame, text="Add", command=command_add).grid(row=1, column=0)
 
     def __team_add_procedure(self):
         print("adding team member")
 
     def __render_team_back(self):
         command_logout = partial(self.__render_actions)
-        Button(self.__frame, text="Back", command=command_logout).grid(row=1, column=1)
+        Button(self.__actions_frame, text="Back", command=command_logout).grid(row=1, column=1)
 
     def __render_menu(self):
         self.__clear_window()
@@ -204,7 +205,7 @@ class Presentation:
         ]
 
         self.__treeview = ttk.Treeview(
-            self.__frame,
+            self.__body_frame,
             columns=columns,
             show="headings"
         )
@@ -225,7 +226,7 @@ class Presentation:
 
     def __render_menu_back(self):
         command_logout = partial(self.__render_actions)
-        Button(self.__frame, text="Back", command=command_logout).grid(row=1, column=0)
+        Button(self.__body_frame, text="Back", command=command_logout).grid(row=1, column=0)
 
     def __render_nutrition(self, nutrition):
         self.__clear_window()
@@ -247,7 +248,7 @@ class Presentation:
         ]
 
         self.__treeview = ttk.Treeview(
-            self.__frame,
+            self.__body_frame,
             columns=columns,
             show="headings"
         )
@@ -266,4 +267,4 @@ class Presentation:
 
     def __render_nutrition_back(self):
         command_logout = partial(self.__render_menu)
-        Button(self.__frame, text="Back", command=command_logout).grid(row=1, column=0)
+        Button(self.__body_frame, text="Back", command=command_logout).grid(row=1, column=0)
