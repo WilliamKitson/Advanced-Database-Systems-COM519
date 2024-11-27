@@ -180,26 +180,13 @@ class Presentation:
     def __render_add_team(self):
         forename = StringVar()
         surname = StringVar()
-        date_of_birth = StringVar()
         role = StringVar()
 
         self.__clear_window()
-
-        Label(self.__body_frame, text="Forename").grid(row=0, column=0)
-        Entry(self.__body_frame, textvariable=forename).grid(row=0, column=1)
-
-        Label(self.__body_frame, text="Surname").grid(row=1, column=0)
-        Entry(self.__body_frame, textvariable=surname).grid(row=1, column=1)
-
-        Label(self.__body_frame, text="DOB").grid(row=2, column=0)
-        cal = Calendar(self.__body_frame, selectmode='day',year=2020, month=5,day=22)
-
-        cal.grid(row=2, column=1)
-        print(cal.get_date())
-
-        role.set(self.__team_manager.get_roles()[0])
-        Label(self.__body_frame, text="Role").grid(row=3, column=0)
-        OptionMenu(self.__body_frame, role, *self.__team_manager.get_roles()).grid(row=3, column=1)
+        self.__render_add_team_forename(forename)
+        self.__render_add_team_surname(surname)
+        self.__render_add_team_date_of_birth()
+        self.__render_add_team_role(role)
 
         command_logout = partial(self.__add_team_process)
         Button(self.__actions_frame, text="Save", command=command_logout).grid(row=0, column=0)
@@ -208,6 +195,28 @@ class Presentation:
         Button(self.__actions_frame, text="Back", command=command_logout).grid(row=0, column=1)
 
         self.__apply_frame()
+
+    def __render_add_team_forename(self, forename):
+        Label(self.__body_frame, text="Forename").grid(row=0, column=0)
+        Entry(self.__body_frame, textvariable=forename).grid(row=0, column=1)
+
+    def __render_add_team_surname(self, surname):
+        Label(self.__body_frame, text="Surname").grid(row=1, column=0)
+        Entry(self.__body_frame, textvariable=surname).grid(row=1, column=1)
+
+    def __render_add_team_date_of_birth(self):
+        Label(self.__body_frame, text="DOB").grid(row=2, column=0)
+        cal = Calendar(self.__body_frame, selectmode='day',year=1998, month=12,day=22)
+
+        cal.grid(row=2, column=1)
+        print(cal.get_date())
+
+    def __render_add_team_role(self, role):
+        roles = self.__team_manager.get_roles()
+        role.set(roles[0])
+
+        Label(self.__body_frame, text="Role").grid(row=3, column=0)
+        OptionMenu(self.__body_frame, role, *roles).grid(row=3, column=1)
 
     def __add_team_process(self):
         print("adding team")
