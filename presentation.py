@@ -188,7 +188,7 @@ class Presentation:
         self.__render_add_team_surname(surname)
         self.__render_add_team_date_of_birth(date_of_birth)
         self.__render_add_team_role(role)
-        self.__render_add_team_save()
+        self.__render_add_team_save(forename, surname, date_of_birth, role)
         self.__render_add_team_back()
         self.__apply_frame()
 
@@ -212,16 +212,16 @@ class Presentation:
         Label(self.__body_frame, text="Role").grid(row=3, column=0)
         OptionMenu(self.__body_frame, role, *roles).grid(row=3, column=1)
 
-    def __render_add_team_save(self):
-        command_save = partial(self.__add_team_process)
+    def __render_add_team_save(self, forename, surname, date_of_birth, role):
+        command_save = partial(self.__add_team_process, forename.get(), surname.get(), date_of_birth.get(), role.get())
         Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
+
+    def __add_team_process(self, forename, surname, date_of_birth, role):
+        print(f"{forename, surname, date_of_birth, role}")
 
     def __render_add_team_back(self):
         command_back = partial(self.__render_team)
         Button(self.__actions_frame, text="Back", command=command_back).grid(row=0, column=1)
-
-    def __add_team_process(self):
-        print("adding team")
 
     def __render_team_back(self):
         command_logout = partial(self.__render_actions)
