@@ -180,12 +180,13 @@ class Presentation:
     def __render_add_team(self):
         forename = StringVar()
         surname = StringVar()
+        date_of_birth = StringVar()
         role = StringVar()
 
         self.__clear_window()
         self.__render_add_team_forename(forename)
         self.__render_add_team_surname(surname)
-        self.__render_add_team_date_of_birth()
+        self.__render_add_team_date_of_birth(date_of_birth)
         self.__render_add_team_role(role)
         self.__render_add_team_save()
         self.__render_add_team_back()
@@ -199,12 +200,10 @@ class Presentation:
         Label(self.__body_frame, text="Surname").grid(row=1, column=0)
         Entry(self.__body_frame, textvariable=surname).grid(row=1, column=1)
 
-    def __render_add_team_date_of_birth(self):
+    def __render_add_team_date_of_birth(self, date_of_birth):
+        date_of_birth.set("22/12/1998")
         Label(self.__body_frame, text="DOB").grid(row=2, column=0)
-        cal = Calendar(self.__body_frame, selectmode='day',year=1998, month=12,day=22)
-
-        cal.grid(row=2, column=1)
-        print(cal.get_date())
+        Calendar(self.__body_frame, textvariable=date_of_birth, selectmode='day').grid(row=2, column=1)
 
     def __render_add_team_role(self, role):
         roles = self.__team_manager.get_roles()
