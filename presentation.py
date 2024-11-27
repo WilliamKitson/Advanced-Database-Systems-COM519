@@ -173,11 +173,35 @@ class Presentation:
             ))
 
     def __render_team_add(self):
-        command_add = partial(self.__team_add_procedure)
+        command_add = partial(self.__render_add_team)
         Button(self.__actions_frame, text="Add", command=command_add).grid(row=1, column=0)
 
-    def __team_add_procedure(self):
-        print("adding team member")
+    def __render_add_team(self):
+        forename = StringVar()
+        surname = StringVar()
+        date_of_birth = StringVar()
+
+        self.__clear_window()
+
+        Label(self.__body_frame, text="Forename").grid(row=0, column=0)
+        Entry(self.__body_frame, textvariable=forename).grid(row=0, column=1)
+
+        Label(self.__body_frame, text="Surname").grid(row=1, column=0)
+        Entry(self.__body_frame, textvariable=surname).grid(row=1, column=1)
+
+        Label(self.__body_frame, text="DOB").grid(row=2, column=0)
+        Entry(self.__body_frame, textvariable=date_of_birth).grid(row=2, column=1)
+
+        command_logout = partial(self.__add_team_process)
+        Button(self.__actions_frame, text="Save", command=command_logout).grid(row=0, column=0)
+
+        command_logout = partial(self.__render_team)
+        Button(self.__actions_frame, text="Back", command=command_logout).grid(row=0, column=1)
+
+        self.__apply_frame()
+
+    def __add_team_process(self):
+        print("adding team")
 
     def __render_team_back(self):
         command_logout = partial(self.__render_actions)
