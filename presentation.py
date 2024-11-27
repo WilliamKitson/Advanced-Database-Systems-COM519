@@ -32,12 +32,11 @@ class Presentation:
         username = StringVar()
         password = StringVar()
 
-        self.__window.geometry('400x250')
         self.__clear_window()
         self.__render_login_username(username)
         self.__render_login_password(password)
         self.__render_login_submit(username, password)
-        self.__body_frame.grid(row=0, column=0)
+        self.__apply_frame()
 
     def __clear_window(self):
         for i in self.__body_frame.grid_slaves():
@@ -56,7 +55,7 @@ class Presentation:
 
     def __render_login_submit(self, username, password):
         command_login = partial(self.__login_procedure, username, password)
-        Button(self.__body_frame, text="Login", command=command_login).grid(row=3, column=0)
+        Button(self.__actions_frame, text="Login", command=command_login).grid(row=0, column=0)
 
     def __login_procedure(self, username, password):
         if self.__login_manager.login(username.get(), password.get()):
@@ -68,12 +67,6 @@ class Presentation:
             "The username or password you supplied are incorrect."
         )
 
-    def __render_actions(self):
-        self.__clear_window()
-        self.__render_actions_treeview()
-        self.__render_actions_logout()
-        self.__apply_frame()
-
     def __apply_frame(self):
         self.__body_frame.grid(row=0, column=0)
         self.__actions_frame.grid(row=1, column=0)
@@ -82,6 +75,12 @@ class Presentation:
         width = self.__body_frame.winfo_width()
         height = self.__body_frame.winfo_height() + self.__actions_frame.winfo_height()
         self.__window.geometry(f"{width}x{height}")
+
+    def __render_actions(self):
+        self.__clear_window()
+        self.__render_actions_treeview()
+        self.__render_actions_logout()
+        self.__apply_frame()
 
     def __render_actions_treeview(self):
         self.__render_actions_headings()
