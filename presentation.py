@@ -91,7 +91,6 @@ class Presentation:
     def __render_actions_headings(self):
         columns = [
             "Action",
-            "Description",
         ]
 
         self.__treeview = ttk.Treeview(
@@ -111,7 +110,7 @@ class Presentation:
         ]
 
         for i in columns:
-            self.__treeview.insert("", "end", values=(i, "temp"))
+            self.__treeview.insert("", "end", values=(i,))
 
     def __render_actions_logout(self):
         command_logout = partial(self.__render_login)
