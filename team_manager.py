@@ -15,5 +15,13 @@ class TeamManager:
 
         return self.__cursor.fetchall()
 
+    def get_roles(self):
+        self.__cursor.execute(
+            "SELECT Title "
+            "FROM Roles"
+        )
+
+        return self.__cursor.fetchall()
+
     def __del__(self):
         self.__database.close()

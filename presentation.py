@@ -5,6 +5,8 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
 from functools import partial
+from xml.dom.xmlbuilder import Options
+
 from login_manager import LoginManager
 from team_manager import TeamManager
 from menu_manager import MenuManager
@@ -180,6 +182,7 @@ class Presentation:
         forename = StringVar()
         surname = StringVar()
         date_of_birth = StringVar()
+        role = StringVar()
 
         self.__clear_window()
 
@@ -191,6 +194,10 @@ class Presentation:
 
         Label(self.__body_frame, text="DOB").grid(row=2, column=0)
         Entry(self.__body_frame, textvariable=date_of_birth).grid(row=2, column=1)
+
+        role.set(self.__team_manager.get_roles()[0])
+        Label(self.__body_frame, text="Role").grid(row=3, column=0)
+        OptionMenu(self.__body_frame, role, *self.__team_manager.get_roles()).grid(row=3, column=1)
 
         command_logout = partial(self.__add_team_process)
         Button(self.__actions_frame, text="Save", command=command_logout).grid(row=0, column=0)
