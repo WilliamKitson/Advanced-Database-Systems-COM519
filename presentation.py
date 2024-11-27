@@ -23,6 +23,7 @@ class Presentation:
 
     def render(self):
         self.__window.title("4kitsw10_COM519")
+        self.__window.resizable(False, False)
         self.__render_login()
         self.__window.mainloop()
 
