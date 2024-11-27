@@ -218,6 +218,7 @@ class Presentation:
 
     def __add_team_process(self, forename, surname, date_of_birth, role):
         print(f"{forename, surname, date_of_birth, role}")
+        self.__render_team()
 
     def __render_add_team_back(self):
         command_back = partial(self.__render_team)
