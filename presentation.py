@@ -27,11 +27,17 @@ class Presentation:
         self.__window.mainloop()
 
     def __render_login(self):
+        instructions = (
+            "Welcome to William E. Kitson's COM519 project.\n"
+            "Please login below to continue.\n"
+            "The default admin login is Username: u, Password: p\n"
+        )
+
         username = StringVar()
         password = StringVar()
 
         self.__clear_window()
-        self.__render_login_instructions()
+        self.__render_instructions(instructions)
         self.__render_login_username(username)
         self.__render_login_password(password)
         self.__render_login_submit(username, password)
@@ -47,13 +53,7 @@ class Presentation:
         for i in self.__actions_frame.grid_slaves():
             i.destroy()
 
-    def __render_login_instructions(self):
-        instructions = (
-            "Welcome to William E. Kitson's COM519 project.\n"
-            "Please login below to continue.\n"
-            "The default admin login is Username: u, Password: p\n"
-        )
-
+    def __render_instructions(self, instructions):
         Label(self.__instructions_frame, text=instructions).grid(row=0, column=0)
 
     def __render_login_username(self, username):
@@ -104,19 +104,16 @@ class Presentation:
         )
 
     def __render_actions(self):
-        self.__clear_window()
-        self.__render_actions_instructions()
-        self.__render_actions_treeview()
-        self.__render_actions_logout()
-        self.__apply_frame()
-
-    def __render_actions_instructions(self):
         instructions = (
             "Welcome to the Actions page.\n"
             "Here, you can drill into the system's subsystems by double-clicking the appropriate actions.\n"
         )
 
-        Label(self.__instructions_frame, text=instructions).grid(row=0, column=0)
+        self.__clear_window()
+        self.__render_instructions(instructions)
+        self.__render_actions_treeview()
+        self.__render_actions_logout()
+        self.__apply_frame()
 
     def __render_actions_treeview(self):
         self.__render_actions_headings()
@@ -169,21 +166,18 @@ class Presentation:
         return self.__treeview.item(item, "values")[0]
 
     def __render_team(self):
-        self.__clear_window()
-        self.__render_team_instructions()
-        self.__render_team_treeview()
-        self.__render_team_add()
-        self.__render_team_back()
-        self.__apply_frame()
-
-    def __render_team_instructions(self):
         instructions = (
             "Welcome to Manage Team.\n "
             "Here, you can add, delete, and modify team members.\n"
             "Double-click on a team member to modify or delete them."
         )
 
-        Label(self.__instructions_frame, text=instructions).grid(row=0, column=0)
+        self.__clear_window()
+        self.__render_instructions(instructions)
+        self.__render_team_treeview()
+        self.__render_team_add()
+        self.__render_team_back()
+        self.__apply_frame()
 
     def __render_team_treeview(self):
         self.__render_team_headings()
@@ -223,13 +217,18 @@ class Presentation:
         Button(self.__actions_frame, text="Add", command=command_add).grid(row=1, column=0)
 
     def __render_add_team(self):
+        instructions = (
+            "Welcome to the Add Team Member Page.\n "
+            "BLABLABLA."
+        )
+
         forename = StringVar()
         surname = StringVar()
         date_of_birth = StringVar()
         role = StringVar()
 
         self.__clear_window()
-        self.__render_add_team_instructions()
+        self.__render_instructions(instructions)
         self.__render_add_team_forename(forename)
         self.__render_add_team_surname(surname)
         self.__render_add_team_date_of_birth(date_of_birth)
@@ -237,14 +236,6 @@ class Presentation:
         self.__render_add_team_save(forename, surname, date_of_birth, role)
         self.__render_add_team_back()
         self.__apply_frame()
-
-    def __render_add_team_instructions(self):
-        instructions = (
-            "Welcome to the Add Team Member Page.\n "
-            "BLABLABLA."
-        )
-
-        Label(self.__instructions_frame, text=instructions).grid(row=0, column=0)
 
     def __render_add_team_forename(self, forename):
         Label(self.__body_frame, text="Forename").grid(row=0, column=0)
@@ -290,19 +281,16 @@ class Presentation:
         Button(self.__actions_frame, text="Back", command=command_logout).grid(row=1, column=1)
 
     def __render_menu(self):
-        self.__clear_window()
-        self.__render_menu_instructions()
-        self.__render_menu_treeview()
-        self.__render_menu_back()
-        self.__apply_frame()
-
-    def __render_menu_instructions(self):
         instructions = (
             "Welcome to the Menu Page.\n "
             "BLABLABLA."
         )
 
-        Label(self.__instructions_frame, text=instructions).grid(row=0, column=0)
+        self.__clear_window()
+        self.__render_instructions(instructions)
+        self.__render_menu_treeview()
+        self.__render_menu_back()
+        self.__apply_frame()
 
     def __render_menu_treeview(self):
         self.__render_menu_headings()
@@ -342,19 +330,16 @@ class Presentation:
         Button(self.__actions_frame, text="Back", command=command_logout).grid(row=0, column=0)
 
     def __render_nutrition(self, nutrition):
-        self.__clear_window()
-        self.__render_nutrition_instructions(nutrition)
-        self.__render_nutrition_treeview(nutrition)
-        self.__render_nutrition_back()
-        self.__apply_frame()
-
-    def __render_nutrition_instructions(self, nutrition):
         instructions = (
             f"Welcome to the {nutrition} Nutrition Page.\n "
             "BLABLABLA."
         )
 
-        Label(self.__instructions_frame, text=instructions).grid(row=0, column=0)
+        self.__clear_window()
+        self.__render_instructions(instructions)
+        self.__render_nutrition_treeview(nutrition)
+        self.__render_nutrition_back()
+        self.__apply_frame()
 
     def __render_nutrition_treeview(self, nutrition):
         self.__render_nutrition_headings()
