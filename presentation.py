@@ -14,6 +14,7 @@ from nutrition_manager import NutritionManager
 class Presentation:
     def __init__(self, database):
         self.__window = tkinter.Tk()
+        self.__instructions_frame = tkinter.Frame(self.__window)
         self.__body_frame = tkinter.Frame(self.__window)
         self.__actions_frame = tkinter.Frame(self.__window)
         self.__treeview = None
@@ -34,12 +35,18 @@ class Presentation:
         password = StringVar()
 
         self.__clear_window()
+
+        Label(self.__instructions_frame, text="Usernamehhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh").grid(row=0, column=0)
+
         self.__render_login_username(username)
         self.__render_login_password(password)
         self.__render_login_submit(username, password)
         self.__apply_frame()
 
     def __clear_window(self):
+        for i in self.__instructions_frame.grid_slaves():
+            i.destroy()
+
         for i in self.__body_frame.grid_slaves():
             i.destroy()
 
@@ -69,12 +76,25 @@ class Presentation:
         )
 
     def __apply_frame(self):
-        self.__body_frame.grid(row=0, column=0)
-        self.__actions_frame.grid(row=1, column=0)
+        self.__instructions_frame.grid(row=0, column=0)
+        self.__body_frame.grid(row=1, column=0)
+        self.__actions_frame.grid(row=2, column=0)
         self.__window.update()
 
-        width = self.__body_frame.winfo_width()
-        height = self.__body_frame.winfo_height() + self.__actions_frame.winfo_height()
+        width = self.__instructions_frame.winfo_width()
+
+        if self.__body_frame.winfo_width() > width:
+            width = self.__body_frame.winfo_width()
+
+        if self.__actions_frame.winfo_width() > width:
+            width = self.__actions_frame.winfo_width()
+
+        height = (
+            self.__instructions_frame.winfo_height() +
+            self.__body_frame.winfo_height() +
+            self.__actions_frame.winfo_height()
+        )
+
         self.__window.geometry(f"{width}x{height}")
 
     def __render_actions(self):
