@@ -53,8 +53,9 @@ class Presentation:
 
     def __render_login_instructions(self):
         instructions = (
-            "Usernamehhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n"
-            "aghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+            "Welcome to William E. Kitson's COM519 project.\n"
+            "Please login below to continue.\n"
+            "The default admin login is Username: u, Password: p\n"
         )
 
         Label(self.__instructions_frame, text=instructions).grid(row=0, column=0)
