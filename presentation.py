@@ -19,10 +19,6 @@ class Presentation:
         self.__actions_frame = tkinter.Frame(self.__window)
         self.__treeview = None
         self.__database = database
-        self.__login_manager = LoginManager(database)
-        self.__team_manager = TeamManager(database)
-        self.__menu_manager = MenuManager(database)
-        self.__nutrition_manager = NutritionManager(database)
 
     def render(self):
         self.__window.title("4kitsw10_COM519")
@@ -73,7 +69,7 @@ class Presentation:
         Button(self.__actions_frame, text="Login", command=command_login).grid(row=0, column=0)
 
     def __login_procedure(self, username, password):
-        if self.__login_manager.login(username.get(), password.get()):
+        if LoginManager(self.__database).login(username.get(), password.get()):
             self.__render_actions()
             return
 
@@ -213,7 +209,7 @@ class Presentation:
             self.__treeview.heading(i, text=i)
 
     def __render_team_body(self):
-        for i in self.__team_manager.get_team():
+        for i in TeamManager(self.__database).get_team():
             self.__treeview.insert("", "end", values=(
                 i[0],
                 i[1],
@@ -264,7 +260,7 @@ class Presentation:
         Calendar(self.__body_frame, textvariable=date_of_birth, selectmode='day').grid(row=2, column=1)
 
     def __render_add_team_role(self, role):
-        roles = self.__team_manager.get_roles()
+        roles = TeamManager(self.__database).get_roles()
         role.set(roles[0])
 
         Label(self.__body_frame, text="Role").grid(row=3, column=0)
@@ -324,7 +320,7 @@ class Presentation:
             self.__treeview.heading(i, text=i)
 
     def __render_menu_body(self):
-        for i in self.__menu_manager.get_menu():
+        for i in MenuManager(self.__database).get_menu():
             self.__treeview.insert("", "end", values=(
                 i[1],
                 f"£{i[2]}",
@@ -376,7 +372,7 @@ class Presentation:
             self.__treeview.heading(i, text=i)
 
     def __render_nutrition_body(self, nutrition):
-        for i in self.__nutrition_manager.get_nutrition(nutrition):
+        for i in NutritionManager(self.__database).get_nutrition(nutrition):
             self.__treeview.insert("", "end", values=(
                 i[1],
                 f"x{i[2]}",
