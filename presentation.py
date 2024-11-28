@@ -267,7 +267,14 @@ class Presentation:
         OptionMenu(self.__body_frame, role, *roles).grid(row=3, column=1)
 
     def __render_add_team_save(self, forename, surname, date_of_birth, role):
-        command_save = partial(self.__add_team_process, forename.get(), surname.get(), date_of_birth.get(), role.get())
+        command_save = partial(
+            self.__add_team_process,
+            forename.get(),
+            surname.get(),
+            date_of_birth.get(),
+            role.get()
+        )
+
         Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
 
     def __add_team_process(self, forename, surname, date_of_birth, role):
