@@ -288,9 +288,18 @@ class Presentation:
 
     def __render_menu(self):
         self.__clear_window()
+        self.__render_menu_instructions()
         self.__render_menu_treeview()
         self.__render_menu_back()
         self.__apply_frame()
+
+    def __render_menu_instructions(self):
+        instructions = (
+            "Welcome to the Menu Page.\n "
+            "BLABLABLA."
+        )
+
+        Label(self.__instructions_frame, text=instructions).grid(row=0, column=0)
 
     def __render_menu_treeview(self):
         self.__render_menu_headings()
