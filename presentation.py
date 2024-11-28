@@ -80,7 +80,9 @@ class Presentation:
         self.__body_frame.grid(row=1, column=0)
         self.__actions_frame.grid(row=2, column=0)
         self.__window.update()
+        self.__window.geometry(f"{self.__calculate_frame_width()}x{self.__calculate_frame_height()}")
 
+    def __calculate_frame_width(self):
         width = self.__instructions_frame.winfo_width()
 
         if self.__body_frame.winfo_width() > width:
@@ -89,13 +91,14 @@ class Presentation:
         if self.__actions_frame.winfo_width() > width:
             width = self.__actions_frame.winfo_width()
 
-        height = (
+        return width
+
+    def __calculate_frame_height(self):
+        return (
             self.__instructions_frame.winfo_height() +
             self.__body_frame.winfo_height() +
             self.__actions_frame.winfo_height()
         )
-
-        self.__window.geometry(f"{width}x{height}")
 
     def __render_actions(self):
         self.__clear_window()
