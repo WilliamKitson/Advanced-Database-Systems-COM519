@@ -35,9 +35,7 @@ class Presentation:
         password = StringVar()
 
         self.__clear_window()
-
-        Label(self.__instructions_frame, text="Usernamehhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh").grid(row=0, column=0)
-
+        self.__render_login_instructions()
         self.__render_login_username(username)
         self.__render_login_password(password)
         self.__render_login_submit(username, password)
@@ -52,6 +50,14 @@ class Presentation:
 
         for i in self.__actions_frame.grid_slaves():
             i.destroy()
+
+    def __render_login_instructions(self):
+        instructions = (
+            "Usernamehhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\n"
+            "aghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+        )
+
+        Label(self.__instructions_frame, text=instructions).grid(row=0, column=0)
 
     def __render_login_username(self, username):
         Label(self.__body_frame, text="Username").grid(row=0, column=0)
