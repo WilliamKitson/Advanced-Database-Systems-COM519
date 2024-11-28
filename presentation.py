@@ -233,6 +233,7 @@ class Presentation:
         role = StringVar()
 
         self.__clear_window()
+        self.__render_add_team_instructions()
         self.__render_add_team_forename(forename)
         self.__render_add_team_surname(surname)
         self.__render_add_team_date_of_birth(date_of_birth)
@@ -240,6 +241,14 @@ class Presentation:
         self.__render_add_team_save(forename, surname, date_of_birth, role)
         self.__render_add_team_back()
         self.__apply_frame()
+
+    def __render_add_team_instructions(self):
+        instructions = (
+            "Welcome to the Add Team Member Page.\n "
+            "BLABLABLA."
+        )
+
+        Label(self.__instructions_frame, text=instructions).grid(row=0, column=0)
 
     def __render_add_team_forename(self, forename):
         Label(self.__body_frame, text="Forename").grid(row=0, column=0)
