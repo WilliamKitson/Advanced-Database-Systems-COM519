@@ -109,9 +109,19 @@ class Presentation:
 
     def __render_actions(self):
         self.__clear_window()
+        self.__render_actions_instructions()
         self.__render_actions_treeview()
         self.__render_actions_logout()
         self.__apply_frame()
+
+    def __render_actions_instructions(self):
+        instructions = (
+            "Welcome to the Actions page.\n"
+            "Here, you can drill into the systems subsystems by double-clicking the appropriate actions.\n"
+            "Double-click 'Manage Team' to add, delete, and modify team members.\n"
+        )
+
+        Label(self.__instructions_frame, text=instructions).grid(row=0, column=0)
 
     def __render_actions_treeview(self):
         self.__render_actions_headings()
