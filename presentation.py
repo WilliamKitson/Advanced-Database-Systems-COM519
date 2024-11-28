@@ -340,9 +340,18 @@ class Presentation:
 
     def __render_nutrition(self, nutrition):
         self.__clear_window()
+        self.__render_nutrition_instructions(nutrition)
         self.__render_nutrition_treeview(nutrition)
         self.__render_nutrition_back()
         self.__apply_frame()
+
+    def __render_nutrition_instructions(self, nutrition):
+        instructions = (
+            f"Welcome to the {nutrition} Nutrition Page.\n "
+            "BLABLABLA."
+        )
+
+        Label(self.__instructions_frame, text=instructions).grid(row=0, column=0)
 
     def __render_nutrition_treeview(self, nutrition):
         self.__render_nutrition_headings()
