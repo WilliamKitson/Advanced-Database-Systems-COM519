@@ -117,8 +117,7 @@ class Presentation:
     def __render_actions_instructions(self):
         instructions = (
             "Welcome to the Actions page.\n"
-            "Here, you can drill into the systems subsystems by double-clicking the appropriate actions.\n"
-            "Double-click 'Manage Team' to add, delete, and modify team members.\n"
+            "Here, you can drill into the system's subsystems by double-clicking the appropriate actions.\n"
         )
 
         Label(self.__instructions_frame, text=instructions).grid(row=0, column=0)
@@ -175,10 +174,20 @@ class Presentation:
 
     def __render_team(self):
         self.__clear_window()
+        self.__render_team_instructions()
         self.__render_team_treeview()
         self.__render_team_add()
         self.__render_team_back()
         self.__apply_frame()
+
+    def __render_team_instructions(self):
+        instructions = (
+            "Welcome to Manage Team.\n "
+            "Here, you can add, delete, and modify team members.\n"
+            "Double-click on a team member to modify or delete them."
+        )
+
+        Label(self.__instructions_frame, text=instructions).grid(row=0, column=0)
 
     def __render_team_treeview(self):
         self.__render_team_headings()
