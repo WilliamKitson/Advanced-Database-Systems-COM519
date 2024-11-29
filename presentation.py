@@ -302,7 +302,7 @@ class Presentation:
         Entry(self.__body_frame, textvariable=surname).grid(row=3, column=1)
 
     def __render_team_date_of_birth_input(self, date_of_birth):
-        date_of_birth.set("22/12/1998")
+        date_of_birth.set("1998-12-22")
         Label(self.__body_frame, text="DOB").grid(row=4, column=0)
         Calendar(self.__body_frame, date_pattern="yyyy-mm-dd", textvariable=date_of_birth, selectmode='day').grid(row=4, column=1)
 
