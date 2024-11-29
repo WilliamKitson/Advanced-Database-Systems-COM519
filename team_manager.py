@@ -23,7 +23,7 @@ class TeamManager:
 
         return self.__cursor.fetchall()
 
-    def add_team(self, forename, surname, date_of_birth, role):
+    def add_team(self, forename, surname, date_of_birth):
         query = (
             "INSERT INTO Staff (Username, Password, Forename, Surname, DOB)"
             "VALUES (?, ?, ?, ?, ?)"

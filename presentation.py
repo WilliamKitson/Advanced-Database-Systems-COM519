@@ -225,15 +225,13 @@ class Presentation:
         forename = StringVar()
         surname = StringVar()
         date_of_birth = StringVar()
-        role = StringVar()
 
         self.__clear_window()
         self.__render_instructions(instructions)
         self.__render_add_team_forename(forename)
         self.__render_add_team_surname(surname)
         self.__render_add_team_date_of_birth(date_of_birth)
-        self.__render_add_team_role(role)
-        self.__render_add_team_save(forename, surname, date_of_birth, role)
+        self.__render_add_team_save(forename, surname, date_of_birth)
         self.__render_add_team_back()
         self.__apply_frame()
 
@@ -250,30 +248,21 @@ class Presentation:
         Label(self.__body_frame, text="DOB").grid(row=2, column=0)
         Calendar(self.__body_frame, date_pattern="yyyy-mm-dd", textvariable=date_of_birth, selectmode='day').grid(row=2, column=1)
 
-    def __render_add_team_role(self, role):
-        roles = TeamManager(self.__database).get_roles()
-        role.set(roles[0])
-
-        Label(self.__body_frame, text="Role").grid(row=3, column=0)
-        OptionMenu(self.__body_frame, role, *roles).grid(row=3, column=1)
-
-    def __render_add_team_save(self, forename, surname, date_of_birth, role):
+    def __render_add_team_save(self, forename, surname, date_of_birth):
         command_save = partial(
             self.__add_team_process,
             forename,
             surname,
-            date_of_birth,
-            role
+            date_of_birth
         )
 
         Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
 
-    def __add_team_process(self, forename, surname, date_of_birth, role):
+    def __add_team_process(self, forename, surname, date_of_birth):
         TeamManager(self.__database).add_team(
             forename.get(),
             surname.get(),
-            date_of_birth.get(),
-            role.get()
+            date_of_birth.get()
         )
 
         self.__render_team()
