@@ -433,11 +433,15 @@ class Presentation:
 
         category = StringVar()
         name = StringVar()
+        price = StringVar()
+        time = StringVar()
 
         self.__clear_window()
         self.__render_instructions(instructions)
         self.__render_menu_add_categories(category)
         self.__render_menu_add_name(name)
+        self.__render_menu_add_price(price)
+        self.__render_menu_add_time(time)
         self.__render_nutrition_back()
         self.__apply_frame()
 
@@ -451,6 +455,14 @@ class Presentation:
     def __render_menu_add_name(self, name):
         Label(self.__body_frame, text="Name").grid(row=1, column=0)
         Entry(self.__body_frame, textvariable=name).grid(row=1, column=1)
+
+    def __render_menu_add_price(self, price):
+        Label(self.__body_frame, text="Price").grid(row=2, column=0)
+        Entry(self.__body_frame, textvariable=price).grid(row=2, column=1)
+
+    def __render_menu_add_time(self, time):
+        Label(self.__body_frame, text="Cook Time").grid(row=3, column=0)
+        Entry(self.__body_frame, textvariable=time).grid(row=3, column=1)
 
     def __render_nutrition(self, nutrition):
         instructions = (
