@@ -15,5 +15,18 @@ class MenuManager:
 
         return self.__cursor.fetchall()
 
+    def get_categories(self):
+        self.__cursor.execute(
+            "SELECT Name "
+            "FROM Categories"
+        )
+
+        categories = []
+
+        for i in self.__cursor.fetchall():
+            categories.append(i[0])
+
+        return categories
+
     def __del__(self):
         self.__database.close()

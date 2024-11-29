@@ -431,10 +431,20 @@ class Presentation:
             "BLABLABLA."
         )
 
+        category = StringVar()
+
         self.__clear_window()
         self.__render_instructions(instructions)
+        self.__render_menu_add_categories(category)
         self.__render_nutrition_back()
         self.__apply_frame()
+
+    def __render_menu_add_categories(self, category):
+        categories = MenuManager(self.__database).get_categories()
+        category.set(categories[0])
+
+        Label(self.__body_frame, text="Role").grid(row=0, column=0)
+        OptionMenu(self.__body_frame, category, *categories).grid(row=0, column=0)
 
     def __render_nutrition(self, nutrition):
         instructions = (
