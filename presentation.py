@@ -432,10 +432,12 @@ class Presentation:
         )
 
         category = StringVar()
+        name = StringVar()
 
         self.__clear_window()
         self.__render_instructions(instructions)
         self.__render_menu_add_categories(category)
+        self.__render_menu_add_name(name)
         self.__render_nutrition_back()
         self.__apply_frame()
 
@@ -443,8 +445,12 @@ class Presentation:
         categories = MenuManager(self.__database).get_categories()
         category.set(categories[0])
 
-        Label(self.__body_frame, text="Role").grid(row=0, column=0)
-        OptionMenu(self.__body_frame, category, *categories).grid(row=0, column=0)
+        Label(self.__body_frame, text="Category").grid(row=0, column=0)
+        OptionMenu(self.__body_frame, category, *categories).grid(row=0, column=1)
+
+    def __render_menu_add_name(self, name):
+        Label(self.__body_frame, text="Name").grid(row=1, column=0)
+        Entry(self.__body_frame, textvariable=name).grid(row=1, column=1)
 
     def __render_nutrition(self, nutrition):
         instructions = (
