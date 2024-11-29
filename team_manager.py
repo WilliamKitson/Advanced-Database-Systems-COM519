@@ -33,6 +33,10 @@ class TeamManager:
         self.__database.commit()
 
     def edit_team(self, username, password, forename, surname, date_of_birth, staff_id, role):
+        self.__edit_team_staff(username, password, forename, surname, date_of_birth, staff_id)
+        self.__edit_team_role(role, staff_id)
+
+    def __edit_team_staff(self, username, password, forename, surname, date_of_birth, staff_id):
         query = (
             "UPDATE "
             "Staff "
@@ -51,6 +55,27 @@ class TeamManager:
             forename,
             surname,
             date_of_birth,
+            staff_id,
+        )
+
+        self.__cursor.execute(query, parameters)
+        self.__database.commit()
+
+    def __edit_team_role(self, role, staff_id):
+        query = (
+            "UPDATE Staff_Roles SET "
+            "Role_Id = ( "         
+            "SELECT Role_Id "
+            "FROM Roles "
+            "WHERE Roles.Title = ? "
+            ") "
+            "WHERE Staff_Id = ?"
+        )
+
+        print(role)
+
+        parameters = (
+            role,
             staff_id,
         )
 
