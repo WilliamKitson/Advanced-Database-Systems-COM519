@@ -29,15 +29,33 @@ class TeamManager:
             date_of_birth
         )
 
-        self.__cursor.execute(
-            query,
-            parameters
-        )
-
+        self.__cursor.execute(query, parameters)
         self.__database.commit()
 
-    def edit_team(self, username, password, forename, surname, date_of_birth, role):
-        print(username, password, forename, surname, date_of_birth, role)
+    def edit_team(self, username, password, forename, surname, date_of_birth, staff_id, role):
+        query = (
+            "UPDATE "
+            "Staff "
+            "SET "
+            "Username = ?, "
+            "Password = ?, "
+            "Forename = ?, "
+            "Surname = ?, "
+            "DOB = ? "
+            "WHERE Staff_Id = ?"
+        )
+
+        parameters = (
+            username,
+            password,
+            forename,
+            surname,
+            date_of_birth,
+            staff_id,
+        )
+
+        self.__cursor.execute(query, parameters)
+        self.__database.commit()
 
     def get_staff_at(self, staff_id):
         query = (
