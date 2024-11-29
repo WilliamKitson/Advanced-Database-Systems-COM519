@@ -240,15 +240,6 @@ class Presentation:
         self.__render_team_back_input()
         self.__apply_frame()
 
-    def __add_team_process(self, forename, surname, date_of_birth):
-        TeamManager(self.__database).add_team(
-            forename.get(),
-            surname.get(),
-            date_of_birth.get()
-        )
-
-        self.__render_team()
-
     def __render_team_back(self):
         command_logout = partial(self.__render_actions)
         Button(self.__actions_frame, text="Back", command=command_logout).grid(row=1, column=1)
@@ -285,6 +276,7 @@ class Presentation:
         self.__render_team_surname_input(surname)
         self.__render_team_date_of_birth_input(date_of_birth)
         self.__render_team_role_input(role)
+        self.__render_edit_team_save(username, password, forename, surname, date_of_birth, role)
         self.__render_team_back_input()
         self.__apply_frame()
 
@@ -325,6 +317,31 @@ class Presentation:
         )
 
         Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
+
+    def __add_team_process(self, forename, surname, date_of_birth):
+        TeamManager(self.__database).add_team(
+            forename.get(),
+            surname.get(),
+            date_of_birth.get()
+        )
+
+        self.__render_team()
+
+    def __render_edit_team_save(self, username, password, forename, surname, date_of_birth, role):
+        command_save = partial(
+            self.__edit_team_process,
+            username,
+            password,
+            forename,
+            surname,
+            date_of_birth,
+            role
+        )
+
+        Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
+
+    def __edit_team_process(self, username, password, forename, surname, date_of_birth, role):
+        print(username, password, forename, surname, date_of_birth, role)
 
     def __render_team_back_input(self):
         command_back = partial(self.__render_team)
