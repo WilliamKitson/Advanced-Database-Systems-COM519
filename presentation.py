@@ -380,7 +380,7 @@ class Presentation:
         self.__clear_window()
         self.__render_instructions(instructions)
         self.__render_menu_treeview()
-        self.__render_menu_add()
+        self.__render_menu_add_input()
         self.__render_menu_back()
         self.__apply_frame()
 
@@ -417,16 +417,24 @@ class Presentation:
     def __menu_nutrition_procedure(self, event):
         self.__render_nutrition(self.__get_treeview_event())
 
-    def __render_menu_add(self):
-        command_logout = partial(self.__menu_add_procedure)
+    def __render_menu_add_input(self):
+        command_logout = partial(self.__render_menu_add)
         Button(self.__actions_frame, text="Add", command=command_logout).grid(row=0, column=0)
-
-    def __menu_add_procedure(self):
-        print("menu add procedure")
 
     def __render_menu_back(self):
         command_logout = partial(self.__render_actions)
         Button(self.__actions_frame, text="Back", command=command_logout).grid(row=0, column=1)
+
+    def __render_menu_add(self):
+        instructions = (
+            f"Welcome to the Menu Add page.\n "
+            "BLABLABLA."
+        )
+
+        self.__clear_window()
+        self.__render_instructions(instructions)
+        self.__render_nutrition_back()
+        self.__apply_frame()
 
     def __render_nutrition(self, nutrition):
         instructions = (
