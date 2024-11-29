@@ -250,23 +250,25 @@ class Presentation:
             "BLABLABLA."
         )
 
+        staff_at_id = TeamManager(self.__database).get_staff_at(14)
+
         username = StringVar()
-        username.set("test username")
+        username.set(staff_at_id[0])
 
         password = StringVar()
-        password.set("test password")
+        password.set(staff_at_id[1])
 
         forename = StringVar()
-        forename.set("test forename")
+        forename.set(staff_at_id[2])
 
         surname = StringVar()
-        surname.set("test surname")
+        surname.set(staff_at_id[3])
 
         date_of_birth = StringVar()
-        date_of_birth.set("1999-01-01")
+        date_of_birth.set(staff_at_id[4])
 
         role = StringVar()
-        role.set("test role")
+        role.set(staff_at_id[5])
 
         self.__clear_window()
         self.__render_instructions(instructions)
