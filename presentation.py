@@ -260,16 +260,22 @@ class Presentation:
     def __render_add_team_save(self, forename, surname, date_of_birth, role):
         command_save = partial(
             self.__add_team_process,
+            forename,
+            surname,
+            date_of_birth,
+            role
+        )
+
+        Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
+
+    def __add_team_process(self, forename, surname, date_of_birth, role):
+        TeamManager(self.__database).add_team(
             forename.get(),
             surname.get(),
             date_of_birth.get(),
             role.get()
         )
 
-        Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
-
-    def __add_team_process(self, forename, surname, date_of_birth, role):
-        print(f"{forename, surname, date_of_birth, role}")
         self.__render_team()
 
     def __render_add_team_back(self):

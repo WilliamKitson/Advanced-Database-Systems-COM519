@@ -23,5 +23,26 @@ class TeamManager:
 
         return self.__cursor.fetchall()
 
+    def add_team(self, forename, surname, date_of_birth, role):
+        query = (
+            "INSERT INTO Staff (Username, Password, Forename, Surname, DOB)"
+            "VALUES (?, ?, ?, ?, ?)"
+        )
+
+        parameters = (
+            f"{forename}_{surname}",
+            f"{forename}{surname}{date_of_birth}",
+            forename,
+            surname,
+            date_of_birth
+        )
+
+        self.__cursor.execute(
+            query,
+            parameters
+        )
+
+        self.__database.commit()
+
     def __del__(self):
         self.__database.close()
