@@ -248,7 +248,7 @@ class Presentation:
     def __render_add_team_date_of_birth(self, date_of_birth):
         date_of_birth.set("22/12/1998")
         Label(self.__body_frame, text="DOB").grid(row=2, column=0)
-        Calendar(self.__body_frame, textvariable=date_of_birth, selectmode='day').grid(row=2, column=1)
+        Calendar(self.__body_frame, date_pattern="yyyy-mm-dd", textvariable=date_of_birth, selectmode='day').grid(row=2, column=1)
 
     def __render_add_team_role(self, role):
         roles = TeamManager(self.__database).get_roles()
