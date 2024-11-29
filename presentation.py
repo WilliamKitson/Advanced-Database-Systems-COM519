@@ -281,6 +281,7 @@ class Presentation:
         self.__render_team_date_of_birth_input(date_of_birth)
         self.__render_team_role_input(role)
         self.__render_edit_team_save(username, password, forename, surname, date_of_birth, team_id, role)
+        self.__render_edit_team_delete(team_id)
         self.__render_team_back_input()
         self.__apply_frame()
 
@@ -345,6 +346,14 @@ class Presentation:
 
         Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
 
+    def __render_edit_team_delete(self, staff_id):
+        command_delete = partial(self.__team_delete_process, staff_id)
+        Button(self.__actions_frame, text="Delete", command=command_delete).grid(row=0, column=1)
+
+    def __team_delete_process(self, staff_id):
+        TeamManager(self.__database).delete_team(staff_id)
+        self.__render_team()
+
     def __edit_team_process(self, username, password, forename, surname, date_of_birth, staff_id, role):
         TeamManager(self.__database).edit_team(
             username.get(),
@@ -360,7 +369,7 @@ class Presentation:
 
     def __render_team_back_input(self):
         command_back = partial(self.__render_team)
-        Button(self.__actions_frame, text="Back", command=command_back).grid(row=0, column=1)
+        Button(self.__actions_frame, text="Back", command=command_back).grid(row=0, column=2)
 
     def __render_menu(self):
         instructions = (

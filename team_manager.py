@@ -57,6 +57,15 @@ class TeamManager:
         self.__cursor.execute(query, parameters)
         self.__database.commit()
 
+    def delete_team(self, staff_id):
+        query = (
+            "DELETE FROM Staff "
+            "WHERE Staff_Id = ?"
+        )
+
+        self.__cursor.execute(query, (staff_id,))
+        self.__database.commit()
+
     def get_staff_at(self, staff_id):
         query = (
             "SELECT * "
