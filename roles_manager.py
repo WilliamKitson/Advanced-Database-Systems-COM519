@@ -2,7 +2,7 @@
 
 import sqlite3
 
-class TeamManager:
+class RolesManager:
     def __init__(self, database):
         self.__database = sqlite3.connect(database)
         self.__cursor = self.__database.cursor()

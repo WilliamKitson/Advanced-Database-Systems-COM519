@@ -8,6 +8,7 @@ from tkcalendar import Calendar
 from functools import partial
 from login_manager import LoginManager
 from team_manager import TeamManager
+from roles_manager import RolesManager
 from menu_manager import MenuManager
 from nutrition_manager import NutritionManager
 
@@ -214,7 +215,7 @@ class Presentation:
             ))
 
     def __edit_team_procedure(self, event):
-        print("edit team procedure")
+        self.__render_team_edit(0)
 
     def __render_team_add(self):
         command_add = partial(self.__render_add_team)
@@ -239,18 +240,81 @@ class Presentation:
         self.__render_add_team_back()
         self.__apply_frame()
 
+    def __add_team_process(self, forename, surname, date_of_birth):
+        TeamManager(self.__database).add_team(
+            forename.get(),
+            surname.get(),
+            date_of_birth.get()
+        )
+
+        self.__render_team()
+
+    def __render_team_back(self):
+        command_logout = partial(self.__render_actions)
+        Button(self.__actions_frame, text="Back", command=command_logout).grid(row=1, column=1)
+
+    def __render_team_edit(self, team_id):
+        instructions = (
+            "Welcome to the Edit Team Member Page.\n "
+            "BLABLABLA."
+        )
+
+        username = StringVar()
+        username.set("test username")
+
+        password = StringVar()
+        password.set("test password")
+
+        forename = StringVar()
+        forename.set("test forename")
+
+        surname = StringVar()
+        surname.set("test surname")
+
+        date_of_birth = StringVar()
+        date_of_birth.set("1999-01-01")
+
+        role = StringVar()
+        role.set("test role")
+
+        self.__clear_window()
+        self.__render_instructions(instructions)
+        self.__render_edit_team_username(username)
+        self.__render_edit_team_password(password)
+        self.__render_add_team_forename(forename)
+        self.__render_add_team_surname(surname)
+        self.__render_add_team_date_of_birth(date_of_birth)
+        self.__render_edit_team_role(role)
+        self.__render_add_team_back()
+        self.__apply_frame()
+
+    def __render_edit_team_username(self, username):
+        Label(self.__body_frame, text="Username").grid(row=0, column=0)
+        Entry(self.__body_frame, textvariable=username).grid(row=0, column=1)
+
+    def __render_edit_team_password(self, password):
+        Label(self.__body_frame, text="Password").grid(row=1, column=0)
+        Entry(self.__body_frame, textvariable=password).grid(row=1, column=1)
+
     def __render_add_team_forename(self, forename):
-        Label(self.__body_frame, text="Forename").grid(row=0, column=0)
-        Entry(self.__body_frame, textvariable=forename).grid(row=0, column=1)
+        Label(self.__body_frame, text="Forename").grid(row=2, column=0)
+        Entry(self.__body_frame, textvariable=forename).grid(row=2, column=1)
 
     def __render_add_team_surname(self, surname):
-        Label(self.__body_frame, text="Surname").grid(row=1, column=0)
-        Entry(self.__body_frame, textvariable=surname).grid(row=1, column=1)
+        Label(self.__body_frame, text="Surname").grid(row=3, column=0)
+        Entry(self.__body_frame, textvariable=surname).grid(row=3, column=1)
 
     def __render_add_team_date_of_birth(self, date_of_birth):
         date_of_birth.set("22/12/1998")
-        Label(self.__body_frame, text="DOB").grid(row=2, column=0)
-        Calendar(self.__body_frame, date_pattern="yyyy-mm-dd", textvariable=date_of_birth, selectmode='day').grid(row=2, column=1)
+        Label(self.__body_frame, text="DOB").grid(row=4, column=0)
+        Calendar(self.__body_frame, date_pattern="yyyy-mm-dd", textvariable=date_of_birth, selectmode='day').grid(row=4, column=1)
+
+    def __render_edit_team_role(self, role):
+        roles = RolesManager(self.__database).get_roles()
+        role.set(roles[0])
+
+        Label(self.__body_frame, text="Role").grid(row=5, column=0)
+        OptionMenu(self.__body_frame, role, *roles).grid(row=5, column=1)
 
     def __render_add_team_save(self, forename, surname, date_of_birth):
         command_save = partial(
@@ -262,22 +326,9 @@ class Presentation:
 
         Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
 
-    def __add_team_process(self, forename, surname, date_of_birth):
-        TeamManager(self.__database).add_team(
-            forename.get(),
-            surname.get(),
-            date_of_birth.get()
-        )
-
-        self.__render_team()
-
     def __render_add_team_back(self):
         command_back = partial(self.__render_team)
         Button(self.__actions_frame, text="Back", command=command_back).grid(row=0, column=1)
-
-    def __render_team_back(self):
-        command_logout = partial(self.__render_actions)
-        Button(self.__actions_frame, text="Back", command=command_logout).grid(row=1, column=1)
 
     def __render_menu(self):
         instructions = (
