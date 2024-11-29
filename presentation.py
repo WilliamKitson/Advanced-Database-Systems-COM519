@@ -182,6 +182,7 @@ class Presentation:
     def __render_team_treeview(self):
         self.__render_team_headings()
         self.__render_team_body()
+        self.__treeview.bind("<Double-1>", self.__edit_team_procedure)
         self.__treeview.grid(row=0, column=0)
 
     def __render_team_headings(self):
@@ -211,6 +212,9 @@ class Presentation:
                 f"{i[3]} years",
                 i[4]
             ))
+
+    def __edit_team_procedure(self, event):
+        print("edit team procedure")
 
     def __render_team_add(self):
         command_add = partial(self.__render_add_team)
