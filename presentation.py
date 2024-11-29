@@ -233,11 +233,11 @@ class Presentation:
 
         self.__clear_window()
         self.__render_instructions(instructions)
-        self.__render_add_team_forename(forename)
-        self.__render_add_team_surname(surname)
-        self.__render_add_team_date_of_birth(date_of_birth)
+        self.__render_team_forename_input(forename)
+        self.__render_team_surname_input(surname)
+        self.__render_team_date_of_birth_input(date_of_birth)
         self.__render_add_team_save(forename, surname, date_of_birth)
-        self.__render_add_team_back()
+        self.__render_team_back_input()
         self.__apply_frame()
 
     def __add_team_process(self, forename, surname, date_of_birth):
@@ -279,37 +279,37 @@ class Presentation:
 
         self.__clear_window()
         self.__render_instructions(instructions)
-        self.__render_edit_team_username(username)
-        self.__render_edit_team_password(password)
-        self.__render_add_team_forename(forename)
-        self.__render_add_team_surname(surname)
-        self.__render_add_team_date_of_birth(date_of_birth)
-        self.__render_edit_team_role(role)
-        self.__render_add_team_back()
+        self.__render_team_username_input(username)
+        self.__render_team_password_input(password)
+        self.__render_team_forename_input(forename)
+        self.__render_team_surname_input(surname)
+        self.__render_team_date_of_birth_input(date_of_birth)
+        self.__render_team_role_input(role)
+        self.__render_team_back_input()
         self.__apply_frame()
 
-    def __render_edit_team_username(self, username):
+    def __render_team_username_input(self, username):
         Label(self.__body_frame, text="Username").grid(row=0, column=0)
         Entry(self.__body_frame, textvariable=username).grid(row=0, column=1)
 
-    def __render_edit_team_password(self, password):
+    def __render_team_password_input(self, password):
         Label(self.__body_frame, text="Password").grid(row=1, column=0)
         Entry(self.__body_frame, textvariable=password).grid(row=1, column=1)
 
-    def __render_add_team_forename(self, forename):
+    def __render_team_forename_input(self, forename):
         Label(self.__body_frame, text="Forename").grid(row=2, column=0)
         Entry(self.__body_frame, textvariable=forename).grid(row=2, column=1)
 
-    def __render_add_team_surname(self, surname):
+    def __render_team_surname_input(self, surname):
         Label(self.__body_frame, text="Surname").grid(row=3, column=0)
         Entry(self.__body_frame, textvariable=surname).grid(row=3, column=1)
 
-    def __render_add_team_date_of_birth(self, date_of_birth):
+    def __render_team_date_of_birth_input(self, date_of_birth):
         date_of_birth.set("22/12/1998")
         Label(self.__body_frame, text="DOB").grid(row=4, column=0)
         Calendar(self.__body_frame, date_pattern="yyyy-mm-dd", textvariable=date_of_birth, selectmode='day').grid(row=4, column=1)
 
-    def __render_edit_team_role(self, role):
+    def __render_team_role_input(self, role):
         roles = RolesManager(self.__database).get_roles()
         role.set(roles[0])
 
@@ -326,7 +326,7 @@ class Presentation:
 
         Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
 
-    def __render_add_team_back(self):
+    def __render_team_back_input(self):
         command_back = partial(self.__render_team)
         Button(self.__actions_frame, text="Back", command=command_back).grid(row=0, column=1)
 
