@@ -72,8 +72,6 @@ class TeamManager:
             "WHERE Staff_Id = ?"
         )
 
-        print(role)
-
         parameters = (
             role,
             staff_id,
