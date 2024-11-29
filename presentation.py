@@ -341,7 +341,16 @@ class Presentation:
         Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
 
     def __edit_team_process(self, username, password, forename, surname, date_of_birth, role):
-        print(username, password, forename, surname, date_of_birth, role)
+        TeamManager(self.__database).edit_team(
+            username.get(),
+            password.get(),
+            forename.get(),
+            surname.get(),
+            date_of_birth.get(),
+            role.get()
+        )
+
+        self.__render_team()
 
     def __render_team_back_input(self):
         command_back = partial(self.__render_team)

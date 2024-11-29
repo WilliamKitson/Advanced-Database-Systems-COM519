@@ -36,5 +36,8 @@ class TeamManager:
 
         self.__database.commit()
 
+    def edit_team(self, username, password, forename, surname, date_of_birth, role):
+        print(username, password, forename, surname, date_of_birth, role)
+
     def __del__(self):
         self.__database.close()
