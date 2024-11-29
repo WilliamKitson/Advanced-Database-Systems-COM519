@@ -188,6 +188,7 @@ class Presentation:
 
     def __render_team_headings(self):
         columns = [
+            "Id",
             "Forename",
             "Surname",
             "Age",
@@ -209,13 +210,14 @@ class Presentation:
             self.__treeview.insert("", "end", values=(
                 i[0],
                 i[1],
-                f"{i[2]} years",
+                i[2],
                 f"{i[3]} years",
-                i[4]
+                f"{i[4]} years",
+                i[5]
             ))
 
     def __edit_team_procedure(self, event):
-        self.__render_team_edit(0)
+        self.__render_team_edit(self.__get_treeview_event())
 
     def __render_team_add(self):
         command_add = partial(self.__render_add_team)
@@ -250,7 +252,7 @@ class Presentation:
             "BLABLABLA."
         )
 
-        staff_at_id = TeamManager(self.__database).get_staff_at(14)
+        staff_at_id = TeamManager(self.__database).get_staff_at(team_id)
 
         username = StringVar()
         username.set(staff_at_id[0])
