@@ -61,8 +61,6 @@ class MenuManager:
         self.__database.commit()
 
     def edit_menu(self, menu_id, category, name, price, time):
-        print(menu_id, category, name, price, time)
-
         query = (
             "UPDATE "
             "Menu "
