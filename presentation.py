@@ -415,7 +415,7 @@ class Presentation:
             ))
 
     def __menu_nutrition_procedure(self, event):
-        self.__render_nutrition(self.__get_treeview_event())
+        self.__render_menu_edit(self.__get_treeview_event())
 
     def __render_menu_add_input(self):
         command_logout = partial(self.__render_menu_add)
@@ -443,7 +443,7 @@ class Presentation:
         self.__render_menu_add_price(price)
         self.__render_menu_add_time(time)
         self.__render_menu_add_save(category, name, price, time)
-        self.__render_nutrition_back()
+        self.__render_menu_add_back()
         self.__apply_frame()
 
     def __render_menu_add_categories(self, category):
@@ -479,9 +479,36 @@ class Presentation:
 
         self.__render_menu()
 
-    def __render_nutrition_back(self):
+    def __render_menu_add_back(self):
         command_logout = partial(self.__render_menu)
         Button(self.__actions_frame, text="Back", command=command_logout).grid(row=0, column=1)
+
+    def __render_menu_edit(self, menu_id):
+        instructions = (
+            f"Welcome to the Menu Edit page.\n "
+            "BLABLABLA."
+        )
+
+        category = StringVar()
+        category.set("Starter")
+
+        name = StringVar()
+        name.set("Test")
+
+        price = StringVar()
+        price.set("10")
+
+        time = StringVar()
+        time.set("15")
+
+        self.__clear_window()
+        self.__render_instructions(instructions)
+        self.__render_menu_add_categories(category)
+        self.__render_menu_add_name(name)
+        self.__render_menu_add_price(price)
+        self.__render_menu_add_time(time)
+        self.__render_menu_add_back()
+        self.__apply_frame()
 
     def __render_nutrition(self, nutrition):
         instructions = (
@@ -492,7 +519,7 @@ class Presentation:
         self.__clear_window()
         self.__render_instructions(instructions)
         self.__render_nutrition_treeview(nutrition)
-        self.__render_nutrition_back()
+        self.__render_menu_add_back()
         self.__apply_frame()
 
     def __render_nutrition_treeview(self, nutrition):
