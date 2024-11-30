@@ -481,7 +481,7 @@ class Presentation:
 
     def __render_menu_add_back(self):
         command_logout = partial(self.__render_menu)
-        Button(self.__actions_frame, text="Back", command=command_logout).grid(row=0, column=1)
+        Button(self.__actions_frame, text="Back", command=command_logout).grid(row=0, column=2)
 
     def __render_menu_edit(self, menu_id):
         instructions = (
@@ -508,6 +508,7 @@ class Presentation:
         self.__render_menu_add_price(price)
         self.__render_menu_add_time(time)
         self.__render_menu_edit_save(menu_id, category, name, price, time)
+        self.__render_menu_edit_nutrition(menu_id)
         self.__render_menu_add_back()
         self.__apply_frame()
 
@@ -517,6 +518,10 @@ class Presentation:
 
     def __menu_edit_procedure(self, menu_id, category, name, price, time):
         print(menu_id, category, name, price, time)
+
+    def __render_menu_edit_nutrition(self, nutrition):
+        command_nutrition = partial(self.__render_nutrition, nutrition)
+        Button(self.__actions_frame, text="Nutrition", command=command_nutrition).grid(row=0, column=1)
 
     def __render_nutrition(self, nutrition):
         instructions = (
