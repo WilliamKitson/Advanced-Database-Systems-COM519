@@ -16,11 +16,9 @@ class LoginManager:
             "AND Password = ? "
         )
 
-        password_hash = hashlib.sha256(password.encode())
-
         parameters = (
             username,
-            password_hash.hexdigest()
+            self.__get_hashed_password(password),
         )
 
         self.__cursor.execute(query, parameters)
@@ -29,6 +27,10 @@ class LoginManager:
             return True
 
         return False
+
+    def __get_hashed_password(self, password):
+        password_hash = hashlib.sha256(password.encode())
+        return password_hash.hexdigest()
 
     def __del__(self):
         self.__database.close()
