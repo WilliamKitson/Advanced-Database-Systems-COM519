@@ -48,5 +48,8 @@ class MenuManager:
         self.__cursor.execute(query, parameters)
         self.__database.commit()
 
+    def edit_menu(self, menu_id, category, name, price, time):
+        print(menu_id, category, name, price, time)
+
     def __del__(self):
         self.__database.close()

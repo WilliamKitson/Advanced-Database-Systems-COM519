@@ -517,7 +517,15 @@ class Presentation:
         Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
 
     def __menu_edit_procedure(self, menu_id, category, name, price, time):
-        print(menu_id, category, name, price, time)
+        MenuManager(self.__database).edit_menu(
+            menu_id,
+            category.get(),
+            name.get(),
+            price.get(),
+            time.get()
+        )
+
+        self.__render_menu()
 
     def __render_menu_edit_nutrition(self, nutrition):
         command_nutrition = partial(self.__render_nutrition, nutrition)
