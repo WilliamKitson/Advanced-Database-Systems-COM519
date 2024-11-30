@@ -1,6 +1,7 @@
 #  Copyright (c) 2024. William E. Kitson
 
 import sqlite3
+import hashlib
 
 class LoginManager:
     def __init__(self, database):
@@ -15,7 +16,14 @@ class LoginManager:
             "AND Password = ? "
         )
 
-        self.__cursor.execute(query, (username, password))
+        password_hash = hashlib.sha256(password.encode())
+
+        parameters = (
+            username,
+            password_hash.hexdigest()
+        )
+
+        self.__cursor.execute(query, parameters)
 
         for row in self.__cursor.fetchall():
             return True
