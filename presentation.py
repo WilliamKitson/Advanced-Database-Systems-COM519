@@ -507,8 +507,16 @@ class Presentation:
         self.__render_menu_add_name(name)
         self.__render_menu_add_price(price)
         self.__render_menu_add_time(time)
+        self.__render_menu_edit_save(menu_id, category, name, price, time)
         self.__render_menu_add_back()
         self.__apply_frame()
+
+    def __render_menu_edit_save(self, menu_id, category, name, price, time):
+        command_save = partial(self.__menu_edit_procedure, menu_id, category, name, price, time)
+        Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
+
+    def __menu_edit_procedure(self, menu_id, category, name, price, time):
+        print(menu_id, category, name, price, time)
 
     def __render_nutrition(self, nutrition):
         instructions = (
