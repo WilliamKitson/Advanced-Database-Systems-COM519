@@ -59,6 +59,21 @@ class TeamManager:
         return password_hash.hexdigest()
 
     def edit_team(self, username, password, forename, surname, date_of_birth, staff_id, role):
+        inputs = [
+            username,
+            password,
+            forename,
+            surname,
+            date_of_birth,
+            staff_id,
+            role
+        ]
+
+        self.__calculate_suspicious(inputs)
+
+        if self.__suspicious:
+            return
+
         self.__edit_team_staff(username, password, forename, surname, date_of_birth, staff_id)
         self.__edit_team_role(role, staff_id)
 

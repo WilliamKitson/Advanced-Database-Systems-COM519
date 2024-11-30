@@ -374,7 +374,9 @@ class Presentation:
         self.__render_team()
 
     def __edit_team_process(self, username, password, forename, surname, date_of_birth, staff_id, role):
-        TeamManager(self.__database).edit_team(
+        team_manager = TeamManager(self.__database)
+
+        team_manager.edit_team(
             username.get(),
             password.get(),
             forename.get(),
@@ -383,6 +385,12 @@ class Presentation:
             staff_id,
             role.get()
         )
+
+        if team_manager.get_suspicious():
+            messagebox.showwarning(
+                "Suspicious Edit",
+                "The you supplied are suspicious. I do not appreciate SQL injection attacks!"
+            )
 
         self.__render_team()
 
