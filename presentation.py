@@ -470,7 +470,14 @@ class Presentation:
         Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
 
     def __menu_add_process(self, category, name, price, time):
-        print(category, name, price, time)
+        MenuManager(self.__database).add_menu(
+            category.get(),
+            name.get(),
+            price.get(),
+            time.get()
+        )
+
+        self.__render_menu()
 
     def __render_nutrition_back(self):
         command_logout = partial(self.__render_menu)

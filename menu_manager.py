@@ -28,5 +28,25 @@ class MenuManager:
 
         return categories
 
+    def add_menu(self, category, name, price, time):
+        query = (
+            "INSERT INTO Menu (Category_Id, Name, RSP, Cook_Time)"
+            "VALUES (("     
+            "SELECT Category_Id "
+            "FROM Categories "
+            "WHERE Name = ? "
+            "), ?, ?, ?)"
+        )
+
+        parameters = (
+            category,
+            name,
+            price,
+            time
+        )
+
+        self.__cursor.execute(query, parameters)
+        self.__database.commit()
+
     def __del__(self):
         self.__database.close()
