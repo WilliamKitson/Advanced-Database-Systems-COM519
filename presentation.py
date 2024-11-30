@@ -489,17 +489,19 @@ class Presentation:
             "BLABLABLA."
         )
 
+        menu_item_at = MenuManager(self.__database).get_menu_at(menu_id)
+
         category = StringVar()
-        category.set("Starter")
+        category.set(menu_item_at[1])
 
         name = StringVar()
-        name.set("Test")
+        name.set(menu_item_at[2])
 
         price = StringVar()
-        price.set("10")
+        price.set(menu_item_at[3])
 
         time = StringVar()
-        time.set("15")
+        time.set(menu_item_at[4])
 
         self.__clear_window()
         self.__render_instructions(instructions)

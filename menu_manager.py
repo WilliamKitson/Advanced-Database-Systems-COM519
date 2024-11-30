@@ -15,6 +15,18 @@ class MenuManager:
 
         return self.__cursor.fetchall()
 
+    def get_menu_at(self, menu_id):
+        query = (
+            "SELECT * "
+            "FROM Menu "
+            "WHERE Name = ? "
+        )
+
+        self.__cursor.execute(query, (menu_id,))
+
+        for i in self.__cursor.fetchall():
+            return i
+
     def get_categories(self):
         self.__cursor.execute(
             "SELECT Name "
