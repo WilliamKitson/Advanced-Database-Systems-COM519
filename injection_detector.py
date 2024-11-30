@@ -5,9 +5,13 @@ class InjectionDetector:
         self.__suspicious_substrings = [
             "--",
             "SELECT",
+            "select",
             "UPDATE",
+            "update",
             "DELETE",
+            "delete",
             "INSERT"
+            "insert",
             "1=1"
         ]
 
