@@ -442,6 +442,7 @@ class Presentation:
         self.__render_menu_add_name(name)
         self.__render_menu_add_price(price)
         self.__render_menu_add_time(time)
+        self.__render_menu_add_save(category, name, price, time)
         self.__render_nutrition_back()
         self.__apply_frame()
 
@@ -463,6 +464,17 @@ class Presentation:
     def __render_menu_add_time(self, time):
         Label(self.__body_frame, text="Cook Time").grid(row=3, column=0)
         Entry(self.__body_frame, textvariable=time).grid(row=3, column=1)
+
+    def __render_menu_add_save(self, category, name, price, time):
+        command_save = partial(self.__menu_add_process, category, name, price, time)
+        Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
+
+    def __menu_add_process(self, category, name, price, time):
+        print(category, name, price, time)
+
+    def __render_nutrition_back(self):
+        command_logout = partial(self.__render_menu)
+        Button(self.__actions_frame, text="Back", command=command_logout).grid(row=0, column=1)
 
     def __render_nutrition(self, nutrition):
         instructions = (
@@ -506,7 +518,3 @@ class Presentation:
                 f"{i[3]}g",
                 f"{i[4]} cals"
             ))
-
-    def __render_nutrition_back(self):
-        command_logout = partial(self.__render_menu)
-        Button(self.__actions_frame, text="Back", command=command_logout).grid(row=0, column=0)
