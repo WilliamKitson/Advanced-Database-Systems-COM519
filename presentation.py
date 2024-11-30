@@ -335,11 +335,19 @@ class Presentation:
         Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
 
     def __add_team_process(self, forename, surname, date_of_birth):
-        TeamManager(self.__database).add_team(
+        team_manager = TeamManager(self.__database)
+
+        team_manager.add_team(
             forename.get(),
             surname.get(),
             date_of_birth.get()
         )
+
+        if team_manager.get_suspicious():
+            messagebox.showwarning(
+                "Suspicious Add",
+                "The you supplied are suspicious. I do not appreciate SQL injection attacks!"
+            )
 
         self.__render_team()
 

@@ -2,11 +2,13 @@
 
 import sqlite3
 import hashlib
+from injection_detector import InjectionDetector
 
 class TeamManager:
     def __init__(self, database):
         self.__database = sqlite3.connect(database)
         self.__cursor = self.__database.cursor()
+        self.__suspended = False
 
     def get_team(self):
         self.__cursor.execute(
@@ -17,6 +19,17 @@ class TeamManager:
         return self.__cursor.fetchall()
 
     def add_team(self, forename, surname, date_of_birth):
+        inputs = [
+            forename,
+            surname,
+            date_of_birth
+        ]
+
+        self.__calculate_suspicious(inputs)
+
+        if self.__suspicious:
+            return
+
         query = (
             "INSERT INTO Staff (Username, Password, Forename, Surname, DOB)"
             "VALUES (?, ?, ?, ?, ?)"
@@ -32,6 +45,14 @@ class TeamManager:
 
         self.__cursor.execute(query, parameters)
         self.__database.commit()
+
+    def __calculate_suspicious(self, inputs):
+        for i in inputs:
+            if InjectionDetector().suspicious(i):
+                self.__suspicious = True
+                return
+
+        self.__suspicious = True
 
     def __get_hashed_password(self, password):
         password_hash = hashlib.sha256(password.encode())
@@ -117,6 +138,9 @@ class TeamManager:
                 i[5],
                 i[10]
             )
+
+    def get_suspicious(self):
+        return self.__suspicious
 
     def __del__(self):
         self.__database.close()
