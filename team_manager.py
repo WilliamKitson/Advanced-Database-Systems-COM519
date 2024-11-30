@@ -56,7 +56,7 @@ class TeamManager:
 
         parameters = (
             username,
-            password,
+            self.__get_hashed_password(password),
             forename,
             surname,
             date_of_birth,
