@@ -63,5 +63,25 @@ class MenuManager:
     def edit_menu(self, menu_id, category, name, price, time):
         print(menu_id, category, name, price, time)
 
+        query = (
+            "UPDATE "
+            "Menu "
+            "SET "
+            "Category_Id = ( "
+            "SELECT Category_Id "
+            "FROM Categories "
+            "WHERE Name = ? "
+            "), "
+            "Name = ?, "
+            "RSP = ?, "
+            "Cook_Time = ? "
+            "WHERE Name = ? "
+        )
+
+        parameters = (category, name, price, time, menu_id)
+
+        self.__cursor.execute(query, parameters)
+        self.__database.commit()
+
     def __del__(self):
         self.__database.close()
