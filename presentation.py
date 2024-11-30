@@ -554,13 +554,21 @@ class Presentation:
         Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
 
     def __menu_edit_procedure(self, menu_id, category, name, price, time):
-        MenuManager(self.__database).edit_menu(
+        menu_manager = MenuManager(self.__database)
+
+        menu_manager.edit_menu(
             menu_id,
             category.get(),
             name.get(),
             price.get(),
             time.get()
         )
+
+        if menu_manager.get_suspicious():
+            messagebox.showwarning(
+                "Suspicious Edit",
+                "The values you supplied are suspicious. I do not appreciate SQL injection attacks!"
+            )
 
         self.__render_menu()
 

@@ -83,6 +83,18 @@ class MenuManager:
         self.__suspicious = True
 
     def edit_menu(self, menu_id, category, name, price, time):
+        inputs = [
+            category,
+            name,
+            price,
+            time
+        ]
+
+        self.__calculate_suspicious(inputs)
+
+        if self.__suspicious:
+            return
+
         query = (
             "UPDATE "
             "Menu "

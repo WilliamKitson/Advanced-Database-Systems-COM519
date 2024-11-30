@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e08d4933-0286-4d3e-ae33-58d95d2231f8" name="Changes" comment="team_manager.py redefined">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e08d4933-0286-4d3e-ae33-58d95d2231f8" name="Changes" comment="injection_detector.py redefined">
+      <change beforePath="$PROJECT_DIR$/menu_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/menu_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,22 +146,6 @@
       <workItem from="1732961242723" duration="5692000" />
       <workItem from="1732971134099" duration="47000" />
       <workItem from="1732971269340" duration="2042000" />
-    </task>
-    <task id="LOCAL-00134" summary="presentation redefined">
-      <option name="closed" value="true" />
-      <created>1732788625074</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1732788625074</updated>
-    </task>
-    <task id="LOCAL-00135" summary="presentation redefined">
-      <option name="closed" value="true" />
-      <created>1732788857824</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1732788857824</updated>
     </task>
     <task id="LOCAL-00136" summary="presentation redefined">
       <option name="closed" value="true" />
@@ -538,7 +523,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732979356455</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="menu_manager.py redefined">
+      <option name="closed" value="true" />
+      <created>1732981327854</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1732981327854</updated>
+    </task>
+    <task id="LOCAL-00184" summary="injection_detector.py redefined">
+      <option name="closed" value="true" />
+      <created>1732981420371</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1732981420371</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -556,7 +557,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="presentation.py defined" />
     <MESSAGE value="presenter defined" />
     <MESSAGE value="login_manager.py defined" />
     <MESSAGE value="main redefined" />
@@ -575,13 +575,14 @@
     <MESSAGE value="delete_staff_role trigger defined" />
     <MESSAGE value="menu_manager redefined" />
     <MESSAGE value="presentation redefined" />
-    <MESSAGE value="menu_manager.py redefined" />
     <MESSAGE value="presentation.py redefined" />
     <MESSAGE value="test_team_manager.py removed" />
     <MESSAGE value="injection_detector.py defined" />
     <MESSAGE value="login_manager.py redefined" />
     <MESSAGE value="team_manager.py redefined" />
-    <option name="LAST_COMMIT_MESSAGE" value="team_manager.py redefined" />
+    <MESSAGE value="menu_manager.py redefined" />
+    <MESSAGE value="injection_detector.py redefined" />
+    <option name="LAST_COMMIT_MESSAGE" value="injection_detector.py redefined" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$test_login_manager.coverage" NAME="test_login_manager Coverage Results" MODIFIED="1732027812659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -594,6 +595,6 @@
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$P_sql_media_file.coverage" NAME="P_sql_media_file Coverage Results" MODIFIED="1732961396035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop/ADbS week 9" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$.coverage" NAME=" Coverage Results" MODIFIED="1732893553378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$presenter.coverage" NAME="presenter Coverage Results" MODIFIED="1732633427535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/4kitsw10_COM519$main.coverage" NAME="main Coverage Results" MODIFIED="1732979321353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/4kitsw10_COM519$main.coverage" NAME="main Coverage Results" MODIFIED="1732981518455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
