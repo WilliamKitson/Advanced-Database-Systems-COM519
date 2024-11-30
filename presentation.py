@@ -258,7 +258,7 @@ class Presentation:
         username.set(staff_at_id[0])
 
         password = StringVar()
-        password.set(staff_at_id[1])
+        password.set("DefaultPassword")
 
         forename = StringVar()
         forename.set(staff_at_id[2])
