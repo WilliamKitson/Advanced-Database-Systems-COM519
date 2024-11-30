@@ -70,8 +70,19 @@ class Presentation:
         Button(self.__actions_frame, text="Login", command=command_login).grid(row=0, column=0)
 
     def __login_procedure(self, username, password):
-        if LoginManager(self.__database).login(username.get(), password.get()):
+        login_manager = LoginManager(self.__database)
+
+        if login_manager.login(username.get(), password.get()):
             self.__render_actions()
+            return
+
+        if login_manager.get_suspicious():
+            messagebox.showwarning(
+                "Login Suspicious",
+                "The username or password you supplied are suspicious. "
+                "I do not appreciate SQL injection attacks!"
+            )
+
             return
 
         messagebox.showwarning(
