@@ -389,7 +389,7 @@ class Presentation:
         if team_manager.get_suspicious():
             messagebox.showwarning(
                 "Suspicious Edit",
-                "The you supplied are suspicious. I do not appreciate SQL injection attacks!"
+                "The values you supplied are suspicious. I do not appreciate SQL injection attacks!"
             )
 
         self.__render_team()
@@ -497,12 +497,20 @@ class Presentation:
         Button(self.__actions_frame, text="Save", command=command_save).grid(row=0, column=0)
 
     def __menu_add_process(self, category, name, price, time):
-        MenuManager(self.__database).add_menu(
+        menu_manager = MenuManager(self.__database)
+
+        menu_manager.add_menu(
             category.get(),
             name.get(),
             price.get(),
             time.get()
         )
+
+        if menu_manager.get_suspicious():
+            messagebox.showwarning(
+                "Suspicious Add",
+                "The values you supplied are suspicious. I do not appreciate SQL injection attacks!"
+            )
 
         self.__render_menu()
 
