@@ -1,6 +1,7 @@
 #  Copyright (c) 2024. William E. Kitson
 
 import sqlite3
+import hashlib
 
 class TeamManager:
     def __init__(self, database):
@@ -23,7 +24,7 @@ class TeamManager:
 
         parameters = (
             f"{forename}_{surname}",
-            f"{forename}{surname}{date_of_birth}",
+            self.__get_hashed_password(f"{forename}{surname}{date_of_birth}"),
             forename,
             surname,
             date_of_birth
@@ -31,6 +32,10 @@ class TeamManager:
 
         self.__cursor.execute(query, parameters)
         self.__database.commit()
+
+    def __get_hashed_password(self, password):
+        password_hash = hashlib.sha256(password.encode())
+        return password_hash.hexdigest()
 
     def edit_team(self, username, password, forename, surname, date_of_birth, staff_id, role):
         self.__edit_team_staff(username, password, forename, surname, date_of_birth, staff_id)
