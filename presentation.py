@@ -11,6 +11,7 @@ from team_manager import TeamManager
 from roles_manager import RolesManager
 from menu_manager import MenuManager
 from nutrition_manager import NutritionManager
+from backup_xml import BackupXML
 
 class Presentation:
     def __init__(self, database):
@@ -151,7 +152,8 @@ class Presentation:
         columns = [
             "Manage Team Members",
             "Manage Menu",
-            "Backup to XML"
+            "Backup to XML",
+            "Reload from XML"
         ]
 
         for i in columns:
@@ -171,7 +173,10 @@ class Presentation:
             self.__render_menu()
 
         if action == "Backup to XML":
-            print("backup to XML")
+            BackupXML().backup()
+
+        if action == "Reload from XML":
+            BackupXML().reload()
 
     def __get_treeview_event(self):
         item = self.__treeview.selection()[0]
