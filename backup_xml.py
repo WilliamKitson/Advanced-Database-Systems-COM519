@@ -7,27 +7,34 @@ class BackupXML:
     def __init__(self, database):
         self.__database = sqlite3.connect(database)
         self.__cursor = self.__database.cursor()
+        self.__backup = ET.Element(f"{database}_backup")
 
     def backup(self):
-        data = ET.Element('4kitsw10_COM519_database_backup')
+        self.__backup_staff()
+        self.__write_backup()
 
-        self.__cursor.execute("SELECT * FROM Staff")
-        get_login_details = self.__cursor.fetchall()
+    def __backup_staff(self):
+        self.__cursor.execute(
+            "SELECT * "
+            "FROM Staff"
+        )
 
-        element1 = ET.SubElement(data, 'Staff')
+        staff = self.__cursor.fetchall()
+        table = ET.SubElement(self.__backup, 'Staff')
 
-        for row in get_login_details:
-            ET.SubElement(element1, 'Staff_Id').text = str(row[0])
-            ET.SubElement(element1, 'Username').text = row[1]
-            ET.SubElement(element1, 'Password').text = row[2]
-            ET.SubElement(element1, 'Forename').text = row[3]
-            ET.SubElement(element1, 'Surname').text = row[4]
-            ET.SubElement(element1, 'DOB').text = row[5]
+        for row in staff:
+            ET.SubElement(table, 'Staff_Id').text = str(row[0])
+            ET.SubElement(table, 'Username').text = row[1]
+            ET.SubElement(table, 'Password').text = row[2]
+            ET.SubElement(table, 'Forename').text = row[3]
+            ET.SubElement(table, 'Surname').text = row[4]
+            ET.SubElement(table, 'DOB').text = row[5]
 
-        b_xml = ET.tostring(data)
+    def __write_backup(self):
+        backup_string = ET.tostring(self.__backup)
 
         with open("4kitsw10_COM519_database_backup.xml", "wb") as f:
-            f.write(b_xml)
+            f.write(backup_string)
 
     def reload(self):
         print("reload from XML")
