@@ -11,6 +11,7 @@ class BackupXML:
 
     def backup(self):
         self.__backup_staff()
+        self.__backup_roles()
         self.__write_backup()
 
     def __backup_staff(self):
@@ -31,6 +32,18 @@ class BackupXML:
 
     def __get_column_name_at(self, index):
         return str(self.__cursor.description[index][0])
+
+    def __backup_roles(self):
+        self.__cursor.execute(
+            "SELECT * "
+            "FROM Roles"
+        )
+
+        roles = self.__cursor.fetchall()
+        table = ET.SubElement(self.__backup, 'Roles')
+
+        for row in roles:
+            self.__add_row_sub_elements(row, table)
 
     def __write_backup(self):
         backup_string = ET.tostring(self.__backup)
