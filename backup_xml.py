@@ -10,66 +10,33 @@ class BackupXML:
         self.__backup = ET.Element(f"{database}_backup")
 
     def backup(self):
-        self.__backup_staff()
-        self.__backup_roles()
-        self.__backup_staff_roles()
-        self.__backup_staff_menu()
+        self.__backup_table("Staff")
+        self.__backup_table("Roles")
+        self.__backup_table("Staff_Roles")
+        self.__backup_table("Menu")
+        self.__backup_table("Categories")
+        self.__backup_table("Ingredients")
+        self.__backup_table("Menu_Ingredients")
         self.__write_backup()
 
-    def __backup_staff(self):
+    def __backup_table(self, name):
         self.__cursor.execute(
-            "SELECT * "
-            "FROM Staff"
+            f"SELECT * "
+            f"FROM {name}"
         )
 
-        staff = self.__cursor.fetchall()
-        table = ET.SubElement(self.__backup, 'Staff')
+        table = self.__cursor.fetchall()
+        sub_element = ET.SubElement(self.__backup, name)
 
-        for row in staff:
-            self.__add_row_sub_elements(row, table)
+        for row in table:
+            self.__add_row_sub_elements(row, sub_element)
 
-    def __add_row_sub_elements(self, row, table):
+    def __add_row_sub_elements(self, row, sub_element):
         for i, column in enumerate(row):
-            ET.SubElement(table, self.__get_column_name_at(i)).text = str(column)
+            ET.SubElement(sub_element, self.__get_column_name_at(i)).text = str(column)
 
     def __get_column_name_at(self, index):
         return str(self.__cursor.description[index][0])
-
-    def __backup_roles(self):
-        self.__cursor.execute(
-            "SELECT * "
-            "FROM Roles"
-        )
-
-        roles = self.__cursor.fetchall()
-        table = ET.SubElement(self.__backup, 'Roles')
-
-        for row in roles:
-            self.__add_row_sub_elements(row, table)
-
-    def __backup_staff_roles(self):
-        self.__cursor.execute(
-            "SELECT * "
-            "FROM Staff_Roles"
-        )
-
-        staff_roles = self.__cursor.fetchall()
-        table = ET.SubElement(self.__backup, 'Staff_Roles')
-
-        for row in staff_roles:
-            self.__add_row_sub_elements(row, table)
-
-    def __backup_staff_menu(self):
-        self.__cursor.execute(
-            "SELECT * "
-            "FROM Menu"
-        )
-
-        menu = self.__cursor.fetchall()
-        table = ET.SubElement(self.__backup, 'Menu')
-
-        for row in menu:
-            self.__add_row_sub_elements(row, table)
 
     def __write_backup(self):
         backup_string = ET.tostring(self.__backup)
