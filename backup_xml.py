@@ -2,10 +2,10 @@
 
 import sqlite3
 import xml.etree.ElementTree as ET
+from tkinter.filedialog import asksaveasfile
 
 class BackupXML:
     def __init__(self, database):
-        self.__filepath = f"{database}_backup.xml"
         self.__database = sqlite3.connect(database)
         self.__cursor = self.__database.cursor()
         self.__backup = ET.Element(f"{database}_backup")
@@ -42,5 +42,7 @@ class BackupXML:
     def __write_backup(self):
         backup_string = ET.tostring(self.__backup)
 
-        with open(self.__filepath, "wb") as f:
-            f.write(backup_string)
+        files = [('Text Files', '*.xml')]
+
+        file = asksaveasfile(mode="wb", filetypes=files, defaultextension="*.xml")
+        file.write(backup_string)
