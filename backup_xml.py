@@ -40,9 +40,10 @@ class BackupXML:
         return str(self.__cursor.description[index][0])
 
     def __write_backup(self):
-        backup_string = ET.tostring(self.__backup)
+        file = asksaveasfile(
+            mode="wb",
+            filetypes=[('Text Files', '*.xml')],
+            defaultextension="*.xml"
+        )
 
-        files = [('Text Files', '*.xml')]
-
-        file = asksaveasfile(mode="wb", filetypes=files, defaultextension="*.xml")
-        file.write(backup_string)
+        file.write(ET.tostring(self.__backup))
