@@ -13,6 +13,7 @@ class BackupXML:
         self.__backup_staff()
         self.__backup_roles()
         self.__backup_staff_roles()
+        self.__backup_staff_menu()
         self.__write_backup()
 
     def __backup_staff(self):
@@ -56,6 +57,18 @@ class BackupXML:
         table = ET.SubElement(self.__backup, 'Staff_Roles')
 
         for row in staff_roles:
+            self.__add_row_sub_elements(row, table)
+
+    def __backup_staff_menu(self):
+        self.__cursor.execute(
+            "SELECT * "
+            "FROM Menu"
+        )
+
+        menu = self.__cursor.fetchall()
+        table = ET.SubElement(self.__backup, 'Menu')
+
+        for row in menu:
             self.__add_row_sub_elements(row, table)
 
     def __write_backup(self):
