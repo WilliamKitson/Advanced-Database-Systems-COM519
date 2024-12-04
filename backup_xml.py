@@ -5,6 +5,7 @@ import xml.etree.ElementTree as ET
 
 class BackupXML:
     def __init__(self, database):
+        self.__filepath = f"{database}_backup.xml"
         self.__database = sqlite3.connect(database)
         self.__cursor = self.__database.cursor()
         self.__backup = ET.Element(f"{database}_backup")
@@ -41,8 +42,5 @@ class BackupXML:
     def __write_backup(self):
         backup_string = ET.tostring(self.__backup)
 
-        with open("4kitsw10_COM519_database_backup.xml", "wb") as f:
+        with open(self.__filepath, "wb") as f:
             f.write(backup_string)
-
-    def reload(self):
-        print("reload from XML")

@@ -152,8 +152,7 @@ class Presentation:
         columns = [
             "Manage Team Members",
             "Manage Menu",
-            "Backup to XML",
-            "Reload from XML"
+            "Backup to XML"
         ]
 
         for i in columns:
@@ -174,9 +173,6 @@ class Presentation:
 
         if action == "Backup to XML":
             BackupXML(self.__database).backup()
-
-        if action == "Reload from XML":
-            BackupXML(self.__database).reload()
 
     def __get_treeview_event(self):
         item = self.__treeview.selection()[0]
