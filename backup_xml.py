@@ -23,12 +23,11 @@ class BackupXML:
         table = ET.SubElement(self.__backup, 'Staff')
 
         for row in staff:
-            ET.SubElement(table, 'Staff_Id').text = str(row[0])
-            ET.SubElement(table, 'Username').text = row[1]
-            ET.SubElement(table, 'Password').text = row[2]
-            ET.SubElement(table, 'Forename').text = row[3]
-            ET.SubElement(table, 'Surname').text = row[4]
-            ET.SubElement(table, 'DOB').text = row[5]
+            self.__add_row_sub_elements(row, table)
+
+    def __add_row_sub_elements(self, row, table):
+        for column in row:
+            ET.SubElement(table, "test").text = str(column)
 
     def __write_backup(self):
         backup_string = ET.tostring(self.__backup)
