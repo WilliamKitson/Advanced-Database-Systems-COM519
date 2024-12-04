@@ -26,8 +26,8 @@ class BackupXML:
             self.__add_row_sub_elements(row, table)
 
     def __add_row_sub_elements(self, row, table):
-        for column in row:
-            ET.SubElement(table, "test").text = str(column)
+        for i, column in enumerate(row):
+            ET.SubElement(table, self.__cursor.description[i][0]).text = str(column)
 
     def __write_backup(self):
         backup_string = ET.tostring(self.__backup)
