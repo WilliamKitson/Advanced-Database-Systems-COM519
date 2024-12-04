@@ -173,10 +173,10 @@ class Presentation:
             self.__render_menu()
 
         if action == "Backup to XML":
-            BackupXML().backup()
+            BackupXML(self.__database).backup()
 
         if action == "Reload from XML":
-            BackupXML().reload()
+            BackupXML(self.__database).reload()
 
     def __get_treeview_event(self):
         item = self.__treeview.selection()[0]
