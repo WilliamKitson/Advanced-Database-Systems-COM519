@@ -133,10 +133,8 @@ class TeamManager:
     def get_staff_at(self, staff_id):
         query = (
             "SELECT * "
-            "FROM Staff "
-            "LEFT JOIN Staff_Roles ON Staff.Staff_Id = Staff_Roles.Staff_Id "
-            "LEFT JOIN Roles ON Staff_Roles.Role_Id = Roles.Role_Id "
-            "WHERE Staff.Staff_Id = ?"
+            "FROM Staff_Edit_Data "
+            "WHERE Staff_Id = ?"
         )
 
         self.__cursor.execute(
@@ -145,14 +143,7 @@ class TeamManager:
         )
 
         for i in self.__cursor.fetchall():
-            return (
-                i[1],
-                i[2],
-                i[3],
-                i[4],
-                i[5],
-                i[10]
-            )
+            return i
 
     def get_suspicious(self):
         return self.__suspicious

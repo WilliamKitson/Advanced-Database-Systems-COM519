@@ -267,7 +267,7 @@ class Presentation:
         staff_at_id = TeamManager(self.__database).get_staff_at(team_id)
 
         username = StringVar()
-        username.set(staff_at_id[0])
+        username.set(staff_at_id[1])
 
         password = StringVar()
         password.set("DefaultPassword")
