@@ -52,7 +52,7 @@ class TeamManager:
                 self.__suspicious = True
                 return
 
-        self.__suspicious = True
+        self.__suspicious = False
 
     def __get_hashed_password(self, password):
         password_hash = hashlib.sha256(password.encode())
