@@ -25,3 +25,20 @@ class ImageWriter:
 
         self.__cursor.execute(query, parameters)
         self.__database.commit()
+
+    def load(self, menu_id):
+        query = (
+            "SELECT Image "
+            "FROM Menu "
+            "WHERE Name = ?"
+        )
+
+        parameters = (menu_id,)
+        self.__cursor.execute(query, parameters)
+
+        image = ""
+
+        for i in self.__cursor.fetchall():
+            image = i
+
+        print(image)
