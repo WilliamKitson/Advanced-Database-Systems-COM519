@@ -15,7 +15,7 @@ class ImageWriter:
         query = (
             "UPDATE Menu "
             "SET Image = ? "
-            "WHERE Menu_Id = ?"
+            "WHERE Name = ?"
         )
 
         parameters = (

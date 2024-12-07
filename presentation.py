@@ -12,6 +12,7 @@ from roles_manager import RolesManager
 from menu_manager import MenuManager
 from nutrition_manager import NutritionManager
 from backup_xml import BackupXML
+from image_writer import ImageWriter
 
 class Presentation:
     def __init__(self, database):
@@ -549,10 +550,15 @@ class Presentation:
         self.__render_menu_add_name(name)
         self.__render_menu_add_price(price)
         self.__render_menu_add_time(time)
+        self.__render_menu_edit_image(menu_id)
         self.__render_menu_edit_save(menu_id, category, name, price, time)
         self.__render_menu_edit_nutrition(menu_id)
         self.__render_menu_add_back()
         self.__apply_frame()
+
+    def __render_menu_edit_image(self, menu_id):
+        command_image = partial(ImageWriter(self.__database).write, menu_id)
+        Button(self.__body_frame, text="Edit Image", command=command_image).grid(row=4, column=0)
 
     def __render_menu_edit_save(self, menu_id, category, name, price, time):
         command_save = partial(self.__menu_edit_procedure, menu_id, category, name, price, time)
