@@ -80,7 +80,7 @@ class MenuManager:
                 self.__suspicious = True
                 return
 
-        self.__suspicious = True
+        self.__suspicious = False
 
     def edit_menu(self, menu_id, category, name, price, time):
         inputs = [
