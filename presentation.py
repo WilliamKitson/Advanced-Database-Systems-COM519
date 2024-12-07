@@ -421,8 +421,10 @@ class Presentation:
     def __render_menu_headings(self):
         columns = [
             "Name",
+            "Category",
             "RSP",
-            "Calories"
+            "Calories",
+            "Weight"
         ]
 
         self.__treeview = ttk.Treeview(
@@ -438,8 +440,10 @@ class Presentation:
         for i in MenuManager(self.__database).get_menu():
             self.__treeview.insert("", "end", values=(
                 i[1],
+                i[0],
                 f"£{i[2]}",
-                f"{i[3]} cals"
+                f"{i[3]} cals",
+                f"{i[4]}g"
             ))
 
     def __menu_nutrition_procedure(self, event):
