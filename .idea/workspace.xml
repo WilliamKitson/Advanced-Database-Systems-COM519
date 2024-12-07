@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e08d4933-0286-4d3e-ae33-58d95d2231f8" name="Changes" comment="menu_manager redefined">
+    <list default="true" id="e08d4933-0286-4d3e-ae33-58d95d2231f8" name="Changes" comment="database redefined">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/4kitsw10_COM519_database" beforeDir="false" afterPath="$PROJECT_DIR$/4kitsw10_COM519_database" afterDir="false" />
     </list>
@@ -155,14 +155,6 @@
       <workItem from="1733392168258" duration="2019000" />
       <workItem from="1733403300587" duration="9000" />
       <workItem from="1733573812999" duration="300000" />
-    </task>
-    <task id="LOCAL-00153" summary="presentation.py redefined">
-      <option name="closed" value="true" />
-      <created>1732890652577</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1732890652577</updated>
     </task>
     <task id="LOCAL-00154" summary="presentation redefined">
       <option name="closed" value="true" />
@@ -548,7 +540,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733573931361</updated>
     </task>
-    <option name="localTasksCounter" value="202" />
+    <task id="LOCAL-00202" summary="database redefined">
+      <option name="closed" value="true" />
+      <created>1733577075496</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1733577075496</updated>
+    </task>
+    <option name="localTasksCounter" value="203" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -575,7 +575,6 @@
     <MESSAGE value="copyright profiles defined" />
     <MESSAGE value="tests removed" />
     <MESSAGE value="team_manager redefined" />
-    <MESSAGE value="database redefined" />
     <MESSAGE value="presentation add_team_role removed" />
     <MESSAGE value="roles_manager.py defined" />
     <MESSAGE value="delete_staff_role trigger defined" />
@@ -591,7 +590,8 @@
     <MESSAGE value="backup_xml.py redefined" />
     <MESSAGE value="staff_edit_data table defined" />
     <MESSAGE value="menu_manager redefined" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu_manager redefined" />
+    <MESSAGE value="database redefined" />
+    <option name="LAST_COMMIT_MESSAGE" value="database redefined" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$test_login_manager.coverage" NAME="test_login_manager Coverage Results" MODIFIED="1732027812659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -605,7 +605,7 @@
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$team_members_frame.coverage" NAME="team_members_frame Coverage Results" MODIFIED="1732534757645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$.coverage" NAME=" Coverage Results" MODIFIED="1732893553378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$presenter.coverage" NAME="presenter Coverage Results" MODIFIED="1732633427535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/4kitsw10_COM519$main.coverage" NAME="main Coverage Results" MODIFIED="1733576714246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/4kitsw10_COM519$main.coverage" NAME="main Coverage Results" MODIFIED="1733577610305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$Browse_the_Files.coverage" NAME="Browse the Files Coverage Results" MODIFIED="1733310493229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads" />
   </component>
 </project>
