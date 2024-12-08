@@ -13,6 +13,9 @@ class InputValidator:
         if self.__validate_password_uppercase(password):
             return False
 
+        if self.__validate_password_numbers(password):
+            return False
+
         return True
 
     def __validate_password_lowercase(self, password):
@@ -27,6 +30,14 @@ class InputValidator:
         uppercases = 0
 
         for i in self.__uppercase:
+            uppercases += password.find(i) != -1
+
+        return uppercases == 0
+
+    def __validate_password_numbers(self, password):
+        uppercases = 0
+
+        for i in self.__numbers:
             uppercases += password.find(i) != -1
 
         return uppercases == 0
