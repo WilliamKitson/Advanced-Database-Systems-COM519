@@ -7,6 +7,9 @@ class InputValidator:
         self.__numbers = "0123456789"
 
     def valid_password(self, password):
+        if len(password) < 10:
+            return False
+
         if self.__validate_password_lowercase(password):
             return False
 
