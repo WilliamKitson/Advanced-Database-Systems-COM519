@@ -238,10 +238,7 @@ class Presentation:
         Button(self.__actions_frame, text="Add", command=command_add).grid(row=1, column=0)
 
     def __render_add_team(self):
-        instructions = (
-            "Welcome to the Add Team Member Page.\n "
-            "BLABLABLA."
-        )
+        instructions = "Welcome to the Add Team Member Page.\n "
 
         forename = StringVar()
         surname = StringVar()
@@ -261,10 +258,7 @@ class Presentation:
         Button(self.__actions_frame, text="Back", command=command_logout).grid(row=1, column=1)
 
     def __render_team_edit(self, team_id):
-        instructions = (
-            "Welcome to the Edit Team Member Page.\n "
-            "BLABLABLA."
-        )
+        instructions = "Welcome to the Edit Team Member Page.\n "
 
         staff_at_id = TeamManager(self.__database).get_staff_at(team_id)
 
@@ -412,7 +406,7 @@ class Presentation:
     def __render_menu(self):
         instructions = (
             "Welcome to the Menu Page.\n "
-            "BLABLABLA."
+            "Here, you can add and edit menu items, you can also save an associated image to the database."
         )
 
         self.__clear_window()
@@ -468,10 +462,7 @@ class Presentation:
         Button(self.__actions_frame, text="Back", command=command_logout).grid(row=0, column=1)
 
     def __render_menu_add(self):
-        instructions = (
-            f"Welcome to the Menu Add page.\n "
-            "BLABLABLA."
-        )
+        instructions = f"Welcome to the Menu Add page.\n "
 
         category = StringVar()
         name = StringVar()
@@ -534,10 +525,7 @@ class Presentation:
         Button(self.__actions_frame, text="Back", command=command_logout).grid(row=0, column=2)
 
     def __render_menu_edit(self, menu_id):
-        instructions = (
-            f"Welcome to the Menu Edit page.\n "
-            "BLABLABLA."
-        )
+        instructions = f"Welcome to the Menu Edit page.\n "
 
         menu_item_at = MenuManager(self.__database).get_menu_at(menu_id)
 
@@ -597,10 +585,7 @@ class Presentation:
         Button(self.__actions_frame, text="Nutrition", command=command_nutrition).grid(row=0, column=1)
 
     def __render_nutrition(self, nutrition):
-        instructions = (
-            f"Welcome to the {nutrition} Nutrition Page.\n "
-            "BLABLABLA."
-        )
+        instructions = f"Welcome to the {nutrition} Nutrition Page.\n "
 
         self.__clear_window()
         self.__render_instructions(instructions)
