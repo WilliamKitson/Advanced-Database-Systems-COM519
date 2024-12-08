@@ -13,6 +13,7 @@ from menu_manager import MenuManager
 from nutrition_manager import NutritionManager
 from backup_xml import BackupXML
 from image_writer import ImageWriter
+from input_validator import InputValidator
 
 class Presentation:
     def __init__(self, database):
@@ -376,6 +377,14 @@ class Presentation:
         self.__render_team()
 
     def __edit_team_process(self, username, password, forename, surname, date_of_birth, staff_id, role):
+        if not InputValidator().valid_password(password.get()):
+            messagebox.showwarning(
+                "Password Invalid",
+                "The password you have passed is not valid. Please try again."
+            )
+
+            return
+
         team_manager = TeamManager(self.__database)
 
         team_manager.edit_team(
