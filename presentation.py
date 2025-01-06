@@ -4,6 +4,7 @@ import tkinter
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
+from PIL import ImageTk
 from tkcalendar import Calendar
 from functools import partial
 from login_manager import LoginManager
@@ -548,6 +549,12 @@ class Presentation:
         self.__render_menu_add_price(price)
         self.__render_menu_add_time(time)
         self.__render_menu_edit_image(menu_id)
+
+        img = ImageTk.PhotoImage(ImageWriter("4kitsw10_COM519_database").load("Ice Cream"))
+        panel = Label(self.__body_frame, image=img)
+        panel.photo = img
+        panel.grid(row=5, column=0)
+
         self.__render_menu_edit_save(menu_id, category, name, price, time)
         self.__render_menu_edit_nutrition(menu_id)
         self.__render_menu_add_back()
