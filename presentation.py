@@ -550,7 +550,7 @@ class Presentation:
         self.__render_menu_add_time(time)
         self.__render_menu_edit_image(menu_id)
 
-        img = ImageTk.PhotoImage(ImageWriter("4kitsw10_COM519_database").load("Ice Cream"))
+        img = ImageTk.PhotoImage(ImageWriter("4kitsw10_COM519_database").load(name.get()))
         panel = Label(self.__body_frame, image=img)
         panel.photo = img
         panel.grid(row=5, column=0)
