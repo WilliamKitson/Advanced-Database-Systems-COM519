@@ -41,6 +41,6 @@ class ImageWriter:
         image = self.__cursor.fetchall()
 
         for row in image:
-            return Image.open(io.BytesIO(image[0][0]))
+            return Image.open(io.BytesIO(image[0][0])).resize((250, 250))
 
-        return Image.new("RGB", (100, 100))
+        return Image.new("RGB", (250, 250))
