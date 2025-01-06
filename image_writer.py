@@ -2,6 +2,8 @@
 
 import sqlite3
 from tkinter import filedialog
+from PIL import Image
+import io
 
 class ImageWriter:
     def __init__(self, database):
@@ -36,9 +38,7 @@ class ImageWriter:
         parameters = (menu_id,)
         self.__cursor.execute(query, parameters)
 
-        image = ""
+        image = self.__cursor.fetchall()
+        image = image[0][0]
 
-        for i in self.__cursor.fetchall():
-            image = i
-
-        print(image)
+        return Image.open(io.BytesIO(image))
