@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e08d4933-0286-4d3e-ae33-58d95d2231f8" name="Changes" comment="presentation.py redefined">
-      <change beforePath="$PROJECT_DIR$/presentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/presentation.py" afterDir="false" />
-    </list>
+    <list default="true" id="e08d4933-0286-4d3e-ae33-58d95d2231f8" name="Changes" comment="presentation.py redefined" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,14 +164,6 @@
       <workItem from="1736167736198" duration="3165000" />
       <workItem from="1736176146164" duration="5000" />
       <workItem from="1736176293007" duration="1741000" />
-    </task>
-    <task id="LOCAL-00169" summary="presentation redefined">
-      <option name="closed" value="true" />
-      <created>1732964333199</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL-00169" />
-      <option name="project" value="LOCAL" />
-      <updated>1732964333199</updated>
     </task>
     <task id="LOCAL-00170" summary="presentation redefined">
       <option name="closed" value="true" />
@@ -559,7 +549,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736181151520</updated>
     </task>
-    <option name="localTasksCounter" value="218" />
+    <task id="LOCAL-00218" summary="presentation.py redefined">
+      <option name="closed" value="true" />
+      <created>1736181328236</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1736181328236</updated>
+    </task>
+    <option name="localTasksCounter" value="219" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,13 +610,13 @@
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$customer_menu_page.coverage" NAME="customer_menu_page Coverage Results" MODIFIED="1732027018406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/presentation" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$Label_and_Image.coverage" NAME="Label and Image Coverage Results" MODIFIED="1733592170884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$login_manager.coverage" NAME="login_manager Coverage Results" MODIFIED="1732874273228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/4kitsw10_COM519$presentation.coverage" NAME="presentation Coverage Results" MODIFIED="1736180885337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/4kitsw10_COM519$presentation.coverage" NAME="presentation Coverage Results" MODIFIED="1736181283607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$actions_page.coverage" NAME="actions_page Coverage Results" MODIFIED="1732185257564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$image_writer.coverage" NAME="image_writer Coverage Results" MODIFIED="1736180721030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$team_members_frame.coverage" NAME="team_members_frame Coverage Results" MODIFIED="1732534757645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$.coverage" NAME=" Coverage Results" MODIFIED="1732893553378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$presenter.coverage" NAME="presenter Coverage Results" MODIFIED="1732633427535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/4kitsw10_COM519$main.coverage" NAME="main Coverage Results" MODIFIED="1736181238172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/4kitsw10_COM519$main.coverage" NAME="main Coverage Results" MODIFIED="1736181673986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4kitsw10_COM519$Browse_the_Files.coverage" NAME="Browse the Files Coverage Results" MODIFIED="1733310493229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads" />
   </component>
 </project>
