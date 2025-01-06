@@ -39,6 +39,8 @@ class ImageWriter:
         self.__cursor.execute(query, parameters)
 
         image = self.__cursor.fetchall()
-        image = image[0][0]
 
-        return Image.open(io.BytesIO(image))
+        for row in image:
+            return Image.open(io.BytesIO(image[0][0]))
+
+        return Image.new("RGB", (100, 100))
