@@ -17,7 +17,7 @@ class LoginManager:
             return False
 
         query = (
-            "SELECT * "
+            "SELECT Staff.Staff_Id "
             "FROM Staff "
             "WHERE Username = ? "
             "AND Password = ? "
